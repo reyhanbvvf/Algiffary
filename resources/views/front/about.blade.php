@@ -6,7 +6,7 @@
         <div class="col-lg-12">
           <div class="content">
             <div class="blur-bg"></div>
-            <h2><em><b>BLUD INTAN HIJAU</b></em></h2>
+            <h2><b>BLUD INTAN HIJAU</b></h2>
             <div class="line-dec"></div>
             <h2>VISI</h2>
 <h4>Menjadikan BLUD Intan Hijau Profesional, Mandiri dan Berwawasan Lingkungan, dengan Mencapai Pengelolaan Sampah 100% Tahun 2025</h4>
@@ -36,7 +36,7 @@
         <div class="slider-content">
           <div class="row">
             <div class="col-lg-12">
-              <h2>Layanan <sup>di</sup><em>BLUD Intan Hijau</em></h2>
+              <h2>Layanan di<sup><b> BLUD </b></sup><em>Intan Hijau</em></h2>
             </div>
             <div class="col-lg-12">
               <div class="owl-cites-town owl-carousel">

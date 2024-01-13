@@ -24,16 +24,16 @@
                   <div class="more-info">
                     <div class="row">
                       <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-user"></i>
-                        <h4><span>Petugas Kebersihan:</span><br>12</h4>
-                      </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-swift"></i>
-                        <h4><span>Armada:</span><br>5<em></em></h4>
+                        <i class="fa fa-list"></i>
+                        <h4><span>Jenis Pelayanan:</span><br>20</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-truck"></i>
-                        <h4><span>Kontainer:</span><br>3</h4>
+                        <h4><span>Sarpras:</span><br>14<em></em></h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-user"></i>
+                        <h4><span>SDM:</span><br>80</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
@@ -59,17 +59,17 @@
                 <div class="col-lg-12">
                   <div class="more-info">
                     <div class="row">
-                      <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-user"></i>
-                        <h4><span>Petugas Kebersihan:</span><br>12</h4>
-                      </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-swift"></i>
-                        <h4><span>Armada:</span><br>5<em></em></h4>
+                    <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-list"></i>
+                        <h4><span>Jenis Pelayanan:</span><br>20</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-truck"></i>
-                        <h4><span>Kontainer:</span><br>3</h4>
+                        <h4><span>Sarpras:</span><br>14<em></em></h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-user"></i>
+                        <h4><span>SDM:</span><br>80</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
@@ -95,17 +95,17 @@
                 <div class="col-lg-12">
                   <div class="more-info">
                     <div class="row">
-                      <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-user"></i>
-                        <h4><span>Petugas Kebersihan:</span><br>12</h4>
-                      </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-swift"></i>
-                        <h4><span>Armada:</span><br>5<em></em></h4>
+                    <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-list"></i>
+                        <h4><span>Jenis Pelayanan:</span><br>20</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-truck"></i>
-                        <h4><span>Kontainer:</span><br>3</h4>
+                        <h4><span>Sarpras:</span><br>14<em></em></h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-user"></i>
+                        <h4><span>SDM:</span><br>80</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
@@ -132,16 +132,16 @@
                   <div class="more-info">
                     <div class="row">
                       <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-user"></i>
-                        <h4><span>Petugas Kebersihan:</span><br>12</h4>
-                      </div>
-                      <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-swift"></i>
-                        <h4><span>Armada:</span><br>5<em></em></h4>
+                        <i class="fa fa-list"></i>
+                        <h4><span>Jenis Pelayanan:</span><br>20</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-truck"></i>
-                        <h4><span>Kontainer:</span><br>3</h4>
+                        <h4><span>Sarpras:</span><br>14<em></em></h4>
+                      </div>
+                      <div class="col-lg-3 col-sm-6 col-6">
+                        <i class="fa fa-user"></i>
+                        <h4><span>SDM:</span><br>80</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
