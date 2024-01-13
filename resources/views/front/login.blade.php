@@ -220,7 +220,7 @@ https://templatemo.com/tm-580-woox-travel
       <div class="row">
         <div class="col-lg-12">
           <p>Copyright © 2023 <a href="#">BLUD INTAN HIJAU</a>
-          <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">DLH KABUPATEN BANJAR</a></p>
+          <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">DPRKPLH KABUPATEN BANJAR</a></p>
         </div>
       </div>
     </div>
