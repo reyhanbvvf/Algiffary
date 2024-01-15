@@ -6,11 +6,7 @@
         <div class="col-lg-12">
           <div class="content">
             <div class="blur-bg"></div>
-<<<<<<< HEAD
-            <p style="font-size:50px; color:#46e30d;">BLUD INTAN HIJAU</p>
-=======
             <h2><b>BLUD INTAN HIJAU</b></h2>
->>>>>>> 2c54d62315f5edbdb6cc0426efc7fb120b94cf82
             <div class="line-dec"></div>
             <h2>VISI</h2>
 <h4>Menjadikan BLUD Intan Hijau Profesional, Mandiri dan Berwawasan Lingkungan, dengan Mencapai Pengelolaan Sampah 100% Tahun 2025</h4>
@@ -40,7 +36,8 @@
         <div class="slider-content">
           <div class="row">
             <div class="col-lg-12">
-              <h2>Layanan di<sup><b> BLUD </b></sup><em>Intan Hijau</em></h2>
+              <h2>Pelayanan di<sup> BLUD </sup><a style="color:green;">INTAN HIJAU</a></h2>
+              <a ></a>
             </div>
             <div class="col-lg-12">
               <div class="owl-cites-town owl-carousel">
@@ -64,31 +61,31 @@
                 </div>
                 <div class="item">
                   <div class="thumb">
-                    <img src="assets/images/g2.jpeg" alt="">
+                    <img src="assets/images/g4.jpeg" alt="">
                     <h4>BLUD</h4>
                   </div>
                 </div>
                 <div class="item">
                   <div class="thumb">
-                    <img src="assets/images/g3.jpg" alt="">
+                    <img src="assets/images/g5.jpeg" alt="">
                     <h4>BLUD</h4>
                   </div>
                 </div>
                 <div class="item">
                   <div class="thumb">
-                    <img src="assets/images/g2.jpeg" alt="">
+                    <img src="assets/images/g6.jpeg" alt="">
                     <h4>BLUD</h4>
                   </div>
                 </div>
                 <div class="item">
                   <div class="thumb">
-                    <img src="assets/images/g3.jpg" alt="">
+                    <img src="assets/images/g7.jpeg" alt="">
                     <h4>BLUD</h4>
                   </div>
                 </div>
                 <div class="item">
                   <div class="thumb">
-                    <img src="assets/images/g2.jpeg" alt="">
+                    <img src="assets/images/g8.jpeg" alt="">
                     <h4>BLUD</h4>
                   </div>
                 </div>
