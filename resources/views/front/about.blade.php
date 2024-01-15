@@ -6,12 +6,12 @@
         <div class="col-lg-12">
           <div class="content">
             <div class="blur-bg"></div>
-            <h4></h4>
+            <p style="font-size:50px; color:#46e30d;">BLUD INTAN HIJAU</p>
             <div class="line-dec"></div>
             <h2>VISI</h2>
 <h4>Menjadikan BLUD Intan Hijau Profesional, Mandiri dan Berwawasan Lingkungan, dengan Mencapai Pengelolaan Sampah 100% Tahun 2025</h4>
 
-            <h2>VISI</h2>
+            <h2>MISI</h2>
             <h4>
                Meningkatkan Sumber Daya Manusia (SDM), Peralatan dan Metode Kerja<br>
                Menerapkan Pengelolaan Sampah 3R di Tingkat Rumah Tangga, TPS3R dan TPA<br>

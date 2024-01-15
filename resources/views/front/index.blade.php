@@ -29,11 +29,11 @@
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-swift"></i>
-                        <h4><span>Armada:</span><br>5<em></em></h4>
+                        <h4><span>Armada:</span><br>4<em></em></h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-truck"></i>
-                        <h4><span>Kontainer:</span><br>3</h4>
+                        <h4><span>Kontainer:</span><br>4</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
@@ -65,11 +65,11 @@
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-swift"></i>
-                        <h4><span>Armada:</span><br>5<em></em></h4>
+                        <h4><span>Armada:</span><br>4<em></em></h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-truck"></i>
-                        <h4><span>Kontainer:</span><br>3</h4>
+                        <h4><span>Kontainer:</span><br>4</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
@@ -101,11 +101,11 @@
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-swift"></i>
-                        <h4><span>Armada:</span><br>5<em></em></h4>
+                        <h4><span>Armada:</span><br>4<em></em></h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-truck"></i>
-                        <h4><span>Kontainer:</span><br>3</h4>
+                        <h4><span>Kontainer:</span><br>4</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
@@ -137,11 +137,11 @@
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-swift"></i>
-                        <h4><span>Armada:</span><br>5<em></em></h4>
+                        <h4><span>Armada:</span><br>4<em></em></h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-truck"></i>
-                        <h4><span>Kontainer:</span><br>3</h4>
+                        <h4><span>Kontainer:</span><br>4</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
