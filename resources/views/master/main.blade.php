@@ -89,7 +89,11 @@ https://templatemo.com/tm-580-woox-travel
       <div class="row">
         <div class="col-lg-12">
           <p>Copyright © 2023 <a href="#">SAL-IH</a> <!-- BADAN LAYANAN UMUM DAERAH INTAN HIJAU adalah Satuan Kerja Perangkat Daerah (SKPD) di lingkungan Pemerintah Kabupaten Banjar yang dibentuk untuk memberikan pelayanan kepada masyarakat berupa penyediaan barang/jasa yang dijual tanpa mengutamakan mencari keuntungan.  -->
+<<<<<<< HEAD
           <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">DPRKPLH KAB.BANJAR</a></p>
+=======
+          <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">DPRKPLH KABUPATEN BANJAR</a></p>
+>>>>>>> 2c54d62315f5edbdb6cc0426efc7fb120b94cf82
 
 
 
