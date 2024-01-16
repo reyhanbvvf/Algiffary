@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->enum('status', ['active', 'deactive'])->default('active');
+            $table->float('harga');
+            $table->text('deskripsi');
+            $table->string('satuan');
+            $table->string('info');
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

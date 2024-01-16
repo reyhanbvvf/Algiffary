@@ -59,7 +59,7 @@ https://templatemo.com/tm-580-woox-travel
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                       <li><a href="{{route('home')}}" class="active">Home</a></li>
-                      <li><a href="about.html">Visi Misi</a></li>
+                      <li><a href="{{route('front.index')}}">Visi Misi</a></li>
                       <!-- <li><a href="deals.html">Visi Misi</a></li> -->
                       <li><a href="reservation.html">Pesan Layanan</a></li>
                       <!-- <li><a href="reservation.html">Book Yours</a></li> -->
