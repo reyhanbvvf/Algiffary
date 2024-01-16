@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,5 +24,6 @@ Route::prefix('front')->name('front.')->group(function () {
     // Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/about', [FrontController::class, 'about'])->name('about');
     Route::get('/reservation', [FrontController::class, 'reservation'])->name('reservation');
-    Route::get('/login', [FrontController::class, 'login'])->name('login');
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::get('/register', [AuthController::class, 'register'])->name('register');
 });

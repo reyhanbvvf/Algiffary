@@ -21,8 +21,4 @@ class FrontController extends Controller
         return view('front.reservation');
     }
 
-    public function login()
-    {
-        return view('front.login');
-    }
 }
