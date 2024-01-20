@@ -47,7 +47,7 @@
                     <h4>BLUD</h4>
                   </div>
                 </div>
-                <div class="item">
+         -       <div class="item">
                   <div class="thumb">
                     <img src="assets/images/g2.jpeg" alt="">
                     <h4>BLUD</h4>
@@ -96,8 +96,6 @@
       </div>
     </div>
   </div>
-
-  -->
 
   <div class="more-about">
     <div class="container">
