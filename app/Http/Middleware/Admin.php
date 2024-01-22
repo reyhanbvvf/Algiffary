@@ -20,11 +20,11 @@ class Admin
         if (Auth::check()) {
             switch ($role) {
                 case 'superadmin':
-                    // return redirect()->route('superadmin.index');
+                    return redirect()->route('superadmin.index');
                     break;
 
                 case 'user':
-                    // return redirect()->route('user.index');
+                    return redirect()->route('user.index');
                     break;
 
                 default:
