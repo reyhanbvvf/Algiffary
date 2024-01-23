@@ -63,10 +63,10 @@ https://templatemo.com/tm-580-woox-travel
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="{{route('home')}}" class="active">Home</a></li>
-                        <li><a href="{{route('front.about')}}">Visi Misi</a></li>
+                        <li><a href="{{route('about')}}">Visi Misi</a></li>
                         <!-- <li><a href="deals.html">Visi Misi</a></li> -->
-                        <li><a href="{{route('front.reservation')}}">Pesan Layanan</a></li>
-                        <li><a href="{{route('front.login')}}">Masuk</a></li>
+                        <li><a href="{{route('reservation')}}">Pesan Layanan</a></li>
+                        <li><a href="{{route('login')}}">Masuk</a></li>
                         <!-- <li><a href="reservation.html">Book Yours</a></li> -->
                     </ul>
                     <a class='menu-trigger'>
@@ -106,6 +106,7 @@ https://templatemo.com/tm-580-woox-travel
   <script src="{{asset('front/assets/js/tabs.js')}}"></script>
   <script src="{{asset('front/assets/js/popup.js')}}"></script>
   <script src="{{asset('front/assets/js/custom.js')}}"></script>
+@include('master.alert')
 
   <script>
     function bannerSwitcher() {
@@ -121,7 +122,7 @@ https://templatemo.com/tm-580-woox-travel
       bannerTimer = setInterval(bannerSwitcher, 5000)
     });
   </script>
-
+@stack('scripts')
   </body>
 
 </html>

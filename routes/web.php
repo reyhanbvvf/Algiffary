@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\BackController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,14 +17,41 @@ use App\Http\Controllers\FrontController;
 */
 
 Route::get('/', [FrontController::class, 'home'])->name('home');
+Route::get('/about', [FrontController::class, 'about'])->name('about');
+Route::get('/reservation', [FrontController::class, 'reservation'])->name('reservation');
 
-Route::prefix('front')->name('front.')->group(function () {
-    // Route::get('/login', [AuthController::class, 'login'])->name('login');
-    // Route::post('/login', [LoginController::class, 'login'])->name('loginPost');
-    // Route::get('/register', [AuthController::class, 'register'])->name('register');
-    // Route::post('/register', [AuthController::class, 'store_register'])->name('store');
-    // Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/about', [FrontController::class, 'about'])->name('about');
-    Route::get('/reservation', [FrontController::class, 'reservation'])->name('reservation');
-    Route::get('/login', [FrontController::class, 'login'])->name('login');
+//auth
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'store_register'])->name('store');
+Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
+
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::middleware(['superadmin'])->group(function () {
+        Route::prefix('superadmin')->name('superadmin.')->group(function () {
+            Route::get('/index', [BackController::class, 'index'])->name('index');
+
+            Route::resource('user', UserController::class);
+            Route::resource('service', UserController::class);
+        });
+    });
+
+    Route::middleware(['admin'])->group(function () {
+        Route::prefix('admin')->name('admin.')->group(function () {
+            Route::get('/index', [BackController::class, 'index'])->name('index');
+
+            Route::resource('user', UserController::class);
+            Route::resource('service', UserController::class);
+        });
+    });
+
+    Route::middleware(['user'])->group(function () {
+        Route::prefix('user')->name('user.')->group(function () {
+            Route::get('/index', [BackController::class, 'index'])->name('index');
+
+        });
+    });
 });

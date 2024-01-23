@@ -92,19 +92,84 @@
               </div>
             </div>
           </div>
+<!-- ***** Main Banner Area Activity ***** -->
+
+          <div class="row">
+            <div class="col-lg-12">
+              <h2>Kegiatan di<sup> BLUD </sup><a style="color:green;">INTAN HIJAU</a></h2>
+              <a ></a>
+            </div>
+            <div class="col-lg-12">
+              <div class="owl-cites-town owl-carousel">
+                <div class="item">
+                  <div class="thumb">
+                    <img src="assets/images/survey/g11.jpeg" alt="">
+                    <h4>BLUD</h4>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="thumb">
+                    <<img src="assets/images/survey/g12.jpeg" alt="">
+                    <h4>BLUD</h4>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="thumb">
+                    <img src="assets/images/survey/g13.jpeg" alt="">
+                    <h4>BLUD</h4>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="thumb">
+                    <img src="assets/images/survey/g14.jpeg" alt="">
+                    <h4>BLUD</h4>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="thumb">
+                    <img src="assets/images/survey/g15.jpeg" alt="">
+                    <h4>BLUD</h4>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="thumb">
+                    <img src="assets/images/survey/g16.jpeg" alt="">
+                    <h4>BLUD</h4>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="thumb">
+                    <img src="assets/images/survey/g17.jpeg" alt="">
+                    <h4>BLUD</h4>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="thumb">
+                    <img src="assets/images/survey/g18.jpeg" alt="">
+                    <h4>BLUD</h4>
+                  </div>
+                </div>
+                <div class="item">
+                    <div class="thumb">
+                      <img src="assets/images/survey/g19.jpeg" alt="">
+                      <h4>BLUD</h4>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  -->
-
   <div class="more-about">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 align-self-center">
-          <div class="left-image">
+        <div class="col-lg-14 align-self-center">
+          <div class="right-image">
             <img src="assets/images/ts.png" alt="">
+
           </div>
         </div>
         <!-- <div class="col-lg-6">
