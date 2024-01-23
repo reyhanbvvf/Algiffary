@@ -32,19 +32,24 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware(['superadmin'])->group(function () {
         Route::prefix('superadmin')->name('superadmin.')->group(function () {
-            Route::get('/index', [BackController::class, 'index'])->name('index');
+            Route::get('/index', [BackController::class, 'superindex'])->name('index');
+            Route::name('user.')->prefix('user')->group(function () {
+                Route::get('/', [UserController::class, 'index'])->name('index');
+                Route::get('/create', [UserController::class, 'create'])->name('create');
+                Route::post('/', [UserController::class, 'store'])->name('store');
+                Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
+                Route::put('/edit/{id}', [UserController::class, 'update'])->name('update');
+                Route::delete('/{id}', [UserController::class, 'destroy'])->name('destroy');
+            });
 
-            Route::resource('user', UserController::class);
-            Route::resource('service', UserController::class);
         });
     });
 
-    Route::middleware(['admin'])->group(function () {
+    Route::middleware(['admin', 'superadmin'])->group(function () {
         Route::prefix('admin')->name('admin.')->group(function () {
-            Route::get('/index', [BackController::class, 'index'])->name('index');
+            Route::get('/index', [BackController::class, 'adminindex'])->name('index');
 
-            Route::resource('user', UserController::class);
-            Route::resource('service', UserController::class);
+            Route::resource('service', ServiceController::class);
         });
     });
 

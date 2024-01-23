@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Intan Hijau',
                 'username' => 'intanhijau',
                 'email' => 'admin@gmail.com',
-                'status' => 'active',
+                'status' => 'Aktif',
                 'password' => Hash::make('martapura'),
                 'role' => 'superadmin'
             ]);

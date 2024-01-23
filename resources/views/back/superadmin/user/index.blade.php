@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('master.back')
 @section('title')
 User
 @endsection
@@ -14,7 +14,7 @@ User
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{route('admin.beranda')}}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
               <li class="breadcrumb-item active">User </li>
             </ol>
           </div><!-- /.col -->
@@ -33,10 +33,10 @@ User
                 <div class="card">
                     <div class="card-header">
                         <td>
-                            <a href="{{ route('admin.user.create') }}" class="btn  btn-primary">
+                            <a href="{{ route('superadmin.user.create') }}" class="btn  btn-primary">
                                 <span><i class="feather icon-plus"></i> Tambah Data User</span>
                             </a>
-                            <a type="button" href="{{ route('report.userAll') }}" class="btn  btn-primary float-right" target="_blank">Cetak
+                            <a type="button" href="#" class="btn  btn-primary float-right" target="_blank">Cetak
                             </a>
                         </td>
                     </div>
@@ -49,8 +49,8 @@ User
                                     <th>Nama</th>
                                     <th>Username</th>
                                     <th>Email</th>
-                                    <th>Alamat</th>
-                                    <th>Nomor HP</th>
+                                    <th>Status Akun</th>
+                                    {{-- <th>Nomor HP</th> --}}
                                     <th>Role</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -62,24 +62,16 @@ User
                                     <td>{{ $d->name }}</td>
                                     <td>{{ $d->username }}</td>
                                     <td>{{ $d->email }}</td>
-                                    <td>{{ $d->alamat }}</td>
-                                    <td>{{ $d->nohp }}</td>
+                                    <td>{{ $d->status }}</td>
+                                    {{-- <td>{{ $d->nohp }}</td> --}}
+                                    <td>{{ $d->role }}</td>
                                     <td>
-                                    @if($d->role == 0)
-                                    Pemohon
-                                    @elseif($d->role == 1)
-                                    Admin
-                                    @elseif($d->role == 2)
-                                    Kepala
-                                    @endif
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-sm btn-info text-white" href="{{ route('admin.user.edit', $d->id) }}">
+                                        <a class="btn btn-sm btn-info text-white" href="{{ route('superadmin.user.edit', $d->id) }}">
                                             <i class="fas fa-edit"></i>
                                           </a>
                                         <button data-target="#modaldelete" data-toggle="modal" type="button"
                                             class="delete btn btn-sm bg-danger"
-                                            data-link="{{ route('admin.user.destroy',$d->id) }}">
+                                            data-link="{{ route('superadmin.user.destroy',$d->id) }}">
                                             <i class="fas fa-times"></i>
                                         </button>
 
@@ -103,31 +95,33 @@ User
     </section>
     <!-- /.content -->
   </div>
+  @include('master.delete')
+
 @endsection
 
-@section('script')
-<script>
-    $(function () {
-      $("#example1").DataTable({
-        "responsive": true, "lengthChange": false, "autoWidth": false,
-        "buttons": [""]
-      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-      $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
-      });
-    });
-  </script>
+@push('script')
+    <script>
+        $(function () {
+        $("#example1").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": [""]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+        });
+    </script>
 
-<script>
-    $('.delete').on('click', function(){
-    var link = $(this).data('link');
-    $('#formDelete').attr('action',link)
-    });
-</script>
-@endsection
+    <script>
+        $('.delete').on('click', function(){
+        var link = $(this).data('link');
+        $('#formDelete').attr('action',link)
+        });
+    </script>
+@endpush

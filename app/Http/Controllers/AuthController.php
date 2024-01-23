@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,7 @@ class AuthController extends Controller
 
     public function register()
     {
-        return view('front.login');
+        return view('front.register');
     }
 
 
@@ -29,33 +30,34 @@ class AuthController extends Controller
             'password' => 'required|confirmed|min:8',
         ]);
 
-        if ($validator->fails()) {
-            return $this->withError('Validation Error', $validator->errors(), 30);
-        }
-
         $data = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'username' => $request->input('username'),
+            'role' => 'user',
+            'status' => 'Nonaktif',
             'password' => Hash::make($request->input('password')),
         ]);
 
-        return redirect()->route('login')->withSuccess('Berhasil register, silahkan login menggunakan akun yang anda daftarkan!');
+        return redirect()->route('login')->withSuccess('Berhasil Melakukan Registrasi akun');
     }
 
     public function authenticate(Request $request)
     {
-        // dd($request);
 
         $data = [
             'username' => $request->input('username'),
             'password' => $request->input('password'),
         ];
 
-        Auth::attempt($data);
+        if (Auth::attempt($data)) {
+            // Check if the user is active
+            if (Auth::user()->status == 'Nonaktif') {
+                Auth::logout(); // Logout the user if status is "Nonaktif"
+                return redirect()->route('login')->withErrors('Akun nonaktif, tidak dapat login');
+            }
 
-        if (Auth::check()) { // true sekalian session field di users nanti bisa dipanggil via Auth
-            //Login Success
+            // Login Success
             switch (Auth::user()->role) {
                 case 'superadmin':
                     return redirect()->route('superadmin.index')->withSuccess('Berhasil login');
@@ -63,21 +65,16 @@ class AuthController extends Controller
                 case 'admin':
                     return redirect()->route('admin.index')->withSuccess('Berhasil login');
                     break;
-
                 default:
                     return redirect()->route('user.index')->withSuccess('Berhasil login');
-
             }
-
-        } else { // false
-
-            //Login Fail
-
+        } else {
+            // Login Fail
             return redirect()->route('login')->withErrors('Username atau password salah');
         }
     }
 
-    public function logout(Request $req)
+    public function logout(Request $request)
     {
         Auth::logout();
         return redirect()->route('home')->withSuccess('Anda berhasil logout');

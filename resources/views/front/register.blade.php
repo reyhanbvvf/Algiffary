@@ -42,22 +42,42 @@
   </head>
   <body>
 
-      <div class="login-container">
-          <h2> <ul class="list-group">
-            <a class="list-group-item list-group-item-action active" href="#">Silahkan</a>
-            <a class="list-group-item list-group-item-action disabled" href="#" tabindex="-1" aria-disabled="true">Login</a>
-          </ul></h2><br>
-          <form action="{{route('authenticate')}}" method="post">
-            @csrf
-              <label for="username">Username:</label>
-              <input type="text" id="username" name="username" required>
+    <div class="login-container">
+        <h2> <ul class="list-group">
+        <a class="list-group-item list-group-item-action active" href="#">Silahkan</a>
+        <a class="list-group-item list-group-item-action disabled" href="#" tabindex="-1" aria-disabled="true">Daftar Akun</a>
+        </ul></h2><br>
+        <br>
+            <!-- Display validation errors -->
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        <br>
+        <form action="{{route('store')}}" method="post">
+        @csrf
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" value="{{ old('name') }}" required>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="{{ old('username') }}" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ old('email') }}" required>
 
-              <label for="password">Password:</label>
-              <input type="password" id="password" name="password" required>
-              <button type="submit">Login</button>
-              <a href="{{route('register')}}">Daftar Akun</a>
-          </form>
-      </div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="password_confirmation">Konfirmasi Password:</label>
+            <input type="password" id="password_confirmation" name="password_confirmation" required>
+
+            <button type="submit">Daftar</button>
+            <a href="{{route('login')}}">Login</a>
+        </form>
+    </div>
 
   </body>
   </html>

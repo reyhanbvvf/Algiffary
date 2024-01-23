@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->enum('role', ['superadmin', 'admin', 'user']);
-            $table->enum('status', ['active', 'deactive'])->default('deactive');
+            $table->enum('status', ['Aktif', 'Nonaktif'])->default('Nonaktif');
             $table->string('foto')->nullable();
             $table->string('username')->unique();
             $table->string('email')->unique();
