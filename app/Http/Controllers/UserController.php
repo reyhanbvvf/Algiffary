@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
@@ -43,14 +44,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            $this->validate($request, [
-                'name' => 'required',
-                'role' => 'required|in:superadmin,admin,user',
-                'email' => 'required|email|unique:users,email',
-                'username' => 'required|unique:users,username',
-                'password' => 'required|confirmed|min:8',
-            ]);
+    try {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'role' => 'required|in:superadmin,admin,user',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'username' => 'required|unique:users,username,' . $id,
+            'password' => 'required|confirmed|min:8',
+        ]);
 
             $user = new User();
             $user->name = $request->input('name');
@@ -61,9 +62,7 @@ class UserController extends Controller
             $user->save();
 
             return redirect()->route('superadmin.user.index')->with('success', 'Data berhasil disimpan');
-        } catch (ValidationException $e) {
-            // Validation failed, redirect back with errors
-            return redirect()->back()->withErrors($e->errors())->withInput();
+
         } catch (\Throwable $th) {
             // Handle any other exceptions or errors
             return back()->withErrors('Data gagal disimpan');
@@ -93,7 +92,47 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        try {
+            $validator = Validator::make($request->all(), [
+                'name' => 'required',
+                'role' => 'required|in:Aktif,Nonaktif',
+                'role' => 'required|in:superadmin,admin,user',
+                'email' => 'required|email|unique:users,email,' . $id,
+                'username' => 'required|unique:users,username,' . $id,
+                'password' => 'nullable|confirmed|min:8',
+            ]);
+            if ($validator->fails()) {
+                return back()
+                    ->withErrors($validator)
+                    ->withInput();
+            }
 
+            $user = User::findOrFail($id);
+            $user->name = $request->input('name');
+            $user->role = $request->input('role');
+            $user->status = $request->input('status');
+            if ($user->email !== $request->input('email')) {
+                $user->email = $request->input('email');
+            }
+            if ($user->username !== $request->input('username')) {
+                $user->username = $request->input('username');
+            }
+
+            if ($request->filled('password')) {
+                $user->password = Hash::make($request->input('password'));
+            }
+
+            $user->save();
+
+            return redirect()->route('superadmin.user.index')->with('success', 'Data berhasil diubah');
+        } catch (ValidationException $e) {
+            // Validation failed, redirect back with errors
+            return redirect()->back()->withErrors($e->errors())->withInput();
+        } catch (\Throwable $th) {
+            // Handle any other exceptions or errors
+            dd($th);
+            return back()->withErrors('Data gagal disimpan');
+        }
     }
 
     /**
@@ -102,9 +141,13 @@ class UserController extends Controller
     public function destroy($id)
     {
         try {
-            $data = User::findOrFail($id);
-            useDestroy('User', $id, 'user', $data->photo);
-            return back()->withSuccess('Data berhasil dihapus');
+            $user = User::findOrFail($id);
+            if (!is_null($user->photo)) {
+                Storage::delete('photos/' . $user->photo);
+            }
+            $user->delete();
+
+            return redirect()->route('users.index')->with('success', 'User and associated photo deleted successfully');
         } catch (\Throwable $th) {
             return back()->withErrors('Data gagal dihapus');
         }
