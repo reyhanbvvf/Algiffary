@@ -40,6 +40,17 @@
                             <div class="modal-body">
                                 @csrf
                                 @method('put')
+
+                                <!-- Display validation errors -->
+                                @if($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 <div class="form-group">
                                     <label for="name">Nama</label>
                                     <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}"
@@ -59,20 +70,16 @@
                                     <label>Role</label>
                                     <select name="role" class="form-control select2 select2-hidden-accessible"
                                         data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option selected="selected" data-select2-id="3">--Pilih Role--
-                                        </option>
                                         <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }} data-select2-id="34">Admin</option>
                                         <option value="user" {{ $user->role == 'user' ? 'selected' : '' }} data-select2-id="35">User</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Status Akun</label>
-                                    <select name="role" class="form-control select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1"
+                                    <select name="status" class="form-control select1 select2-hidden-accessible" data-select2-id="2" tabindex="-1"
                                         aria-hidden="true">
-                                        <option selected="selected" data-select2-id="3">--Pilih Status--
-                                        </option>
                                         <option value="Aktif" {{ $user->status == 'Aktif' ? 'selected' : '' }}>Aktif</option>
-                                        <option value="Nonaktif" {{ $user->status == 'Nonaktif' ? 'selected' : '' }}S>Nonaktif</option>
+                                        <option value="Nonaktif" {{ $user->status == 'Nonaktif' ? 'selected' : '' }}>Nonaktif</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -82,7 +89,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="password_confirmation">Konfirmasi Password</label>
-                                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Konfirmasi Password" required>
+                                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Konfirmasi Password">
                                 </div>
                             </div>
                             <div class="modal-footer justify-content-between">

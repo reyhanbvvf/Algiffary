@@ -56,9 +56,8 @@ Tambah User
                                 </div>
                                 <div class="form-group">
                                     <label>Role</label>
-                                    <select name="role" class="form-control select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1"
-                                        aria-hidden="true">
-                                        <option value="--Pilih Role--" {{ old('role') == '--Pilih Role--' ? 'selected' : '' }}>--Pilih Role--
+                                    <select name="role" class="form-control select3 select2-hidden-accessible" data-select2-id="2" tabindex="-1" aria-hidden="true">
+                                        <option value="" {{ old('role') == '--Pilih Role--' ? 'selected' : '' }} disabled>--Pilih Role--
                                         </option>
                                         <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
                                         <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>User</option>
@@ -66,12 +65,12 @@ Tambah User
                                 </div>
                                 <div class="form-group">
                                     <label>Status Akun</label>
-                                    <select name="role" class="form-control select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1"
+                                    <select name="status" class="form-control select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1"
                                         aria-hidden="true">
-                                        <option value="--Pilih Role--" {{ old('role') == '--Pilih Role--' ? 'selected' : '' }}>--Pilih Status--
+                                        <option value="" {{ old('status') == '--Pilih Status--' ? 'selected' : '' }} disabled>--Pilih Status--
                                         </option>
-                                        <option value="Aktif" {{ old('role') == 'Aktif' ? 'selected' : '' }}>Aktif</option>
-                                        <option value="Nonaktif" {{ old('role') == 'Nonaktif' ? 'selected' : '' }}>Nonaktif</option>
+                                        <option value="Aktif" {{ old('status') == 'Aktif' ? 'selected' : '' }}>Aktif</option>
+                                        <option value="Nonaktif" {{ old('status') == 'Nonaktif' ? 'selected' : '' }}>Nonaktif</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
