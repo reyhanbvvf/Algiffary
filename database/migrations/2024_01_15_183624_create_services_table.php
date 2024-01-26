@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->enum('status', ['Aktif', 'Nonaktif'])->default('Aktif');
-            $table->float('harga');
+            $table->decimal('harga', 10, 2);
             $table->text('deskripsi');
             $table->string('satuan');
             $table->string('info');

@@ -36,11 +36,10 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form method="post" action="{{ route('superadmin.service.update', $service->id) }}">
+                        <form method="post" action="{{ route('superadmin.service.update', $service->id) }}" enctype="multipart/form-data">
                             <div class="modal-body">
                                 @csrf
                                 @method('put')
-
                                 <!-- Display validation errors -->
                                 @if($errors->any())
                                     <div class="alert alert-danger">
@@ -52,30 +51,27 @@
                                     </div>
                                 @endif
                                 <div class="form-group">
-                                    <label for="name">Nama</label>
-                                    <input type="text" class="form-control" id="name" name="name" value="{{ $service->name }}"
+                                    <label for="nama">Nama</label>
+                                    <input type="text" class="form-control" id="nama" name="nama" value="{{ $service->nama }}"
                                         placeholder="Masukan Nama" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="username">Username</label>
-                                    <input type="text" class="form-control" id="username" name="username" value="{{ $service->username }}"
-                                        placeholder="Masukan Username" required>
+                                    <label for="harga">Harga</label>
+                                    <input type="text" class="form-control" id="harga" name="harga" value="{{ $service->harga }}"
+                                        placeholder="Masukan Harga" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" value="{{ $service->email }}"
-                                        placeholder="Masukan Email" required>
-                                </div>
-                                <div class="form-group ">
-                                    <label>Role</label>
-                                    <select name="role" class="form-control select2 select2-hidden-accessible"
-                                        data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="admin" {{ $service->role == 'admin' ? 'selected' : '' }} data-select2-id="34">Admin</option>
-                                        <option value="user" {{ $service->role == 'user' ? 'selected' : '' }} data-select2-id="35">User</option>
-                                    </select>
+                                    <label for="satuan">Satuan</label>
+                                    <input type="text" class="form-control" id="satuan" name="satuan" value="{{ $service->satuan }}"
+                                        placeholder="Masukan satuan">
                                 </div>
                                 <div class="form-group">
-                                    <label>Status Akun</label>
+                                    <label for="info">Info</label>
+                                    <input type="text" class="form-control" id="info" name="info" value="{{ $service->info }}"
+                                        placeholder="Masukan Info">
+                                </div>
+                                <div class="form-group">
+                                    <label>Status</label>
                                     <select name="status" class="form-control select1 select2-hidden-accessible" data-select2-id="2" tabindex="-1"
                                         aria-hidden="true">
                                         <option value="Aktif" {{ $service->status == 'Aktif' ? 'selected' : '' }}>Aktif</option>
@@ -83,18 +79,32 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password"
-                                        placeholder="Masukan Password Jika Ingin Mengubah">
+                                    <label for="deskripsi">Deskripsi</label>
+                                    <textarea type="text" class="form-control" id="deskripsi" name="deskripsi"
+                                        placeholder="Deskripsi">{{ $service->deskripsi }}</textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="password_confirmation">Konfirmasi Password</label>
-                                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Konfirmasi Password">
+                                    <label for="exampleInputFile">File input</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input name="foto" type="file" class="custom-file-input" id="exampleInputFile">
+                                            <label class="custom-file-label" for="exampleInputFile">
+                                                @if(old('foto'))
+                                                    {{ old('foto') }}
+                                                @else
+                                                    Pilih Foto
+                                                @endif
+                                            </label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Upload</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <td>
-                                    <a type="button" href="{{ route('superadmin.user.index') }}"
+                                    <a type="button" href="{{ route('superadmin.service.index') }}"
                                         class="btn btn btn-danger">Kembali</a>
                                 </td>
                                 <button type="submit" class="btn btn-primary">Edit Data</button>
@@ -116,3 +126,24 @@
   </div>
 </div>
 @endsection
+
+<script src="{{asset('back/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+@push('script')
+<script>
+    $(function () {
+      bsCustomFileInput.init();
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize autoNumeric on the input field
+        new AutoNumeric('#harga', {
+            currencySymbol: 'Rp. ',
+            decimalCharacter: ',',
+            digitGroupSeparator: '.',
+            decimalPlaces: 0,
+            unformatOnSubmit: true,
+        });
+    });
+</script>
+@endpush

@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class BackController extends Controller
 {
     public function adminindex()
     {
-        return view('back.admin.index');
+        $data = Service::all();
+
+        return view('back.admin.index', compact('data'));
     }
 
     public function superindex()

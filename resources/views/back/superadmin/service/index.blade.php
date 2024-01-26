@@ -1,6 +1,6 @@
 @extends('master.back')
 @section('title')
-User
+Jenis Pelayanan
 @endsection
 
 @section('content')
@@ -62,11 +62,11 @@ User
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $d->nama }}</td>
                                     <td>{{ $d->status }}</td>
-                                    <td>{{ $d->harga }}</td>
+                                    <td>Rp. {{ number_format($d->harga, 2, ',', '.') }}</td>
                                     <td>{{ $d->deskripsi }}</td>
                                     <td>{{ $d->satuan }}</td>
                                     <td>{{ $d->info }}</td>
-                                    <td><a href="{{$d->foto}}" target="_blank">Lihat Foto</a></td>
+                                    <td><a href="{{ url('storage/service/'.$d->foto) }}" target="_blank">Lihat Foto</a> </td>
                                     <td>
                                         <a class="btn btn-sm btn-info text-white" href="{{ route('superadmin.service.edit', $d->id) }}">
                                             <i class="fas fa-edit"></i>

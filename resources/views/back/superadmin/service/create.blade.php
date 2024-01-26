@@ -36,7 +36,7 @@ Tambah Jenis Pelayanan
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form method="post" action="{{ route('superadmin.service.store') }}">
+                        <form method="post" action="{{ route('superadmin.service.store') }}" enctype="multipart/form-data">
                             <div class="modal-body">
                                 @csrf
                                 @if($errors->any())
@@ -55,33 +55,50 @@ Tambah Jenis Pelayanan
                                 </div>
                                 <div class="form-group">
                                     <label for="harga">Harga</label>
-                                    <input type="text" class="form-control" id="harga" name="harga" value="{{old('harga')}}"
-                                        placeholder="Masukan Harga" required>
+                                    <input type="text" class="form-control" id="harga" name="harga" value="{{ old('harga') }}"
+                                        placeholder="Rp." required>
                                 </div>
                                 <div class="form-group">
                                     <label for="deskripsi">Deskripsi</label>
-                                    <textarea type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{old('deskripsi')}}"
-                                        placeholder="Masukan Deskripsi" required></textarea>
+                                    <textarea type="text" class="form-control" id="deskripsi" name="deskripsi"
+                                        placeholder="Masukan Deskripsi" required>{{ old('deskripsi') }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Status</label>
                                     <select name="status" class="form-control select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1"
                                         aria-hidden="true">
-                                        <option value="" {{ old('status') == '--Pilih Status--' ? 'selected' : '' }} disabled>--Pilih Status--
-                                        </option>
+                                        <option value="" {{ old('status') == '--Pilih Status--' ? 'selected' : '' }} disabled>--Pilih Status--</option>
                                         <option value="Aktif" {{ old('status') == 'Aktif' ? 'selected' : '' }}>Aktif</option>
                                         <option value="Nonaktif" {{ old('status') == 'Nonaktif' ? 'selected' : '' }}>Nonaktif</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="satuan">Satuan</label>
-                                    <input type="text" class="form-control" id="satuan" name="satuan"
+                                    <input type="text" class="form-control" id="satuan" name="satuan" value="{{ old('satuan') }}"
                                         placeholder="Masukan Satuan" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="foto">Foto</label>
-                                    <input type="file" class="form-control" id="foto" name="foto"
-                                        placeholder="Masukan foto" required>
+                                    <label for="info">Info</label>
+                                    <input type="text" class="form-control" id="info" name="info" value="{{ old('info') }}"
+                                        placeholder="Masukan Info" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputFile">File input</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input name="foto" type="file" class="custom-file-input" id="exampleInputFile">
+                                            <label class="custom-file-label" for="exampleInputFile">
+                                                @if(old('foto'))
+                                                    {{ old('foto') }}
+                                                @else
+                                                    Pilih Foto
+                                                @endif
+                                            </label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Upload</span>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -109,5 +126,25 @@ Tambah Jenis Pelayanan
   </div>
 </div>
 @endsection
+<script src="{{asset('back/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+@push('script')
+<script>
+    $(function () {
+      bsCustomFileInput.init();
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize autoNumeric on the input field
+        new AutoNumeric('#harga', {
+            currencySymbol: 'Rp. ',
+            decimalCharacter: ',',
+            digitGroupSeparator: '.',
+            decimalPlaces: 0,
+            unformatOnSubmit: true,
+        });
+    });
+</script>
+@endpush
 
 

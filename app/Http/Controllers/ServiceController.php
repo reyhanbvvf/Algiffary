@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
@@ -52,13 +53,11 @@ class ServiceController extends Controller
             'deskripsi' => 'required',
             'satuan' => 'required',
             'info' => 'required',
-            'foto' => 'required|file|image|mimes:jpeg,png,jpg,gif|max:5120'
+            'foto' => 'required|mimes:jpeg,png,jpg|max:5120'
         ]);
 
         if ($validator->fails()) {
-            return back()
-                ->withErrors($validator)
-                ->withInput();
+            return back()->withErrors($validator)->withInput();
         }
 
             $service = new Service();
@@ -70,13 +69,13 @@ class ServiceController extends Controller
             $service->info = $request->input('info');
             if ($request->hasFile('foto')) {
                 // Store the file and get the path
-                $path = $request->file('foto')->store('foto_files', 'public/service');
+                $path = $request->file('foto')->store('service', 'public');
 
-                $service->foto = $path;
+                $service->foto = basename($path);
             }
             $service->save();
 
-            return redirect()->route('superadmin.user.index')->with('success', 'Data berhasil disimpan');
+            return redirect()->route('superadmin.service.index')->with('success', 'Data berhasil disimpan');
         } catch (ValidationException $e) {
             // Validation failed, redirect back with errors
             return redirect()->back()->withErrors($e->errors())->withInput();
@@ -117,29 +116,30 @@ class ServiceController extends Controller
                 'deskripsi' => 'required',
                 'satuan' => 'required',
                 'info' => 'required',
-                'foto' => 'nullable|file|image|mimes:jpeg,png,jpg,gif|max:5120'
+                'foto' => 'nullable|file|image|mimes:jpeg,png,jpg|max:5120'
             ]);
             if ($validator->fails()) {
-                return back()
-                    ->withErrors($validator)
-                    ->withInput();
+                return back()->withErrors($validator)->withInput();
             }
 
-            if ($request->hasFile('foto')) {
-                if ($service->foto) {
-                    Storage::disk('public/service')->delete($service->foto);
-                }
-
-                $path = $request->file('foto')->store('foto_files', 'public/service');
-                $service->foto = $path;
-            }
-
+            $service = Service::findOrFail($id);
             $service->nama = $request->input('nama');
             $service->status = $request->input('status');
             $service->harga = $request->input('harga');
             $service->deskripsi = $request->input('deskripsi');
             $service->satuan = $request->input('satuan');
             $service->info = $request->input('info');
+            if ($request->hasFile('foto')) {
+                if ($service->foto) {
+                    Storage::disk('public')->delete('service/' . $service->foto);
+                }
+
+                // Store the new photo in the 'public/service' directory
+                $path = $request->file('foto')->store('service', 'public');
+
+                // Save the filename without the path
+                $service->foto = basename($path);
+            }
 
             $service->save();
 
@@ -158,9 +158,12 @@ class ServiceController extends Controller
     {
         try {
             $service = Service::findOrFail($id);
+
+            // Check if the service has a foto and delete it
             if (!is_null($service->foto)) {
-                Storage::delete('fotos/' . $service->foto);
+                Storage::delete('service/' . $service->foto);
             }
+
             $service->delete();
 
             return redirect()->route('superadmin.service.index')->with('success', 'Jenis Pelayanan Berhasil Dihapus');

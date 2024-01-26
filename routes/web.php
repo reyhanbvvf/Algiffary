@@ -44,12 +44,12 @@ Route::middleware(['auth'])->group(function () {
             });
 
             Route::name('service.')->prefix('service')->group(function () {
-                Route::get('/', [UserController::class, 'index'])->name('index');
-                Route::get('/create', [UserController::class, 'create'])->name('create');
-                Route::post('/', [UserController::class, 'store'])->name('store');
-                Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
-                Route::put('/edit/{id}', [UserController::class, 'update'])->name('update');
-                Route::delete('/{id}', [UserController::class, 'destroy'])->name('destroy');
+                Route::get('/', [ServiceController::class, 'index'])->name('index');
+                Route::get('/create', [ServiceController::class, 'create'])->name('create');
+                Route::post('/', [ServiceController::class, 'store'])->name('store');
+                Route::get('/edit/{id}', [ServiceController::class, 'edit'])->name('edit');
+                Route::put('/edit/{id}', [ServiceController::class, 'update'])->name('update');
+                Route::delete('/{id}', [ServiceController::class, 'destroy'])->name('destroy');
             });
 
         });
