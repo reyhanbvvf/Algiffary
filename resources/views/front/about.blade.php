@@ -43,7 +43,7 @@
               <div class="owl-cites-town owl-carousel">
                 <div class="item">
                   <div class="thumb">
-                    <img src="assets/images/g3.jpg" alt="">
+                    <img src="assets/images/g1.jpeg" alt="">
                     <h4>BLUD</h4>
                   </div>
                 </div>
