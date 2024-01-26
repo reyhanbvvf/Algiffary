@@ -53,6 +53,12 @@ class UserController extends Controller
             'password' => 'required|confirmed|min:8',
         ]);
 
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
             $user = new User();
             $user->name = $request->input('name');
             $user->role = $request->input('role');
@@ -62,7 +68,9 @@ class UserController extends Controller
             $user->save();
 
             return redirect()->route('superadmin.user.index')->with('success', 'Data berhasil disimpan');
-
+        }catch (ValidationException $e) {
+            // Validation failed, redirect back with errors
+            return redirect()->back()->withErrors($e->errors())->withInput();
         } catch (\Throwable $th) {
             // Handle any other exceptions or errors
             return back()->withErrors('Data gagal disimpan');
@@ -130,7 +138,6 @@ class UserController extends Controller
             return redirect()->back()->withErrors($e->errors())->withInput();
         } catch (\Throwable $th) {
             // Handle any other exceptions or errors
-            dd($th);
             return back()->withErrors('Data gagal disimpan');
         }
     }
@@ -142,14 +149,14 @@ class UserController extends Controller
     {
         try {
             $user = User::findOrFail($id);
-            if (!is_null($user->photo)) {
-                Storage::delete('photos/' . $user->photo);
+            if (!is_null($user->foto)) {
+                Storage::delete('fotos/' . $user->foto);
             }
             $user->delete();
 
-            return redirect()->route('users.index')->with('success', 'User and associated photo deleted successfully');
+            return redirect()->route('superadmin.user.index')->with('success', 'User Berhasil Dihapus');
         } catch (\Throwable $th) {
-            return back()->withErrors('Data gagal dihapus');
+            return back()->withErrors('User gagal dihapus');
         }
     }
 }
