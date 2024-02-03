@@ -31,6 +31,13 @@ class UserController extends Controller
         return view('back.superadmin.user.index', compact('data'));
     }
 
+    public function profile()
+    {
+        $data = User::all();
+
+        return view('back.user.profile.profile');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -47,9 +54,10 @@ class UserController extends Controller
     try {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
+            'status' => 'required|in:Aktif,Nonaktif',
             'role' => 'required|in:superadmin,admin,user',
-            'email' => 'required|email|unique:users,email,' . $id,
-            'username' => 'required|unique:users,username,' . $id,
+            'email' => 'required|email|unique:users,email',
+            'username' => 'required|unique:users,username',
             'password' => 'required|confirmed|min:8',
         ]);
 
@@ -62,6 +70,7 @@ class UserController extends Controller
             $user = new User();
             $user->name = $request->input('name');
             $user->role = $request->input('role');
+            $user->status = $request->input('status');
             $user->email = $request->input('email');
             $user->username = $request->input('username');
             $user->password = Hash::make($request->input('password'));
@@ -71,9 +80,6 @@ class UserController extends Controller
         }catch (ValidationException $e) {
             // Validation failed, redirect back with errors
             return redirect()->back()->withErrors($e->errors())->withInput();
-        } catch (\Throwable $th) {
-            // Handle any other exceptions or errors
-            return back()->withErrors('Data gagal disimpan');
         }
     }
 

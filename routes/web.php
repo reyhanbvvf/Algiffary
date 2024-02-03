@@ -67,6 +67,15 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('user')->name('user.')->group(function () {
             Route::get('/index', [BackController::class, 'index'])->name('index');
 
+            Route::prefix('profile')->name('profile.')->group(function () {
+                Route::get('/', [UserController::class, 'profile'])->name('profile');
+                Route::post('/', [UserController::class, 'profileStore'])->name('profileStore');
+                Route::put('/edit', [UserController::class, 'profileEdit'])->name('profileEdit');
+            });
+
+            Route::prefix('permohonan')->name('permohonan.')->group(function () {
+
+            });
         });
     });
 });

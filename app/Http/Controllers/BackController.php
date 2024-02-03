@@ -9,9 +9,7 @@ class BackController extends Controller
 {
     public function adminindex()
     {
-        $data = Service::all();
-
-        return view('back.admin.index', compact('data'));
+        return view('back.admin.index');
     }
 
     public function superindex()
