@@ -34,7 +34,7 @@
                     @if (Auth::user()->foto == null)
                         src="{{asset('back/dist/img/user4-128x128.jpg')}}"
                     @else
-                        src="{{asset('back/dist/img/user4-128x128.jpg')}}"
+                        src="{{ url('storage/user/'.Auth::user()->foto) }}"
                     @endif
                     alt="User profile picture">
                 </div>
@@ -325,12 +325,28 @@
                   <!-- /.tab-pane -->
 
                   <div class="active tab-pane" id="settings">
-                    <form class="form-horizontal">
+                    <form method="POST" class="form-horizontal" action="{{route('user.profile.profileUpdate')}}" enctype="multipart/form-data">
                         @csrf
+                        @method('put')
+                        @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+                        <div class="form-group row">
+                            <label for="inputName2" class="col-sm-2 col-form-label">Username</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" value="{{Auth::user()->username}}" id="inputName2" placeholder="Username" disabled>
+                            </div>
+                          </div>
                       <div class="form-group row">
                         <label for="name" class="col-sm-2 col-form-label">Nama</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="name" id="name" value="{{Auth::user()->name}}" placeholder="Name">
+                          <input type="text" class="form-control" name="name" id="name" value="{{Auth::user()->name}}" placeholder="Nama">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -340,13 +356,7 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Username</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" value="{{Auth::user()->username}}" id="inputName2" placeholder="Username" disabled>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="exampleInputFile">File input</label>
+                        <label class="col-sm-2 col-form-label" for="exampleInputFile">Foto</label>
                         <div class="col-sm-10">
                             <div class="input-group">
                                 <div class="custom-file ">
@@ -388,7 +398,7 @@
                       </div> --}}
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-danger">Submit</button>
+                          <button type="submit" class="btn btn-info">Ubah</button>
                         </div>
                       </div>
                     </form>
@@ -415,18 +425,6 @@
 <script>
     $(function () {
       bsCustomFileInput.init();
-    });
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Initialize autoNumeric on the input field
-        new AutoNumeric('#harga', {
-            currencySymbol: 'Rp. ',
-            decimalCharacter: ',',
-            digitGroupSeparator: '.',
-            decimalPlaces: 0,
-            unformatOnSubmit: true,
-        });
     });
 </script>
 @endpush

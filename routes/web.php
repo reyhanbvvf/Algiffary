@@ -71,7 +71,7 @@ Route::middleware(['auth'])->group(function () {
             Route::prefix('profile')->name('profile.')->group(function () {
                 Route::get('/', [UserController::class, 'profile'])->name('profile');
                 Route::post('/', [UserController::class, 'profileStore'])->name('profileStore');
-                Route::put('/edit', [UserController::class, 'profileEdit'])->name('profileEdit');
+                Route::put('/update', [UserController::class, 'profileUpdate'])->name('profileUpdate');
             });
 
             Route::prefix('permohonan')->name('permohonan.')->group(function () {

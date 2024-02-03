@@ -144,8 +144,52 @@ class UserController extends Controller
             return redirect()->back()->withErrors($e->errors())->withInput();
         } catch (\Throwable $th) {
             // Handle any other exceptions or errors
-            return back()->withErrors('Data gagal disimpan');
+            return back()->withErrors('Data gagal diubah');
         }
+    }
+
+    public function profileUpdate(Request $request)
+    {
+        // dd($request);
+        // try {
+            $validator = Validator::make($request->all(), [
+                'name' => 'required',
+                'email' => 'required|email|unique:users,email,'. Auth::user()->id,
+                'password' => 'nullable|confirmed|min:8',
+                'foto' => 'nullable',
+            ]);
+            if ($validator->fails()) {
+                return back()
+                    ->withErrors($validator)
+                    ->withInput();
+            }
+
+            $user = User::findOrFail(Auth::user()->id);
+            $user->name = $request->input('name');
+            if ($user->email !== $request->input('email')) {
+                $user->email = $request->input('email');
+            }
+            if ($request->hasFile('foto')) {
+                // Store the file and get the path
+                $path = $request->file('foto')->store('user', 'public');
+
+                $user->foto = basename($path);
+            }
+
+            if ($request->filled('password')) {
+                $user->password = Hash::make($request->input('password'));
+            }
+
+            $user->save();
+
+            return redirect()->route('user.profile.profile')->with('success', 'Data berhasil diubah');
+        // } catch (ValidationException $e) {
+        //     // Validation failed, redirect back with errors
+        //     return redirect()->back()->withErrors($e->errors())->withInput();
+        // } catch (\Throwable $th) {
+        //     // Handle any other exceptions or errors
+        //     return back()->withErrors('Data gagal diubah');
+        // }
     }
 
     /**
