@@ -5,6 +5,7 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\BackController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PermohonanController;
 use App\Http\Controllers\ServiceController;
 /*
 |--------------------------------------------------------------------------
@@ -74,7 +75,9 @@ Route::middleware(['auth'])->group(function () {
             });
 
             Route::prefix('permohonan')->name('permohonan.')->group(function () {
-
+                Route::get('/', [PermohonanController::class, 'userIndex'])->name('userIndex');
+                Route::get('/create', [PermohonanController::class, 'userCreate'])->name('userCreate');
+                Route::post('/', [PermohonanController::class, 'userStore'])->name('userStore');
             });
         });
     });

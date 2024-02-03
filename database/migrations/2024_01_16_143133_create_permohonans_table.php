@@ -23,7 +23,6 @@ return new class extends Migration
             $table->date('tgl_berakhir')->nullable();
             $table->enum('status', ['pending', 'verifikasi', 'proses', 'selesai'])->default('pending');
             $table->enum('tipe_permohonan', ['baru', 'perpanjangan']);
-            $table->string('ktp');
             $table->string('dokumen');
             $table->tinyInteger('isActive')->default(1);
             $table->timestamps();
