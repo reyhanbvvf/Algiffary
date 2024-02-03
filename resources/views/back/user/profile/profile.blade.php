@@ -31,8 +31,12 @@
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="{{asset('back/dist/img/user4-128x128.jpg')}}"
-                       alt="User profile picture">
+                    @if (Auth::user()->foto == null)
+                        src="{{asset('back/dist/img/user4-128x128.jpg')}}"
+                    @else
+                        src="{{asset('back/dist/img/user4-128x128.jpg')}}"
+                    @endif
+                    alt="User profile picture">
                 </div>
 
                 <h3 class="profile-username text-center">{{Auth::user()->name}}</h3>
