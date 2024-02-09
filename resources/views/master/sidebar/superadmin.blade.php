@@ -5,7 +5,7 @@
 
       <li class="nav-item">
         <a href="{{route('admin.index')}}" class="nav-link {{ Request::is('superadmin/index') ? 'active' : '' }}">
-          <i class="nav-icon fas fa-th"></i>
+          <i class="nav-icon fas fa-home"></i>
           <p>
             Dashboard
           </p>
@@ -22,7 +22,7 @@
       </li>
       <li class="nav-item">
         <a href="{{route('superadmin.service.index')}}" class="nav-link {{ Request::is('superadmin/service*') ? 'active' : '' }}">
-            <i class="fas fa-people-carry"></i>
+            <i class="nav-icon fas fa-people-carry"></i>
           <p>
             Jenis Pelayanan
             {{-- <span class="right badge badge-danger">New</span> --}}
