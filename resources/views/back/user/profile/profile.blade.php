@@ -114,7 +114,7 @@
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content">
-                  <div class="tab-pane" id="activity">
+                  {{-- <div class="tab-pane" id="activity">
                     <!-- Post -->
                     <div class="post">
                       <div class="user-block">
@@ -226,101 +226,74 @@
                       <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
                     </div>
                     <!-- /.post -->
-                  </div>
+                  </div> --}}
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="timeline">
-                    <!-- The timeline -->
-                    <div class="timeline timeline-inverse">
-                      <!-- timeline time label -->
-                      <div class="time-label">
-                        <span class="bg-danger">
-                          10 Feb. 2014
-                        </span>
-                      </div>
-                      <!-- /.timeline-label -->
-                      <!-- timeline item -->
-                      <div>
-                        <i class="fas fa-envelope bg-primary"></i>
+                    <form method="POST" class="form-horizontal" action="{{ route('user.profile.perusahaanUpdate') }}" enctype="multipart/form-data">
+                        @csrf
+                        @method('put')
 
-                        <div class="timeline-item">
-                          <span class="time"><i class="far fa-clock"></i> 12:05</span>
-
-                          <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-
-                          <div class="timeline-body">
-                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                            weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                            jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                            quora plaxo ideeli hulu weebly balihoo...
-                          </div>
-                          <div class="timeline-footer">
-                            <a href="#" class="btn btn-primary btn-sm">Read more</a>
-                            <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                          </div>
+                        <!-- Nama Perusahaan -->
+                        <div class="form-group row">
+                            <label for="nama" class="col-sm-2 col-form-label">Nama Perusahaan</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="nama" id="nama" value="{{ Auth::user()->profil ? Auth::user()->profil->nama : '' }}" placeholder="Nama">
+                            </div>
                         </div>
-                      </div>
-                      <!-- END timeline item -->
-                      <!-- timeline item -->
-                      <div>
-                        <i class="fas fa-user bg-info"></i>
 
-                        <div class="timeline-item">
-                          <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
-
-                          <h3 class="timeline-header border-0"><a href="#">Sarah Young</a> accepted your friend request
-                          </h3>
+                        <!-- Alamat -->
+                        <div class="form-group row">
+                            <label for="inputAlamat" class="col-sm-2 col-form-label">Alamat</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" name="alamat" id="inputAlamat" placeholder="Alamat">{{ Auth::user()->profil ? Auth::user()->profil->alamat : '' }}</textarea>
+                            </div>
                         </div>
-                      </div>
-                      <!-- END timeline item -->
-                      <!-- timeline item -->
-                      <div>
-                        <i class="fas fa-comments bg-warning"></i>
 
-                        <div class="timeline-item">
-                          <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>
-
-                          <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
-
-                          <div class="timeline-body">
-                            Take me to your leader!
-                            Switzerland is small and neutral!
-                            We are more like Germany, ambitious and misunderstood!
-                          </div>
-                          <div class="timeline-footer">
-                            <a href="#" class="btn btn-warning btn-flat btn-sm">View comment</a>
-                          </div>
+                        <!-- Longitude -->
+                        <div class="form-group row">
+                            <label for="longitude" class="col-sm-2 col-form-label">Longitude</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="long" id="longitude" value="{{ Auth::user()->profil ? Auth::user()->profil->long : '' }}" placeholder="Longitude">
+                            </div>
                         </div>
-                      </div>
-                      <!-- END timeline item -->
-                      <!-- timeline time label -->
-                      <div class="time-label">
-                        <span class="bg-success">
-                          3 Jan. 2014
-                        </span>
-                      </div>
-                      <!-- /.timeline-label -->
-                      <!-- timeline item -->
-                      <div>
-                        <i class="fas fa-camera bg-purple"></i>
 
-                        <div class="timeline-item">
-                          <span class="time"><i class="far fa-clock"></i> 2 days ago</span>
-
-                          <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
-
-                          <div class="timeline-body">
-                            <img src="https://placehold.it/150x100" alt="...">
-                            <img src="https://placehold.it/150x100" alt="...">
-                            <img src="https://placehold.it/150x100" alt="...">
-                            <img src="https://placehold.it/150x100" alt="...">
-                          </div>
+                        <!-- Latitude -->
+                        <div class="form-group row">
+                            <label for="Latitude" class="col-sm-2 col-form-label">Latitude</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="lat" id="Latitude" value="{{ Auth::user()->profil ? Auth::user()->profil->lat : '' }}" placeholder="Latitude">
+                            </div>
                         </div>
-                      </div>
-                      <!-- END timeline item -->
-                      <div>
-                        <i class="far fa-clock bg-gray"></i>
-                      </div>
-                    </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="exampleInputFile">Logo</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <div class="custom-file ">
+                                        <input name="foto" type="file" class="custom-file-input" id="exampleInputFile">
+                                        <label class="custom-file-label" for="exampleInputFile">
+                                            @if(old('foto'))
+                                                {{ old('foto') }}
+                                            @else
+                                                Pilih Logo
+                                            @endif
+                                        </label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tombol Simpan -->
+                        <div class="form-group row">
+                            <div class="offset-sm-2 col-sm-10">
+                                <button type="submit" class="btn btn-info">Simpan</button>
+                            </div>
+                        </div>
+                    </form>
+
                   </div>
                   <!-- /.tab-pane -->
 

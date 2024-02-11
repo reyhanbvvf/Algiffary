@@ -16,9 +16,10 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->string('nama')->nullable();
+            $table->string('foto')->nullable();
             $table->text('alamat')->nullable();
             $table->decimal('lat', 10, 7);
-            $table->decimal('lang', 10, 7);
+            $table->decimal('long', 10, 7);
             $table->timestamps();
         });
     }

@@ -32,6 +32,9 @@
     <link rel="stylesheet" href="{{asset('back/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('back/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
     <script src="https://cdn.jsdelivr.net/npm/autonumeric@4"></script>
+      <!-- Select2 -->
+  <link rel="stylesheet" href="{{asset('back/plugins/select2/css/select2.min.css')}}">
+  <link rel="stylesheet" href="{{asset('back/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -307,6 +310,11 @@
 <script src="{{asset('back/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
 <script src="{{asset('back/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('back/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
+<!-- Select2 -->
+<script src="{{asset('back/plugins/select2/js/select2.full.min.js')}}"></script>
+<!-- InputMask -->
+<script src="{{asset('back/plugins/moment/moment.min.js')}}"></script>
+<script src="{{asset('back/plugins/inputmask/jquery.inputmask.min.js')}}"></script>
 <script src="{{asset('back/plugins/toastr/toastr.min.js') }}"></script>
 @include('master.alert')
 

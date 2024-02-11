@@ -29,6 +29,15 @@
           </p>
         </a>
       </li>
+      <li class="nav-item">
+        <a href="{{route('superadmin.permohonan.index')}}" class="nav-link {{ Request::is('superadmin/permohonan*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-list"></i>
+          <p>
+            Permohonan
+            {{-- <span class="right badge badge-danger">New</span> --}}
+          </p>
+        </a>
+      </li>
 
       {{-- <li class="nav-item">
         <a href="#" class="nav-link">
