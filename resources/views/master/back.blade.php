@@ -192,7 +192,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="{{asset('front/assets/images/banjar.png')}}" alt="AdminLTE Logo" class="brand-image rounded-full" style="opacity: .8">
-      <span class="brand-text font-weight-light"><b style="color: red;">BLUD INTAN HIJAU</b></span>
+      <span class="brand-text font-weight-light"><b style="color: green;">BLUD INTAN HIJAU</b></span>
     </a>
 
     <!-- Sidebar -->
