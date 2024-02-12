@@ -9,6 +9,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Dashboard</h1>
+            <list class="color text-blue">Pelayanan Kebersihan</list>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -30,9 +31,9 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>Rp. 80.000</h3>
 
-                <p>New Orders</p>
+                <p>Pengelolaan Sampah di TPA</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -47,7 +48,7 @@
               <div class="inner">
                 <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                <p>Bounce Rate</p>
+                <p>Angkutan Sampah</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -60,9 +61,9 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>59</h3>
 
-                <p>User Registrations</p>
+                <p>Penanganan Sampah</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -77,7 +78,7 @@
               <div class="inner">
                 <h3>65</h3>
 
-                <p>Unique Visitors</p>
+                <p>Sedot Limbah / Tinja</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>

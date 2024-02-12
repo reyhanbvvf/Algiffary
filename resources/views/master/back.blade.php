@@ -32,9 +32,6 @@
     <link rel="stylesheet" href="{{asset('back/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('back/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
     <script src="https://cdn.jsdelivr.net/npm/autonumeric@4"></script>
-      <!-- Select2 -->
-  <link rel="stylesheet" href="{{asset('back/plugins/select2/css/select2.min.css')}}">
-  <link rel="stylesheet" href="{{asset('back/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -48,13 +45,13 @@
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
-      <li class="nav-item">
+      <li class="nav-item" title="Menu">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      <li class="nav-item d-none d-sm-inline-block" title="Home">
         <a href="index3.html" class="nav-link">Home</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      <li class="nav-item d-none d-sm-inline-block" title="Contact">
         <a href="#" class="nav-link">Contact</a>
       </li>
     </ul>
@@ -62,7 +59,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
-      <li class="nav-item">
+      <li class="nav-item" title="Pencarian">
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
           <i class="fas fa-search"></i>
         </a>
@@ -84,7 +81,7 @@
       </li>
 
       <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" title="Pesan">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
           <span class="badge badge-danger navbar-badge">3</span>
@@ -142,7 +139,7 @@
         </div>
       </li>
       <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" title="Pemberitahuan">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
           <span class="badge badge-warning navbar-badge">15</span>
@@ -168,7 +165,7 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" title="Full Screen">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
@@ -179,9 +176,9 @@
         </a>
       </li>
       <li class="nav-item">
-            <a type="submit" class="nav-link" id="logout" role="button">
-                <i class="fas fa-sign-out-alt"></i>
-            </a>
+            <button type="submit" class="btn btn-rounded nav-link" id="logout" role="button" title="Logout">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                 @csrf
             </form>
@@ -310,11 +307,6 @@
 <script src="{{asset('back/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
 <script src="{{asset('back/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('back/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
-<!-- Select2 -->
-<script src="{{asset('back/plugins/select2/js/select2.full.min.js')}}"></script>
-<!-- InputMask -->
-<script src="{{asset('back/plugins/moment/moment.min.js')}}"></script>
-<script src="{{asset('back/plugins/inputmask/jquery.inputmask.min.js')}}"></script>
 <script src="{{asset('back/plugins/toastr/toastr.min.js') }}"></script>
 @include('master.alert')
 
