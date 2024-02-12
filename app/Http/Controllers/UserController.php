@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Profil;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -151,7 +152,7 @@ class UserController extends Controller
     public function profileUpdate(Request $request)
     {
         // dd($request);
-        // try {
+        try {
             $validator = Validator::make($request->all(), [
                 'name' => 'required',
                 'email' => 'required|email|unique:users,email,'. Auth::user()->id,
@@ -181,6 +182,67 @@ class UserController extends Controller
             }
 
             $user->save();
+
+            return redirect()->route('user.profile.profile')->with('success', 'Data berhasil diubah');
+        } catch (ValidationException $e) {
+            // Validation failed, redirect back with errors
+            return redirect()->back()->withErrors($e->errors())->withInput();
+        } catch (\Throwable $th) {
+            // Handle any other exceptions or errors
+            return back()->withErrors('Data gagal diubah');
+        }
+    }
+
+    public function perusahaanUpdate(Request $request)
+    {
+        // dd($request);
+        // try {
+            // $validator = Validator::make($request->all(), [
+            //     'nama' => 'required',
+            //     'email' => 'required|email|unique:users,email,'. Auth::user()->id,
+            //     'alamat' => 'required',
+            //     'long' => 'required',
+            //     'lat' => 'required',
+            //     'foto' => 'nullable',
+            // ]);
+            // if ($validator->fails()) {
+            //     return back()
+            //         ->withErrors($validator)
+            //         ->withInput();
+            // }
+
+            $profil = Auth::user()->profil;
+
+
+            if ($profil) {
+                // Data profil sudah ada, lakukan update
+                $profil->nama = $request->input('nama');
+                $profil->alamat = $request->input('alamat');
+                $profil->long = $request->input('long');
+                $profil->lat = $request->input('lat');
+                if ($request->hasFile('foto')) {
+                    // Store the file and get the path
+                    $path = $request->file('foto')->store('perusahaan', 'public');
+
+                    $profil->foto = basename($path);
+                }
+                $profil->save();
+            } else {
+                // Data profil belum ada, buat baru
+                $profil = new Profil();
+                $profil->nama = $request->input('nama');
+                $profil->alamat = $request->input('alamat');
+                $profil->long = $request->input('long');
+                $profil->lat = $request->input('lat');
+                $profil->user_id = Auth::user()->id;
+                if ($request->hasFile('foto')) {
+                    // Store the file and get the path
+                    $path = $request->file('foto')->store('perusahaan', 'public');
+
+                    $profil->foto = basename($path);
+                }
+                $profil->save();
+            }
 
             return redirect()->route('user.profile.profile')->with('success', 'Data berhasil diubah');
         // } catch (ValidationException $e) {

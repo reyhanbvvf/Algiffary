@@ -10,4 +10,10 @@ class Service extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function permohonans()
+    {
+        return $this->belongsToMany(Permohonan::class, 'service_permohonans');
+    }
+
 }

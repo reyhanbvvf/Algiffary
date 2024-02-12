@@ -13,11 +13,9 @@ return new class extends Migration
     {
         Schema::create('permohonans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('service_id');
-            $table->foreign('service_id')->references('id')->on('services')->onDelete('restrict');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
-            $table->string('no_surat');
+            $table->string('no_surat')->nullable();
             $table->string('nama_pjb');
             $table->date('tgl_awal')->nullable();
             $table->date('tgl_berakhir')->nullable();

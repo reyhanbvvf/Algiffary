@@ -53,6 +53,15 @@ Route::middleware(['auth'])->group(function () {
                 Route::delete('/{id}', [ServiceController::class, 'destroy'])->name('destroy');
             });
 
+            Route::name('permohonan.')->prefix('permohonan')->group(function () {
+                Route::get('/', [PermohonanController::class, 'index'])->name('index');
+                Route::get('/create', [PermohonanController::class, 'create'])->name('create');
+                Route::post('/', [PermohonanController::class, 'store'])->name('store');
+                Route::get('/edit/{id}', [PermohonanController::class, 'edit'])->name('edit');
+                Route::put('/edit/{id}', [PermohonanController::class, 'update'])->name('update');
+                Route::delete('/{id}', [PermohonanController::class, 'destroy'])->name('destroy');
+            });
+
         });
     });
 
@@ -72,10 +81,10 @@ Route::middleware(['auth'])->group(function () {
                 Route::get('/', [UserController::class, 'profile'])->name('profile');
                 Route::post('/', [UserController::class, 'profileStore'])->name('profileStore');
                 Route::put('/update', [UserController::class, 'profileUpdate'])->name('profileUpdate');
+                Route::put('/updateperusahaan', [UserController::class, 'perusahaanUpdate'])->name('perusahaanUpdate');
             });
 
             Route::prefix('permohonan')->name('permohonan.')->group(function () {
-                Route::get('/', [PermohonanController::class, 'userIndex'])->name('userIndex');
                 Route::get('/create', [PermohonanController::class, 'userCreate'])->name('userCreate');
                 Route::post('/', [PermohonanController::class, 'userStore'])->name('userStore');
             });

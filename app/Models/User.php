@@ -27,6 +27,16 @@ class User extends Authenticatable
         'foto',
     ];
 
+    public function profil()
+    {
+        return $this->hasOne(Profil::class);
+    }
+
+    public function permohonan()
+    {
+        return $this->hasMany(Permohonan::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

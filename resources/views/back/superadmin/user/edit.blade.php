@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="form-group ">
                                     <label>Role</label>
-                                    <select name="role" class="form-control select2 select2-hidden-accessible"
+                                    <select name="role" class="form-control"
                                         data-select2-id="1" tabindex="-1" aria-hidden="true">
                                         <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }} data-select2-id="34">Admin</option>
                                         <option value="user" {{ $user->role == 'user' ? 'selected' : '' }} data-select2-id="35">User</option>
@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Status Akun</label>
-                                    <select name="status" class="form-control select1 select2-hidden-accessible" data-select2-id="2" tabindex="-1"
+                                    <select name="status" class="form-control" data-select2-id="2" tabindex="-1"
                                         aria-hidden="true">
                                         <option value="Aktif" {{ $user->status == 'Aktif' ? 'selected' : '' }}>Aktif</option>
                                         <option value="Nonaktif" {{ $user->status == 'Nonaktif' ? 'selected' : '' }}>Nonaktif</option>

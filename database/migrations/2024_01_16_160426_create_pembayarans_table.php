@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('tagihan_id');
             $table->foreign('tagihan_id')->references('id')->on('tagihans')->onDelete('restrict');
-            $table->unsignedBigInteger('service_id');
-            $table->foreign('service_id')->references('id')->on('services')->onDelete('restrict');
             $table->string('harga');
             $table->string('jumlah');
             $table->string('subtotal');

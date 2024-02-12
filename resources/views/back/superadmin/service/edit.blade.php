@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Status</label>
-                                    <select name="status" class="form-control select1 select2-hidden-accessible" data-select2-id="2" tabindex="-1"
+                                    <select name="status" class="form-control" data-select2-id="2" tabindex="-1"
                                         aria-hidden="true">
                                         <option value="Aktif" {{ $service->status == 'Aktif' ? 'selected' : '' }}>Aktif</option>
                                         <option value="Nonaktif" {{ $service->status == 'Nonaktif' ? 'selected' : '' }}>Nonaktif</option>
