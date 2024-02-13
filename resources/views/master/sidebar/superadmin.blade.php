@@ -31,7 +31,7 @@
       </li>
       <li class="nav-item">
         <a href="{{route('superadmin.permohonan.index')}}" class="nav-link {{ Request::is('superadmin/permohonan*') ? 'active' : '' }}">
-            <i class="nav-icon fas fa-list"></i>
+            <i class="nav-icon fa fa-envelope"></i>
           <p>
             Permohonan
             {{-- <span class="right badge badge-danger">New</span> --}}
