@@ -9,7 +9,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Dashboard</h1>
-            <list class="color text-blue">Pelayanan Kebersihan</list>
+            <list class="color text-red"><b>Pelayanan Kebersihan</b></list>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -76,7 +76,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3>Rp. 500.000</h3>
 
                 <p>Sedot Limbah / Tinja</p>
               </div>
