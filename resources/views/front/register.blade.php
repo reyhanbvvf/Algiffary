@@ -16,6 +16,7 @@
               width: 300px;
               margin: 0 auto;
               margin-top: 50px;
+              box-shadow: 50px 50px 50px 50px #ccc inset;
           }
 
           .login-container label {
