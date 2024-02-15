@@ -37,7 +37,7 @@
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
-                          <a href="about.html">Daftar Sekarang</a>
+                          <a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="" id="btn-whatsapp-support" target="_blank">Daftar Sekarang</a>
                         </div>
                       </div>
                     </div>
@@ -52,7 +52,7 @@
             <div class="main-caption">
               <h2>BADAN LAYANAN UMUM DAERAH INTAN HIJAU</h2>
               <h1>KABUPATEN BANJAR</h1>
-              <div class="border-button"><a href="about.html">Daftar Sekarang</a></div>
+              <div class="border-button"><a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="" id="btn-whatsapp-support" target="_blank">Daftar Sekarang</a></div>
             </div>
             <div class="container">
               <div class="row">
@@ -73,7 +73,7 @@
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
-                          <a href="about.html">Daftar Sekarang</a>
+                          <a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="" id="btn-whatsapp-support" target="_blank">Daftar Sekarang</a>
                         </div>
                       </div>
                     </div>
@@ -88,7 +88,7 @@
             <div class="main-caption">
               <h2>BADAN LAYANAN UMUM DAERAH INTAN HIJAU</h2>
               <h1>KABUPATEN BANJAR</h1>
-              <div class="border-button"><a href="about.html">Daftar Sekarang</a></div>
+              <div class="border-button"><a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="" id="btn-whatsapp-support" target="_blank">Daftar Sekarang</a></div>
             </div>
             <div class="container">
               <div class="row">
@@ -109,7 +109,7 @@
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
-                          <a href="about.html">Daftar Sekarang</a>
+                          <a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="" id="btn-whatsapp-support" target="_blank">Daftar Sekarang</a>
                         </div>
                       </div>
                     </div>
@@ -124,7 +124,7 @@
             <div class="main-caption">
               <h2>BADAN LAYANAN UMUM DAERAH INTAN HIJAU</h2>
               <h1>KABUPATEN BANJAR</h1>
-              <div class="border-button"><a href="about.html">Daftar Sekarang</a></div>
+              <div class="border-button"><a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="" id="btn-whatsapp-support" target="_blank">Daftar Sekarang</a></div>
             </div>
             <div class="container">
               <div class="row">
@@ -145,7 +145,7 @@
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
-                          <a href="about.html">Daftar Sekarang</a>
+                          <a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="" id="btn-whatsapp-support" target="_blank">Daftar Sekarang</a>
                         </div>
                       </div>
                     </div>
