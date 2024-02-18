@@ -52,6 +52,7 @@ class PermohonanController extends Controller
     {
         if (is_null(Auth::user()->profil)) {
             return redirect()->route('user.profile.profile')->with('warning', 'Anda Harus Mengisi Profil Terlebih Dahulu');
+        } else {
             $service = Service::all();
             // dd($service);
             return view('back.user.permohonan.create', compact('service'));
