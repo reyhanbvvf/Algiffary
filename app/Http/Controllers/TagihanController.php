@@ -2,25 +2,47 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Service;
 use App\Models\Tagihan;
+use App\Models\Permohonan;
+use App\Models\Pembayaran;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class TagihanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
-        //
+    try {
+        $permohonan = Permohonan::findOrFail($id);
+
+        $data = $permohonan->tagihan;
+
+        return view('back.superadmin.tagihan.index', compact('data', 'permohonan'));
+        } catch (\Exception $e) {
+
+            return back()->withError('Permohonan Tidak Ditemukan');
+            // return view('error')->with('error', $e->getMessage());
+        }
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $data = Permohonan::findOrFail($id);
+
+        return view('back.superadmin.tagihan.create', compact('data'));
     }
 
     /**
@@ -28,7 +50,51 @@ class TagihanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validator = Validator::make($request->all(), [
+            'bayar_awal' => 'required|date',
+            'bayar_berakhir' => 'required|date|after_or_equal:bayar_awal',
+            'harga.*' => 'required|numeric|min:0',
+            'jumlah.*' => 'required|integer|min:1',
+        ]);
+
+        if ($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        try {
+            DB::beginTransaction();
+            $tagihan = new Tagihan();
+            $tagihan->permohonan_id = $request->permohonan_id;
+            $tagihan->bayar_awal = $request->input('bayar_awal');
+            $tagihan->bayar_berakhir = $request->input('bayar_berakhir');
+            $tagihan->save();
+
+          $services = Permohonan::findOrFail($request->permohonan_id)->services()->pluck('id')->toArray();
+          foreach ($services as $index => $service_id) {
+              $harga = $request->input('harga')[$index];
+              $jumlah = $request->input('jumlah')[$index];
+              $subtotal = $harga * $jumlah;
+
+              $pembayaran = new Pembayaran();
+              $pembayaran->tagihan_id = $tagihan->id;
+              $pembayaran->service_id = $service_id;
+              $pembayaran->harga = $harga;
+              $pembayaran->jumlah = $jumlah;
+              $pembayaran->subtotal = $subtotal;
+              $pembayaran->save();
+          }
+
+             DB::commit();
+            return redirect()->route('superadmin.tagihan.index', $data->id)->with('success', 'Berhasil menambahkan tagihan');
+        } catch (\Exception $e) {
+            DB::rollback();
+            Log::error('Error occurred during tagihan creation: '.$e->getMessage());
+            return redirect()->back()->withErrors([$e->getMessage()])->withInput();
+        }
+        // return redirect()->back()->withErrors([$e->getMessage()])->withInput();
     }
 
     /**

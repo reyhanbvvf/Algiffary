@@ -21,7 +21,7 @@ class PermohonanController extends Controller
     {
         $data = Permohonan::all();
         foreach ($data as $item) {
-            $item->statuspelayanan = $item->isActive == 1 ? 'aktif' : 'deactive';
+            $item->statuspelayanan = $item->isActive == 1 ? 'aktif' : 'nonaktif';
         }
 
         return view('back.superadmin.permohonan.index', compact('data'));

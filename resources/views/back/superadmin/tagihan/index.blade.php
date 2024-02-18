@@ -1,6 +1,6 @@
 @extends('master.back')
 @section('title')
-Permohonan
+Tagihan
 @endsection
 
 @section('content')
@@ -10,12 +10,12 @@ Permohonan
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Permohonan</h1>
+            <h1 class="m-0">Tagihan {{$permohonan->user->profil->nama}}</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('superadmin.index')}}">Home</a></li>
-              <li class="breadcrumb-item active">Permohonan </li>
+              <li class="breadcrumb-item active">Tagihan </li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -33,8 +33,8 @@ Permohonan
                 <div class="card">
                     <div class="card-header">
                         <td>
-                            <a href="{{ route('superadmin.permohonan.create') }}" class="btn  btn-primary">
-                                <span><i class="feather icon-plus"></i> Tambah Permohonan</span>
+                            <a href="{{ route('superadmin.tagihan.create', $permohonan->id) }}" class="btn  btn-primary">
+                                <span><i class="feather icon-plus"></i> Buat Tagihan</span>
                             </a>
                             <a type="button" href="#" class="btn  btn-primary float-right" target="_blank">Cetak
                             </a>
@@ -48,11 +48,12 @@ Permohonan
                                     <th>No</th>
                                     <th>Nama Perusahaan</th>
                                     <th>Status</th>
-                                    <th>Tipe Permohonan</th>
-                                    <th>Nomor Surat</th>
+                                    <th>Verifikasi</th>
+                                    <th>denda</th>
+                                    <th>total</th>
+                                    <th>Periode</th>
                                     <th>Masa Berlaku</th>
-                                    <th>Info</th>
-                                    <th>Dokumen</th>
+                                    <th>Bukti</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -61,23 +62,26 @@ Permohonan
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $d->user->profil->nama }}</td>
-                                    <td>{{ $d->status }}</td>
-                                    <td>{{ $d->tipe_permohonan }}</td>
-                                    <td>{{ $d->no_surat ? $d->no_surat : '-' }}</td>
-                                    <td>{{ isset($d->tgl_awal) ? \Carbon\Carbon::parse($d->tgl_awal)->format('d-M-y') : '-' }} s/d {{ isset($d->tgl_berakhir) ? \Carbon\Carbon::parse($d->tgl_berakhir)->format('d-M-y') : '-' }}
+                                    <td>{{ $d->status_pembayaran ? $d->status_pembayaran : '-' }}</td>
+                                    <td>{{ $d->verifikasi ? $d->verifikasi : '-' }}</td>
+                                    <td>{{ $d->denda ? $d->denda : '-' }} (%)</td>
+                                    <td>{{ $d->total ? $d->total : '-' }} (%)</td>
+                                    <td>{{ isset($d->bayar_awal) ? \Carbon\Carbon::parse($d->bayar_awal)->format('d-M-y') : '-' }} - {{ isset($d->bayar_berakhir) ? \Carbon\Carbon::parse($d->bayar_berakhir)->format('d-M-y') : '-' }}
                                     </td>
-                                    <td>{{ $d->statuspelayanan }}</td>
-                                    <td><a href="{{ url('storage/dokumen/'.$d->dokumen) }}" target="_blank">Lihat Dokumen</a> </td>
                                     <td>
-                                        <a class="btn btn-sm btn-success text-white" href="{{ route('superadmin.tagihan.index', $d->id) }}">
-                                            <i class="fas fa-receipt"></i>
-                                          </a>
-                                        <a class="btn btn-sm btn-info text-white" href="{{ route('superadmin.permohonan.edit', $d->id) }}">
+                                        @if ($d->bukti)
+                                            <a href="{{ url('storage/bukti/'.$d->bukti) }}" target="_blank">Bukti Pembayaran</a>
+                                        @else
+                                            Belum ada bukti
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-info text-white" href="{{ route('superadmin.tagihan.edit', $d->id) }}">
                                             <i class="fas fa-edit"></i>
                                           </a>
                                         <button data-target="#modaldelete" data-toggle="modal" type="button"
                                             class="delete btn btn-sm bg-danger"
-                                            data-link="{{ route('superadmin.permohonan.destroy',$d->id) }}">
+                                            data-link="{{ route('superadmin.tagihan.destroy',$d->id) }}">
                                             <i class="fas fa-times"></i>
                                         </button>
 

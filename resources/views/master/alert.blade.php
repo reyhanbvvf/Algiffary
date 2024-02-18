@@ -13,10 +13,7 @@
     {
         "closeButton" : true,
         "progressBar" : true
-    }
-        @foreach(Session::get('errors') as $error)
-            toastr.error("{{ $error }}");
-        @endforeach
+    }error("{{ session('error') }}");
     @endif
 
     @if(Session::has('info'))
