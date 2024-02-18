@@ -32,7 +32,7 @@
                         <h4><span>Sarpras:</span><br>14<em></em></h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-user"></i>
+                        <i class="fa-solid fa-users"></i>
                         <h4><span>SDM:</span><br>80</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
@@ -68,7 +68,7 @@
                         <h4><span>Sarpras:</span><br>14<em></em></h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-user"></i>
+                        <i class="fa-solid fa-users"></i>
                         <h4><span>SDM:</span><br>80</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
@@ -104,7 +104,7 @@
                         <h4><span>Sarpras:</span><br>14<em></em></h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-user"></i>
+                        <i class="fa-solid fa-users"></i>
                         <h4><span>SDM:</span><br>80</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
@@ -140,7 +140,7 @@
                         <h4><span>Sarpras:</span><br>14<em></em></h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
-                        <i class="fa fa-user"></i>
+                        <i class="fa-solid fa-users"></i>
                         <h4><span>SDM:</span><br>80</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
@@ -171,10 +171,19 @@
   <div class="amazing-deals">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 offset-lg-3">
+        <div class="offset-lg-0">
+        <img src="{{asset('front/assets/images/.png')}}" alt="KOP" class="photo-left">
+        <img src="{{asset('front/assets/images/.png')}}" alt="KOP" class="photo-right">
           <div class="section-heading text-center">
-            <h2>Jenis Pelayanan BLUD Intan Hijau</h2>
-            <p></p>
+              <h2>DINAS PERUMAHAN RAKYAT, KAWASAN PERMUKIMAN
+                <p></p>DAN LINGKUNGAN HIDUP
+                <p></p>UPTD PENGELOLAAN SAMPAH DAN AIR LIMBAH
+                <p></p>BADAN LAYANAN UMUM DAERAH INTAN HIJAU
+                <p></p>KALIMANTAN SELATAN
+              </h2>
+              <ul>
+                <li style="font-size: 10px;"><u>Alamat Kantor: Jl. Chandra Kirana Desa Indrasari Kecamatan Martapura Kota Kabupaten Banjar.</u></li>
+              </ul>
           </div>
         </div>
         <div class="col-lg-6 col-sm-6">
@@ -187,15 +196,15 @@
               </div>
               <div class="col-lg-6 align-self-center">
                 <div class="content">
-                  <span class="info"> </span>
-                  <h4>Usaha (Diluar Kawasan Pasar)</h4>
+                  <span class="list">(Diluar Kawasan Pasar)</span>
+                  <h4>Usaha</h4>
                   <div class="row">
                     <div class="col-6">
                       <i class="fa fa-check-square"></i>
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -226,7 +235,7 @@
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -249,7 +258,7 @@
               </div>
               <div class="col-lg-6 align-self-center">
                 <div class="content">
-                  <span class="info"> </span>
+                  <span class="info"></span>
                   <h4>
                     Industri</h4>
                   <div class="row">
@@ -258,7 +267,7 @@
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -289,7 +298,7 @@
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -320,7 +329,7 @@
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -351,7 +360,7 @@
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -381,7 +390,7 @@
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -412,7 +421,7 @@
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -434,15 +443,15 @@
               </div>
               <div class="col-lg-6 align-self-center">
                 <div class="content">
-                  <span class="info"> </span>
-                  <h4>Penjualan Tanaman Hias dan Bibit</h4>
+                  <span class="list">Penjualan</span>
+                  <h4>Tanaman Hias dan Bibit</h4>
                   <div class="row">
                     <div class="col-6">
                       <i class="fa fa-check-square"></i>
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -473,7 +482,7 @@
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -495,15 +504,15 @@
               </div>
               <div class="col-lg-6 align-self-center">
                 <div class="content">
-                  <span class="info"> </span>
-                  <h4>Penjualan Hasil Pemilihan</h4>
+                  <span class="list">(TPA Cahaya Kencana)</span>
+                  <h4>Kawasan Edukasi Ekowisata</h4>
                   <div class="row">
                     <div class="col-6">
                       <i class="fa fa-check-square"></i>
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -534,7 +543,7 @@
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -564,7 +573,7 @@
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -595,7 +604,7 @@
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -625,7 +634,7 @@
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -649,15 +658,14 @@
               <div class="col-lg-6 align-self-center">
                 <div class="content">
                   <span class="info"></span>
-                  <h4>Kawasan Edukasi Ekowisata
-                    (TPA Cahaya Kencana)</h4>
+                  <h4>Penjualan Hasil Pemilihan</h4>
                   <div class="row">
                     <div class="col-6">
                       <i class="fa fa-check-square"></i>
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -688,7 +696,7 @@
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -719,7 +727,7 @@
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -749,7 +757,7 @@
                       <span class="list"> Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>
@@ -779,7 +787,7 @@
                       <span class="list">Layanan</span>
                     </div>
                     <div class="col-6">
-                      <i class="fa fa-map"></i>
+                      <i class="fa fa-solid fa-location-dot"></i>
                       <span class="list">Kabupaten Banjar</span>
                     </div>
                   </div>

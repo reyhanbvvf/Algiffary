@@ -21,21 +21,21 @@
           <div class="info-item">
             <i class="fa fa-phone"></i>
             <h4>Kontak HP/WA</h4>
-            <a href="#">082150008231</a>
+            <a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau">+6821-5000-8231</a>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6">
           <div class="info-item">
             <i class="fa fa-envelope"></i>
             <h4>Kontak via Email</h4>
-            <a href="#">bludintanhijau@gmail.com</a>
+            <a href="https://mail.google.com/mail/u/0/?view=cm&tf=1&fs=1&to=bludintanhijau@gmail.com">bludintanhijau@gmail.com</a>
           </div>
         </div>
         <div class="col-lg-4 col-sm-6">
           <div class="info-item">
-            <i class="fa fa-map-marker"></i>
+            <i class="fa-solid fa-location-dot"></i>
             <h4>Visit Lokasi</h4>
-            <a href="#">JL.Chandra Kirana Desa Indrasari Kecamatan Martapura Kota Kabupaten Banjar</a>
+            <a href="https://www.google.com/maps/place/BLUD+INTAN+HIJAU/@-3.4383947,114.8792743,17z/data=!4m21!1m14!4m13!1m6!1m2!1s0x2de680f4b8b44f4d:0xa4dd2dbf91f322a8!2sHV7H%2B3Q2+BLUD+INTAN+HIJAU,+Indra+Sari,+Martapura,+Sungai+Ulin,+Kec.+Banjarbaru+Utara,+Kabupaten+Banjar,+Kalimantan+Selatan+70714!2m2!1d114.8794723!2d-3.437498!1m5!1m1!1s0x2de680f4b8b44f4d:0xa4dd2dbf91f322a8!2m2!1d114.8794723!2d-3.437498!3m5!1s0x2de680f4b8b44f4d:0xa4dd2dbf91f322a8!8m2!3d-3.4373728!4d114.8793829!16s%2Fg%2F11f3tj4qwg?entry=ttu">JL.Chandra Kirana Desa Indrasari Kecamatan Martapura Kota Kabupaten Banjar</a>
           </div>
         </div>
       </div>

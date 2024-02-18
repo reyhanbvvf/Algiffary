@@ -44,10 +44,10 @@
   <body>
 
       <div class="login-container">
-          <h2> <ul class="list-group">
-            <a class="list-group-item list-group-item-action active" href="#">Silahkan</a>
-            <a class="list-group-item list-group-item-action disabled" href="#" tabindex="-1" aria-disabled="true">Login</a>
-          </ul></h2><br>
+          <h2> <ul><b class="list-group">
+            <a class="list-group-item list-group-item-action active" href="#">SILAHKAN</a>
+            <a class="list-group-item list-group-item-action disabled" href="#" tabindex="-1" aria-disabled="true">LOGIN</a>
+          </ul></b></h2><br>
           <form action="{{route('authenticate')}}" method="post">
             @csrf
               <label for="username">Username:</label>

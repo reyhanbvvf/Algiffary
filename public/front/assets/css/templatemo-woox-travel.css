@@ -2015,6 +2015,11 @@ Deals Page Style
 .amazing-deals ul.page-numbers li:last-child a {
   border: none;
 }
+.photo {
+  width: 150px; /* Adjust photo width */
+  margin-right: 20px; /* Add space between photo and text */
+  height: auto;
+}
 
 
 /* 
@@ -2325,5 +2330,10 @@ body {
   }
   .weekly-offers .container-fluid {
     padding: 0px;
+  }
+  .photo {
+    width: 150px; /* Adjust photo width */
+    margin-right: 20px; /* Add space between photo and text */
+    height: auto;
   }
 }
