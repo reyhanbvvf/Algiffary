@@ -46,7 +46,6 @@ Tagihan
                             <thead class="text-center">
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama Perusahaan</th>
                                     <th>Status</th>
                                     <th>Verifikasi</th>
                                     <th>denda</th>
@@ -61,11 +60,10 @@ Tagihan
                                 @foreach ($data as $d )
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $d->user->profil->nama }}</td>
                                     <td>{{ $d->status_pembayaran ? $d->status_pembayaran : '-' }}</td>
                                     <td>{{ $d->verifikasi ? $d->verifikasi : '-' }}</td>
                                     <td>{{ $d->denda ? $d->denda : '-' }} (%)</td>
-                                    <td>{{ $d->total ? $d->total : '-' }} (%)</td>
+                                    <td>{{ $d->total ? $d->total : '-' }}</td>
                                     <td>{{ isset($d->bayar_awal) ? \Carbon\Carbon::parse($d->bayar_awal)->format('d-M-y') : '-' }} - {{ isset($d->bayar_berakhir) ? \Carbon\Carbon::parse($d->bayar_berakhir)->format('d-M-y') : '-' }}
                                     </td>
                                     <td>

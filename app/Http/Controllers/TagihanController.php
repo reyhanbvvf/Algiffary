@@ -26,7 +26,7 @@ class TagihanController extends Controller
         $permohonan = Permohonan::findOrFail($id);
 
         $data = $permohonan->tagihan;
-
+        // dd($data);
         return view('back.superadmin.tagihan.index', compact('data', 'permohonan'));
         } catch (\Exception $e) {
 
@@ -50,6 +50,7 @@ class TagihanController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
 
         $validator = Validator::make($request->all(), [
             'bayar_awal' => 'required|date',
@@ -88,7 +89,7 @@ class TagihanController extends Controller
           }
 
              DB::commit();
-            return redirect()->route('superadmin.tagihan.index', $data->id)->with('success', 'Berhasil menambahkan tagihan');
+            return redirect()->route('superadmin.tagihan.index', $tagihan->permohonan_id)->with('success', 'Berhasil menambahkan tagihan');
         } catch (\Exception $e) {
             DB::rollback();
             Log::error('Error occurred during tagihan creation: '.$e->getMessage());
