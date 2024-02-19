@@ -85,7 +85,7 @@ Tambah Tagihan
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="subtotal_{{ $service->id }}">Subtotal {{ $service->nama }}</label>
-                                            <input type="text" class="form-control subtotal" id="subtotal_{{ $service->id }}" name="subtotal[]" readonly>
+                                            <input type="text" class="form-control subtotal" id="subtotal_{{ $service->id }}"  readonly>
                                         </div>
                                     </div>
                                 </div>

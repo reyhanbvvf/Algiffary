@@ -36,6 +36,10 @@ Tagihan
                             <a href="{{ route('superadmin.tagihan.create', $permohonan->id) }}" class="btn  btn-primary">
                                 <span><i class="feather icon-plus"></i> Buat Tagihan</span>
                             </a>
+                            <td>
+                                <a type="button" href="{{ route('superadmin.permohonan.index') }}"
+                                    class="btn btn btn-danger">Kembali</a>
+                            </td>
                             <a type="button" href="#" class="btn  btn-primary float-right" target="_blank">Cetak
                             </a>
                         </td>
@@ -50,7 +54,6 @@ Tagihan
                                     <th>Verifikasi</th>
                                     <th>denda</th>
                                     <th>total</th>
-                                    <th>Periode</th>
                                     <th>Masa Berlaku</th>
                                     <th>Bukti</th>
                                     <th>Aksi</th>
@@ -63,7 +66,7 @@ Tagihan
                                     <td>{{ $d->status_pembayaran ? $d->status_pembayaran : '-' }}</td>
                                     <td>{{ $d->verifikasi ? $d->verifikasi : '-' }}</td>
                                     <td>{{ $d->denda ? $d->denda : '-' }} (%)</td>
-                                    <td>{{ $d->total ? $d->total : '-' }}</td>
+                                    <td>{{ $d->total ? 'Rp ' . number_format($d->total, 0, ',', '.') : '-' }}</td>
                                     <td>{{ isset($d->bayar_awal) ? \Carbon\Carbon::parse($d->bayar_awal)->format('d-M-y') : '-' }} - {{ isset($d->bayar_berakhir) ? \Carbon\Carbon::parse($d->bayar_berakhir)->format('d-M-y') : '-' }}
                                     </td>
                                     <td>

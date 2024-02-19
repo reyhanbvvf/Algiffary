@@ -73,22 +73,30 @@ class TagihanController extends Controller
             $tagihan->bayar_berakhir = $request->input('bayar_berakhir');
             $tagihan->save();
 
-          $services = Permohonan::findOrFail($request->permohonan_id)->services()->pluck('id')->toArray();
-          foreach ($services as $index => $service_id) {
-              $harga = $request->input('harga')[$index];
-              $jumlah = $request->input('jumlah')[$index];
-              $subtotal = $harga * $jumlah;
+            $services = Permohonan::findOrFail($request->permohonan_id)->services()->pluck('id')->toArray();
 
-              $pembayaran = new Pembayaran();
-              $pembayaran->tagihan_id = $tagihan->id;
-              $pembayaran->service_id = $service_id;
-              $pembayaran->harga = $harga;
-              $pembayaran->jumlah = $jumlah;
-              $pembayaran->subtotal = $subtotal;
-              $pembayaran->save();
-          }
+            $total = 0; // Inisialisasi total pembayaran
 
-             DB::commit();
+            foreach ($services as $index => $service_id) {
+                $harga = $request->input('harga')[$index];
+                $jumlah = $request->input('jumlah')[$index];
+                $subtotal = $harga * $jumlah;
+
+                $pembayaran = new Pembayaran();
+                $pembayaran->tagihan_id = $tagihan->id;
+                $pembayaran->service_id = $service_id;
+                $pembayaran->harga = $harga;
+                $pembayaran->jumlah = $jumlah;
+                $pembayaran->subtotal = $subtotal;
+                $pembayaran->save();
+
+                $total += $subtotal; // Menambahkan subtotal ke total pembayaran
+            }
+
+            $tagihan->total = $total; // Menyimpan total pembayaran pada tagihan
+            $tagihan->save();
+
+            DB::commit();
             return redirect()->route('superadmin.tagihan.index', $tagihan->permohonan_id)->with('success', 'Berhasil menambahkan tagihan');
         } catch (\Exception $e) {
             DB::rollback();
