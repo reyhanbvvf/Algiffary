@@ -175,7 +175,8 @@
         <img src="{{asset('front/assets/images/.png')}}" alt="KOP" class="photo-left">
         <img src="{{asset('front/assets/images/.png')}}" alt="KOP" class="photo-right">
           <div class="section-heading text-center">
-              <h2>DINAS PERUMAHAN RAKYAT, KAWASAN PERMUKIMAN
+              <h2><b>PEMERINTAHAN KABUPATEN BANJAR</b>
+                <p></p>DINAS PERUMAHAN RAKYAT, KAWASAN PERMUKIMAN
                 <p></p>DAN LINGKUNGAN HIDUP
                 <p></p>UPTD PENGELOLAAN SAMPAH DAN AIR LIMBAH
                 <p></p>BADAN LAYANAN UMUM DAERAH INTAN HIJAU

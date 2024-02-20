@@ -205,7 +205,7 @@
         <div class="image">
           <img
             @if (Auth::user()->foto == null)
-                src="{{asset('back/dist/img/hifni.png')}}"
+                src="{{asset('back/dist/img/blud.jpeg')}}"
             @else
                 src="{{ url('storage/user/'.Auth::user()->foto) }}"
             @endif
