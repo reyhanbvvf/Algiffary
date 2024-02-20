@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('permohonan_id');
             $table->foreign('permohonan_id')->references('id')->on('permohonans')->onDelete('restrict');
             $table->enum('status_pembayaran', ['tepat waktu', 'terlambat'])->nullable();
-            $table->enum('verifikasi', ['diterima', 'bukti tidak valid',])->nullable();
+            $table->enum('verifikasi', ['diterima', 'bukti tidak valid'])->nullable();
             $table->tinyInteger('denda')->nullable();
             $table->decimal('total', 10, 2)->nullable();
             $table->string('jumlah')->nullable();

@@ -40,9 +40,10 @@ class TagihanController extends Controller
         // try{
 
 
-            $permohonan = Permohonan::whereUserId(Auth::user()->id)->get();
-            $data = Tagihan::wherePermohonanId($permohonan->id)->whereStatusPermohonan('null')->get();
-            dd($data);
+            $permohonan = Permohonan::whereUserId(Auth::user()->id)->first();
+            $data = Tagihan::where('permohonan_id', $permohonan->id)->where(function($query) {
+                    $query->where('status_pembayaran', null)->orWhere('status_pembayaran', 'bukti tidak valid');})->get();
+            // dd($data);
             return view('back.user.tagihan.index', compact('data'));
         // } catch (\Exception $e) {
 
