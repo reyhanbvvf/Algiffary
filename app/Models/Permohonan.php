@@ -20,7 +20,7 @@ class Permohonan extends Model
         return $this->belongsToMany(Service::class, 'service_permohonans');
     }
 
-    public function tagihan()
+    public function tagihans()
     {
         return $this->hasMany(Tagihan::class);
     }

@@ -35,6 +35,22 @@ class TagihanController extends Controller
         }
     }
 
+    public function indexUser()
+    {
+        // try{
+
+
+            $permohonan = Permohonan::whereUserId(Auth::user()->id)->get();
+            $data = Tagihan::wherePermohonanId($permohonan->id)->whereStatusPermohonan('null')->get();
+            dd($data);
+            return view('back.user.tagihan.index', compact('data'));
+        // } catch (\Exception $e) {
+
+        //     return back()->withError('Anda Tidak Mempunyai Tagihan yang Harus Dibayar');
+            // return view('error')->with('error', $e->getMessage());
+        // }
+    }
+
     /**
      * Show the form for creating a new resource.
      */

@@ -19,10 +19,4 @@ class Tagihan extends Model
         return $this->hasMany(Pembayaran::class);
     }
 
-    public function save(array $options = [])
-    {
-        $this->total = $this->pembayarans()->sum('subtotal');
-
-        return parent::save($options);
-    }
 }
