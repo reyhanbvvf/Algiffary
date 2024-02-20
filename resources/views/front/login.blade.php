@@ -7,7 +7,163 @@
   <br>
   <!-- ***** Header Area End ***** -->
 
-      <style>
+
+  <html lang="en">
+
+<head>
+    <!-- ... Other meta tags ... -->
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-form label,
+        .login-form input {
+            margin-bottom: 1em;
+            width: 100%;
+            padding: 0.7em;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        #password {
+            border-radius: 4px 4px 0 0;
+        }
+
+        #togglePassword {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            color: #777;
+        }
+
+        .login-button {
+            background-color: #1877f2;
+            color: #fff;
+            padding: 0.7em;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        .user-photo {
+            margin-bottom: 1em;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .user-photos {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1em;
+            width: 100%; /* Ensure the user-photos div takes up the full width */
+        }
+
+        .user-photo {
+            flex: 1;
+            overflow: hidden;
+            max-width: 100px; /* Adjust the maximum width as needed */
+            margin: 0 auto; /* Center the photos */
+            border: 2px; /* Add a rectangular border */
+            border-radius: 8px; /* Adjust border-radius as needed */
+        }
+
+        .user-photo img {
+            width: 100%;
+            height: auto; /* Ensure the entire photo is visible without cropping */
+            border-radius: 6px; /* Add border-radius to create a circular shape */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="user-photos">
+            <div class="user-photo">
+                <img src="{{asset('front/assets/images/manis.png')}}" alt="User Photo Left">
+            </div>
+
+            <div class="user-photo">
+                <img src="{{asset('front/assets/images/logosalih.png')}}" alt="User Photo Right">
+            </div>
+        </div>
+        <h2><b>LOGIN</b></h2>
+        <form class="login-form" action="{{route('authenticate')}}" method="post">
+          @csrf
+            <label for="username">Username:
+              <input type="text" id="username" name="username" placeholder="Username" required>
+            </label>
+
+            <label for="password" class="password-container">Password:
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <button type="button" id="togglePassword" onclick="togglePasswordVisibility()">
+                    <i class="fas fa-eye"></i>
+                </button>
+            </label>
+
+            <button type="submit" class="login-button">Login</button>
+            <a href="{{route('register')}}">Daftar Akun</a>
+        </form>
+    </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById("password");
+            const toggleButton = document.getElementById("togglePassword");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            } else {
+                passwordInput.type = "password";
+                toggleButton.innerHTML = '<i class="fas fa-eye"></i>';
+            }
+        }
+    </script>
+
+  </body>
+  </html>
+  <br>
+  <br><br>
+  <br>
+
+      <!-- <style>
           body {
               font-family: Arial, sans-serif;
           }
@@ -64,7 +220,7 @@
   </html>
   <br>
   <br><br>
-  <br>
+  <br>-->
 
 
 

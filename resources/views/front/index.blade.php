@@ -180,10 +180,10 @@
                 <p></p>DAN LINGKUNGAN HIDUP
                 <p></p>UPTD PENGELOLAAN SAMPAH DAN AIR LIMBAH
                 <p></p>BADAN LAYANAN UMUM DAERAH INTAN HIJAU
-                <p></p>KALIMANTAN SELATAN
               </h2>
               <ul>
-                <li style="font-size: 10px;"><u>Alamat Kantor: Jl. Chandra Kirana Desa Indrasari Kecamatan Martapura Kota Kabupaten Banjar.</u></li>
+                <li style="font-size: 10px;"><u>Alamat Kantor: Jl. Chandra Kirana Desa Indrasari Kecamatan Martapura Kota Kabupaten Banjar
+                  <b>Kalimantan Selatan.</b></u></li>
               </ul>
           </div>
         </div>
