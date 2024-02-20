@@ -97,21 +97,61 @@
         .user-photo {
             flex: 1;
             overflow: hidden;
-            max-width: 100px; /* Adjust the maximum width as needed */
+            max-width: auto; /* Adjust the maximum width as needed */
             margin: 0 auto; /* Center the photos */
             border: 2px; /* Add a rectangular border */
             border-radius: 8px; /* Adjust border-radius as needed */
         }
 
         .user-photo img {
-            width: 100%;
-            height: auto; /* Ensure the entire photo is visible without cropping */
+            width: 50%;
+            height: 90%; /* Ensure the entire photo is visible without cropping */
             border-radius: 6px; /* Add border-radius to create a circular shape */
         }
-    </style>
-</head>
 
-<body>
+        .running-text-container {
+            width: 100%; /* Set the width of the container */
+            overflow: hidden; /* Hide content that overflows */
+            background-color: #FF9D00; /* Background color of the container */
+        }
+
+        .running-text {
+            white-space: nowrap; /* Prevent text from wrapping */
+            animation: marquee 10s linear infinite; /* Apply animation for scrolling */
+            color: #000092; /* Text color */
+        }
+
+        .slow {
+            animation: marquee-slow 23s linear infinite; /* Slow animation duration */
+        }
+
+        .medium {
+            animation: marquee-medium 20s linear infinite; /* Medium animation duration */
+        }
+
+        .fast {
+            animation: marquee-fast 18s linear infinite; /* Fast animation duration */
+        }
+
+        @keyframes marquee-slow {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        @keyframes marquee-medium {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        @keyframes marquee-fast {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+    </style>
+    </head>
+
+    <body>
 
     <div class="login-container">
         <div class="user-photos">
@@ -157,8 +197,18 @@
         }
     </script>
 
+    <div class="running-text-container">
+        <div class="running-text">
+            <p class="slow">Jagalah kebersihan untuk menciptakan lingkungan hidup yang lebih sehat</p>
+            <p class="medium">Satu sampah yang telah kau lupakan, akan memberi berbagai dampak yang tak terlupakan di lingkungan.</p>          
+            <p class="fast">Alam Semesta ini harus terselamatkan atas sampah-sampah yang akan berada ditempat semestinya.</p>
+        </div>
+    </div>
+
+
   </body>
   </html>
+
   <br>
   <br><br>
   <br>
