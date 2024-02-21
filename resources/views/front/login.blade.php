@@ -72,13 +72,29 @@
         }
 
         .login-button {
-            background-color: #1877f2;
-            color: #fff;
+            background-color: #FAC30F;
+            color: #3c00ec;
             padding: 0.7em;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             font-size: 1.2em;
             cursor: pointer;
+            width: 100%
+            text-decoration: none; /* Add this line for better styling */
+            display: inline-block; /* Add this line to make it look like a button */
+            font-weight: bold; /* Bold the button text */
+        }
+
+        .login-button:hover,
+        .create-account-link:hover {
+            background-color: #A6FF00;
+            text-decoration: underline;
+        }
+
+        .forgot-password-link:hover {
+            margin-top: 1em;
+            cursor: pointer;
+            color: #FF0000;
         }
 
         .user-photo {
@@ -91,7 +107,7 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 1em;
-            width: 100%; /* Ensure the user-photos div takes up the full width */
+            width: auto%; /* Ensure the user-photos div takes up the full width */
         }
 
         .user-photo {
@@ -112,13 +128,14 @@
         .running-text-container {
             width: 100%; /* Set the width of the container */
             overflow: hidden; /* Hide content that overflows */
-            background-color: #FF9D00; /* Background color of the container */
+            background-color: #280DC5; /* Background color of the container */
         }
 
         .running-text {
             white-space: nowrap; /* Prevent text from wrapping */
             animation: marquee 10s linear infinite; /* Apply animation for scrolling */
-            color: #000092; /* Text color */
+            font-weight: bold;
+            color: #FFFFFF; /* Brighter text color */
         }
 
         .slow {
@@ -178,7 +195,10 @@
             </label>
 
             <button type="submit" class="login-button">Login</button>
-            <a href="{{route('register')}}">Daftar Akun</a>
+                <a href="{{route('register')}}"><b>Daftar Akun</b></a>
+            <div class="forgot-password-section">
+                <p>Forgot your password? <a href="#" class="forgot-password-link">Reset it here</a>.</p>
+            </div>
         </form>
     </div>
 
@@ -199,9 +219,9 @@
 
     <div class="running-text-container">
         <div class="running-text">
-            <p class="slow">Jagalah kebersihan untuk menciptakan lingkungan hidup yang lebih sehat</p>
-            <p class="medium">Satu sampah yang telah kau lupakan, akan memberi berbagai dampak yang tak terlupakan di lingkungan.</p>          
-            <p class="fast">Alam Semesta ini harus terselamatkan atas sampah-sampah yang akan berada ditempat semestinya.</p>
+            <p class="slow"><b>Jagalah kebersihan untuk menciptakan lingkungan hidup yang lebih sehat.</b></p>
+            <p class="medium"><b>Satu sampah yang telah kau lupakan, akan memberi berbagai dampak yang tak terlupakan di lingkungan.</b></p>          
+            <p class="fast"><b>Alam Semesta ini harus terselamatkan atas sampah-sampah yang akan berada ditempat semestinya.</b></p>
         </div>
     </div>
 

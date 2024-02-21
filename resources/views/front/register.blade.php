@@ -7,7 +7,206 @@
   <br>
   <!-- ***** Header Area End ***** -->
 
-      <style>
+
+  <html lang="en">
+
+<head>
+    <!-- ... Other meta tags ... -->
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container {
+            max-width: 600px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .user-photos {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1em;
+            width: 100%; /* Ensure the user-photos div takes up the full width */
+        }
+
+        .user-photo {
+            flex: 1;
+            overflow: hidden;
+            max-width: 100px; /* Adjust the maximum width as needed */
+            margin: 0 auto; /* Center the photos */
+            border: 2px solid #ccc; /* Add a rectangular border */
+            border-radius: 8px; /* Adjust border-radius as needed */
+        }
+
+        .user-photo img {
+            width: 100%;
+            height: auto; /* Ensure the entire photo is visible without cropping */
+            border-radius: 6px; /* Adjust border-radius to match the user-photo border-radius */
+        }
+
+        .login-form {
+            text-align: left;
+            width: 100%;
+            text-align: center;
+        }
+
+        .login-form label,
+        .login-form input {
+            margin-bottom: 1em;
+            width: 100%;
+            padding: 0.7em;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+            color: #000000; /* Lighter text color */
+        }
+
+        .password-container {
+          position: relative;
+        }
+
+        #password,
+        #password_confirmation {
+            border-radius: 4px 4px 0 0;
+        }
+
+        #togglePassword,
+        #toggleConfirmPassword {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            color: #777;
+        }
+
+        .login-button,
+        .create-account-button {
+            background-color: #FF0000;
+            color: #000000;
+            padding: 0.7em;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.5em;
+            cursor: pointer;
+            width: 100%; /* Make the button take up the full width */
+            font-weight: bold; /* Bold the button text */
+        }
+
+        .login-button:hover,
+        .create-account-button:hover {
+            background-color: #FFEE00;
+        }
+
+        .create-account-section {
+            margin-top: 1em;
+        }
+
+        .create-account-link {
+            color: #4BD10D;
+            text-decoration: none;
+        }
+
+        .create-account-link:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+    </head>
+
+    <body>
+
+    <div class="login-container">
+        <div class="create-account-section">
+            <h2><b>Create Account</b></h2>
+
+          <!-- Display validation errors -->
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            
+            <form class="login-form" action="{{route('authenticate')}}" method="post">
+              @csrf
+                <label for="name">
+                    <input type="text" id="name" name="name" placeholder="Nama" value="{{ old('name') }}" required>
+                </label>
+
+                <label for="username">
+                    <input type="text" id="username" name="username" placeholder="Username" value="{{ old('username') }}" required>
+                </label>
+
+                <label for="email">
+                    <input type="email" id="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
+                </label>
+
+                <label for="password" class="password-container">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <button type="button" id="togglePassword" onclick="togglePasswordVisibility('password')">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </label>
+
+                <label for="password_confirmation" class="password-container">
+                    <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Konfirmasi Password" required>
+                    <button type="button" id="toggleConfirmPassword" onclick="togglePasswordVisibility('password_confirmation')">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </label>
+
+                <button type="submit" class="create-account-button">Daftar Sekarang</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function togglePasswordVisibility(inputId) {
+            const passwordInput = document.getElementById(inputId);
+            const toggleButton = document.getElementById(`toggle${inputId.replace(/-(.)/g, (match, group1) => group1.toUpperCase())}`);
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            } else {
+                passwordInput.type = "password";
+                toggleButton.innerHTML = '<i class="fas fa-eye"></i>';
+            }
+        }
+    </script>
+
+  </body>
+  </html>
+
+  <br>
+  <br><br>
+  <br>
+
+
+
+     <!-- <style>
           body {
               font-family: Arial, sans-serif;
           }
@@ -48,18 +247,10 @@
         <a class="list-group-item list-group-item-action active" href="#">Silahkan</a>
         <a class="list-group-item list-group-item-action disabled" href="#" tabindex="-1" aria-disabled="true">Daftar Akun</a>
         </ul></h2><br>
-        <br>
+        <br>-->
             <!-- Display validation errors -->
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-        <br>
+
+       <!-- <br>
         <form action="{{route('store')}}" method="post">
         @csrf
             <label for="name">Nama:</label>
@@ -84,7 +275,7 @@
   </html>
   <br>
   <br><br>
-  <br>
+  <br>-->
 
 
 
