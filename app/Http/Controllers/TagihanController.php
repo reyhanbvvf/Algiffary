@@ -37,19 +37,17 @@ class TagihanController extends Controller
 
     public function indexUser()
     {
-        // try{
-
-
+        try{
             $permohonan = Permohonan::whereUserId(Auth::user()->id)->first();
             $data = Tagihan::where('permohonan_id', $permohonan->id)->where(function($query) {
                     $query->where('status_pembayaran', null)->orWhere('status_pembayaran', 'bukti tidak valid');})->get();
             // dd($data);
             return view('back.user.tagihan.index', compact('data'));
-        // } catch (\Exception $e) {
+        } catch (\Exception $e) {
 
-        //     return back()->withError('Anda Tidak Mempunyai Tagihan yang Harus Dibayar');
-            // return view('error')->with('error', $e->getMessage());
-        // }
+            return back()->withError('Anda Tidak Mempunyai Tagihan yang Harus Dibayar');
+            return view('error')->with('error', $e->getMessage());
+        }
     }
 
     /**
@@ -110,17 +108,16 @@ class TagihanController extends Controller
                 $total += $subtotal; // Menambahkan subtotal ke total pembayaran
             }
 
-            $tagihan->total = $total; // Menyimpan total pembayaran pada tagihan
+            $tagihan->total = $total;
             $tagihan->save();
 
             DB::commit();
             return redirect()->route('superadmin.tagihan.index', $tagihan->permohonan_id)->with('success', 'Berhasil menambahkan tagihan');
         } catch (\Exception $e) {
             DB::rollback();
-            Log::error('Error occurred during tagihan creation: '.$e->getMessage());
             return redirect()->back()->withErrors([$e->getMessage()])->withInput();
+
         }
-        // return redirect()->back()->withErrors([$e->getMessage()])->withInput();
     }
 
     /**
@@ -134,24 +131,59 @@ class TagihanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Tagihan $tagihan)
+    public function edit($id)
     {
         //
+    }
+
+    public function editUser($id)
+    {
+        try{
+            $data = Tagihan::findOrFail($id);
+
+            return view('back.user.tagihan.edit', compact('data'));
+        } catch (\Exception $e) {
+
+            return back()->withError('Permohonan Tidak Ditemukan');
+            // return view('error')->with('error', $e->getMessage());
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Tagihan $tagihan)
+    public function update(Request $request, $id)
     {
         //
+    }
+
+    public function updateBukti(Request $request, $id)
+    {
+        try{
+
+
+            } catch (\Exception $e) {
+
+            return back()->withError('Gagal upload bukti, mohon periksa kembali file anda');
+            // return view('error')->with('error', $e->getMessage());
+            }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tagihan $tagihan)
+    public function destroy($id)
     {
-        //
+        try {
+            $tagihan = Tagihan::findOrFail($id);
+
+            $tagihan->pembayaran()->detach();
+
+            $tagihan->delete();
+
+            return redirect()->route('user.tagihan.index')->with('success', 'Tagihan berhasil dihapus.');
+        } catch (\Throwable $th) {
+            return back()->withErrors('Tagihan gagal dihapus');
+        }
     }
 }

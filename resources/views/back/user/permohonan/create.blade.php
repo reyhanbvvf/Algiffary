@@ -55,7 +55,7 @@ Ajukan Permohonan
                                 </div>
                                 <div class="form-group">
                                     <div  class="select2-purple">
-                                    <label for="service">Select Services</label>
+                                    <label for="service">Pilih Layanan</label>
                                         <select name="service_id[]" id="service" class="form-control select2 " data-dropdown-css-class="select2-purple" multiple="multiple" data-placeholder="Select Service" style="width: 100%;">
                                             @foreach($service as $s)
                                             <option value="{{ $s->id }}" {{ in_array($s->id, old('s', [])) ? 'selected' : '' }}>{{ $s->nama }}</option>

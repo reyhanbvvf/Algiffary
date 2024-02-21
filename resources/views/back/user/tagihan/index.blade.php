@@ -36,12 +36,12 @@ Tagihan
                             {{-- <a href="{{ route('superadmin.tagihan.create', $permohonan->id) }}" class="btn  btn-primary">
                                 <span><i class="feather icon-plus"></i> Buat Tagihan</span>
                             </a> --}}
-                            <td>
-                                <a type="button" href="{{ route('superadmin.permohonan.index') }}"
+                            {{-- <td>
+                                <a type="button" href="{{ route('user.permohonan.index') }}"
                                     class="btn btn btn-danger">Kembali</a>
-                            </td>
-                            <a type="button" href="#" class="btn  btn-primary float-right" target="_blank">Cetak
-                            </a>
+                            </td> --}}
+                            {{-- <a type="button" href="#" class="btn  btn-primary float-right" target="_blank">Cetak
+                            </a> --}}
                         </td>
                     </div>
                     <!-- /.card-header -->
@@ -54,7 +54,7 @@ Tagihan
                                     <th>Verifikasi</th>
                                     <th>denda</th>
                                     <th>total</th>
-                                    <th>Masa Berlaku</th>
+                                    <th>Masa Pembayaran</th>
                                     <th>Bukti</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -77,8 +77,8 @@ Tagihan
                                         @endif
                                     </td>
                                     <td>
-                                        <a class="btn btn-sm btn-info text-white" href="{{ route('superadmin.tagihan.edit', $d->id) }}">
-                                            <i class="fas fa-edit"></i>
+                                        <a class="btn btn-sm btn-info text-white" href="{{ route('user.tagihan.edit', $d->id) }}">
+                                            <i class="fas fa-upload"></i>
                                           </a>
                                         {{-- <button data-target="#modaldelete" data-toggle="modal" type="button"
                                             class="delete btn btn-sm bg-danger"
