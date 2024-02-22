@@ -36,7 +36,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form method="post" action="{{ route('superadmin.permohonan.update', $data->id) }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('superadmin.tagihan.update', $data->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="modal-body">
@@ -62,6 +62,11 @@
                                 <div class="form-group">
                                     <label for="denda">Denda</label>
                                     <input type="number" class="form-control" id="denda" name="denda" value="{{ $data->denda }}"
+                                        placeholder="Masukan Denda">
+                                </div>
+                                <div class="form-group">
+                                    <label for="total">Total</label>
+                                    <input type="number" class="form-control" id="total" name="total" value="{{ $data->total }}"
                                         placeholder="Masukan Denda" required>
                                 </div>
                                 <div class="form-group">
