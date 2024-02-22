@@ -87,9 +87,9 @@ Tambah Permohonan
                                     <label>Tipe Permohonan</label>
                                     <select name="tipe_permohonan" class="form-control" data-select2-id="1" tabindex="-1"
                                         aria-hidden="true">
-                                        <option value="" {{ old('status') == '--Pilih Status--' ? 'selected' : '' }} disabled>--Pilih Status--</option>
-                                        <option value="baru" {{ old('status') == 'baru' ? 'selected' : '' }}>Baru</option>
-                                        <option value="perpanjang" {{ old('status') == 'perpanjang' ? 'selected' : '' }}>Perpanjang</option>
+                                        <option value="" {{ old('tipe_permohonan') == '--Pilih tipe permohonan--' ? 'selected' : '' }} disabled>--Pilih Status--</option>
+                                        <option value="baru" {{ old('tipe_permohonan') == 'baru' ? 'selected' : '' }}>Baru</option>
+                                        <option value="perpanjangan" {{ old('tipe_permohonan') == 'perpanjangan' ? 'selected' : '' }}>Perpanjangan</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

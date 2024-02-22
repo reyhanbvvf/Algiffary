@@ -25,7 +25,7 @@ class TagihanController extends Controller
     try {
         $permohonan = Permohonan::findOrFail($id);
 
-        $data = $permohonan->tagihan;
+        $data = Tagihan::wherePermohonanId($permohonan->id)->get();
         // dd($data);
         return view('back.superadmin.tagihan.index', compact('data', 'permohonan'));
         } catch (\Exception $e) {
@@ -157,11 +157,23 @@ class TagihanController extends Controller
         //
     }
 
-    public function updateBukti(Request $request, $id)
+    public function updateUser(Request $request, $id)
     {
         try{
+            $tagihan = Tagihan::findOrFail($id);
 
+            if ($request->hasFile('bukti') && $tagihan->bukti) {
+                Storage::disk('public')->delete('bukti/' . $tagihan->bukti);
+            }
 
+            if ($request->hasFile('bukti')) {
+                $path = $request->file('bukti')->store('bukti', 'public');
+                $tagihan->bukti = basename($path);
+            }
+
+            $tagihan->save();
+
+            return redirect()->route('user.index')->withSuccess('Bukti berhasil diupload');
             } catch (\Exception $e) {
 
             return back()->withError('Gagal upload bukti, mohon periksa kembali file anda');
