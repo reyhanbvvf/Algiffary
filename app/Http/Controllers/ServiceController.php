@@ -144,8 +144,6 @@ class ServiceController extends Controller
             $service->save();
 
             return redirect()->route('superadmin.service.index')->with('success', 'Data berhasil diubah');
-        } catch (ValidationException $e) {
-            return redirect()->back()->withErrors($e->errors())->withInput();
         } catch (\Throwable $th) {
             return back()->withErrors('Data gagal disimpan');
         }

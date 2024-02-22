@@ -133,7 +133,15 @@ class TagihanController extends Controller
      */
     public function edit($id)
     {
-        //
+        try{
+            $data = Tagihan::findOrFail($id);
+
+            return view('back.superadmin.tagihan.edit', compact('data'));
+        } catch (\Exception $e) {
+
+            return back()->withError('Tagihan Tidak Ditemukan');
+            // return view('error')->with('error', $e->getMessage());
+        }
     }
 
     public function editUser($id)
@@ -154,7 +162,53 @@ class TagihanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $tagihan = Tagihan::findOrFail($id);
+
+            $validator = Validator::make($request->all(), [
+                'bayar_awal' => 'required',
+                'bayar_berakhir' => 'required',
+                'denda' => 'nullable',
+                'status_pembayaran' => 'required|in:Aktif,Nonaktif',
+                'harga' => 'required|numeric', // Ensure 'harga' is a number
+                'deskripsi' => 'required',
+                'satuan' => 'required',
+                'info' => 'required',
+                'foto' => 'nullable|file|image|mimes:jpeg,png,jpg|max:5120'
+            ]);
+            if ($validator->fails()) {
+                return back()->withErrors($validator)->withInput();
+            }
+
+            $tagihan = tagihan::findOrFail($id);
+            $tagihan->bayar_awal = $request->input('bayar_awal');
+            $tagihan->bayar_berakhir = $request->input('bayar_berakhir');
+            $tagihan->status = $request->input('status');
+            $tagihan->harga = $request->input('harga');
+            $tagihan->deskripsi = $request->input('deskripsi');
+            $tagihan->satuan = $request->input('satuan');
+            $tagihan->info = $request->input('info');
+            if ($request->hasFile('bukti')) {
+                if ($tagihan->bukti) {
+                    Storage::disk('public')->delete('bukti/' . $tagihan->bukti);
+                }
+
+                // Store the new photo in the 'public/service' directory
+                $path = $request->file('bukti')->store('bukti', 'public');
+
+                // Save the filename without the path
+                $tagihan->bukti = basename($path);
+            }
+
+            $tagihan->save();
+
+            return redirect()->route('superadmin.tagihan.index', $data->id)->with('success', 'Data berhasil diubah');
+
+        } catch (\Exception $e) {
+
+        return back()->withError('Gagal Mengubah tagihan');
+        // return view('error')->with('error', $e->getMessage());
+        }
     }
 
     public function updateUser(Request $request, $id)

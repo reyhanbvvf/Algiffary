@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('bukti')->nullable();
             $table->date('bayar_awal');
             $table->date('bayar_berakhir');
+            $table->date('tanggal_bayar');
             $table->timestamps();
         });
     }
