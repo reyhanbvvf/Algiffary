@@ -172,7 +172,7 @@
     <div class="container">
       <div class="row">
         <div class="offset-lg-0">
-        <img src="{{asset('front/assets/images/kop.png')}}" alt="KOP" class="photo-left">
+        <img src="{{asset('front/assets/images/kop4.png')}}" alt="KOP" class="photo-left">
         <div class="section-heading text-center">
 
               </ul>
