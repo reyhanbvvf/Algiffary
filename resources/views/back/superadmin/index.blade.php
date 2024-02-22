@@ -92,7 +92,7 @@
         <!-- Main row -->
         <div class="row">
           <!-- Left col -->
-          <section class="col-lg-7 connectedSortable">
+          {{-- <section class="col-lg-7 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
             <div class="card">
               <div class="card-header">
@@ -596,7 +596,7 @@
                 <div id="calendar" style="width: 100%"></div>
               </div>
               <!-- /.card-body -->
-            </div>
+            </div> --}}
             <!-- /.card -->
           </section>
           <!-- right col -->

@@ -55,7 +55,7 @@ Tambah Jenis Pelayanan
                                 </div>
                                 <div class="form-group">
                                     <label for="harga">Harga</label>
-                                    <input type="text" class="form-control" id="harga" name="harga" value="{{ old('harga') }}"
+                                    <input type="number" class="form-control" id="harga" name="harga" value="{{ old('harga') }}"
                                         placeholder="Rp." required>
                                 </div>
                                 <div class="form-group">
@@ -136,8 +136,8 @@ Tambah Jenis Pelayanan
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         // Initialize autoNumeric on the input field
-        new AutoNumeric('#harga', {
-            currencySymbol: 'Rp. ',
+        new AutoNumeric('harga', {
+            currencySymbol: '',
             decimalCharacter: ',',
             digitGroupSeparator: '.',
             decimalPlaces: 0,
