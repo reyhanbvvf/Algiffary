@@ -172,18 +172,9 @@
     <div class="container">
       <div class="row">
         <div class="offset-lg-0">
-        <img src="{{asset('front/assets/images/.png')}}" alt="KOP" class="photo-left">
-        <img src="{{asset('front/assets/images/.png')}}" alt="KOP" class="photo-right">
-          <div class="section-heading text-center">
-              <h2><b>PEMERINTAHAN KABUPATEN BANJAR</b>
-                <p></p>DINAS PERUMAHAN RAKYAT, KAWASAN PERMUKIMAN
-                <p></p>DAN LINGKUNGAN HIDUP
-                <p></p>UPTD PENGELOLAAN SAMPAH DAN AIR LIMBAH
-                <p></p>BADAN LAYANAN UMUM DAERAH INTAN HIJAU
-              </h2>
-              <ul>
-                <li style="font-size: 10px;"><u>Alamat Kantor: Jl. Chandra Kirana Desa Indrasari Kecamatan Martapura Kota Kabupaten Banjar
-                  <b>Kalimantan Selatan.</b></u></li>
+        <img src="{{asset('front/assets/images/kop.png')}}" alt="KOP" class="photo-left">
+        <div class="section-heading text-center">
+
               </ul>
           </div>
         </div>
