@@ -23,13 +23,13 @@ class BackController extends Controller
 
     public function index()
     {
-        $permohonan = Permohonan::whereUserId(Auth::user()->id)->first();
+        // $permohonan = Permohonan::whereUserId(Auth::user()->id)->first();
 
-        $tagihan = Tagihan::wherePermohonanId($permohonan->id)->where(function($query) {
-                $query->whereStatusPembayaran(null)->orWhere('verifikasi', 'bukti tidak valid');})->count();
+        // $tagihan = Tagihan::wherePermohonanId($permohonan->id)->where(function($query) {
+        //         $query->whereStatusPembayaran(null)->orWhere('verifikasi', 'bukti tidak valid');})->count();
 
-        $lunas = Tagihan::wherePermohonanId($permohonan->id)->whereVerifikasi('diterima')->count();
+        // $lunas = Tagihan::wherePermohonanId($permohonan->id)->whereVerifikasi('diterima')->count();
 
-        return view('back.user.index',compact('tagihan','lunas'));
+        return view('back.user.index');
     }
 }

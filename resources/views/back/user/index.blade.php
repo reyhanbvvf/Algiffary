@@ -30,7 +30,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>{{ $tagihan }}</h3>
+                <h3></h3>
 
                 <p>Tagihan Belum Di bayar</p>
               </div>
@@ -45,7 +45,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>{{ $lunas }}
+                <h3>
                     {{-- <sup style="font-size: 20px">%</sup> --}}
                 </h3>
 
