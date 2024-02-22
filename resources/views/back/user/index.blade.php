@@ -30,7 +30,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3></h3>
+                <h3>{{$tagihan ? $tagihan : '-'}}</h3>
 
                 <p>Tagihan Belum Di bayar</p>
               </div>
@@ -45,7 +45,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>
+                <h3>{{$lunas ? $lunas : '-'}}
                     {{-- <sup style="font-size: 20px">%</sup> --}}
                 </h3>
 
@@ -57,6 +57,7 @@
               <a href="#" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+
           <!-- ./col -->
           {{-- <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -89,6 +90,38 @@
           </div> --}}
           <!-- ./col -->
         {{-- </div> --}}
+        <div class="card-body col-md-12">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead class="text-center">
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Perusahaan</th>
+                        <th>Status</th>
+                        <th>Tipe Permohonan</th>
+                        <th>Nomor Surat</th>
+                        <th>Masa Berlaku</th>
+                        {{-- <th>Dokumen</th> --}}
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    @foreach ($permohonan as $d )
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $d->user->profil->nama }}</td>
+                        <td>{{ $d->status }}</td>
+                        <td>{{ $d->tipe_permohonan }}</td>
+                        <td>{{ $d->no_surat ? $d->no_surat : '-' }}</td>
+                        <td>{{ isset($d->tgl_awal) ? \Carbon\Carbon::parse($d->tgl_awal)->format('d-M-y') : '-' }} s/d {{ isset($d->tgl_berakhir) ? \Carbon\Carbon::parse($d->tgl_berakhir)->format('d-M-y') : '-' }}
+                        </td>
+                        {{-- <td><a href="{{ url('storage/dokumen/'.$d->dokumen) }}" target="_blank">Lihat Dokumen</a> </td> --}}
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+
+        </div>
+
         <!-- /.row -->
         <!-- Main row -->
         {{-- <div class="row">

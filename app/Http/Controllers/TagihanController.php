@@ -162,7 +162,7 @@ class TagihanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // try {
+        try {
             $tagihan = Tagihan::findOrFail($id);
 
             $validator = Validator::make($request->all(), [
@@ -199,11 +199,11 @@ class TagihanController extends Controller
 
             return redirect()->route('superadmin.tagihan.index', $tagihan->permohonan_id)->with('success', 'Data berhasil diubah');
 
-        // } catch (\Exception $e) {
+        } catch (\Exception $e) {
 
-        // return back()->withError('Gagal Mengubah tagihan');
-        // return view('error')->with('error', $e->getMessage());
-        // }
+        return back()->withError('Gagal Mengubah tagihan');
+        return view('error')->with('error', $e->getMessage());
+        }
     }
 
     public function updateUser(Request $request, $id)
