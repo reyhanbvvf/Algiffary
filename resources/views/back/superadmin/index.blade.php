@@ -123,9 +123,7 @@
                                       </li>
                                   </ul>
 
-                                  <div class="main-button mt-3">
-                                      <a href="{{ route('reservation') }}" class="btn btn-primary"></a>
-                                  </div>
+
                               </div>
                           </div>
                       </div>
