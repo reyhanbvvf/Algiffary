@@ -84,21 +84,59 @@ Tambah User
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password"
-                                        placeholder="Masukan Password" required>
+                                    <i class="text-danger"><span><sup>*</sup>Wajib 8 (huruf, angka)</span></i>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Masukan Password" required>
+                                        <div class="input-group-append">
+                                            <button type="button" id="togglePassword" onclick="togglePasswordVisibility()" class="btn btn-outline-secondary">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="password_confirmation">Konfirmasi Password</label>
-                                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Konfirmasi Password" required>
+                                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Masukan Ulang Password" required>
+                                    <div id="passwordHelpBlock" class="form-text"></div>
                                 </div>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <td>
-                                    <a type="button" href="{{ route('superadmin.user.index') }}"
-                                        class="btn btn btn-danger">Kembali</a>
-                                </td>
-                                <button type="submit" class="btn btn-primary">Simpan</button>
-                            </div>
+                                <div class="modal-footer justify-content-between">
+                                    <td>
+                                        <a type="button" href="{{ route('superadmin.user.index') }}"
+                                            class="btn btn btn-danger">Kembali</a>
+                                    </td>
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                </div>
+
+                            <script>
+                                function togglePasswordVisibility() {
+                                    const passwordInput = document.getElementById("password");
+                                    const toggleButton = document.getElementById("togglePassword");
+
+                                    if (passwordInput.type === "password") {
+                                        passwordInput.type = "text";
+                                        toggleButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
+                                    } else {
+                                        passwordInput.type = "password";
+                                        toggleButton.innerHTML = '<i class="fas fa-eye"></i>';
+                                    }
+                                }
+                            </script>
+
+                            <script>
+                                document.getElementById("password_confirmation").addEventListener("input", function() {
+                                    var passwordInput = document.getElementById("password");
+                                    var confirmPasswordInput = document.getElementById("password_confirmation");
+                                    var message = document.getElementById("passwordHelpBlock");
+
+                                    if (passwordInput.value === confirmPasswordInput.value) {
+                                        message.innerHTML = "Password sesuai";
+                                        message.style.color = "green";
+                                    } else {
+                                        message.innerHTML = "Password belum sesuai";
+                                        message.style.color = "red";
+                                    }
+                                });
+                            </script>
                         </form>
                     </div>
                     <!-- /.card-body -->

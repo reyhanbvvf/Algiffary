@@ -220,7 +220,7 @@
     <div class="running-text-container">
         <div class="running-text">
             <p class="slow"><b>Jagalah kebersihan untuk menciptakan lingkungan hidup yang lebih sehat.</b></p>
-            <p class="medium"><b>Satu sampah yang telah kau lupakan, akan memberi berbagai dampak yang tak terlupakan di lingkungan.</b></p>          
+            <p class="medium"><b>Satu sampah yang telah kau lupakan, akan memberi berbagai dampak yang tak terlupakan di lingkungan.</b></p>
             <p class="fast"><b>Alam Semesta ini harus terselamatkan atas sampah-sampah yang akan berada ditempat semestinya.</b></p>
         </div>
     </div>
