@@ -60,7 +60,7 @@ Jenis Pelayanan
                                 @foreach ($data as $d )
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $d->nama }}</td>
+                                    <td>{{ $d->nama }}</td>a
                                     <td>{{ $d->status }}</td>
                                     <td>Rp. {{ number_format($d->harga, 2, ',', '.') }}</td>
                                     <td>{{ $d->deskripsi }}</td>
