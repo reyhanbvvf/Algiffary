@@ -104,7 +104,7 @@
                                     <select name="tipe_permohonan" class="form-control" data-select2-id="1" tabindex="-1" aria-hidden="true">
                                         <option value="" disabled>--Pilih Tipe data--</option>
                                         <option value="baru" {{ $data->tipe_permohonan == 'baru' ? 'selected' : '' }}>Baru</option>
-                                        <option value="perpanjang" {{ $data->tipe_permohonan == 'perpanjang' ? 'selected' : '' }}>Perpanjang</option>
+                                        <option value="perpanjangan" {{ $data->tipe_permohonan == 'perpanjangan' ? 'selected' : '' }}>Perpanjangan</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
