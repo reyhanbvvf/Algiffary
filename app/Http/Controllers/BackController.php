@@ -18,7 +18,10 @@ class BackController extends Controller
 
     public function superindex()
     {
-        return view('back.superadmin.index');
+
+        $data = Service::all();
+
+        return view('back.superadmin.index', compact('data'));
     }
 
     public function index()
