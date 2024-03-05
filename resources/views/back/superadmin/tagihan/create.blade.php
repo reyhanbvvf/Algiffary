@@ -66,20 +66,20 @@ Tambah Tagihan
                                     </div>
                                 </div>
 
-
                                 <h3>Pelayanan </h3>
                                 @foreach($data->services as $service)
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="harga_{{ $service->id }}">Harga {{ $service->nama }}</label>
-                                            <input type="text" class="form-control harga" id="harga_{{ $service->id }}" name="harga[]" value="{{ old('harga') }}" placeholder="Harga {{ $service->nama }}">
+                                            <input type="text" class="form-control harga" id="harga_{{ $service->id }}" name="harga[{{ $service->id }}]" value="{{ old('harga.'.$service->id) }}" placeholder="Harga {{ $service->nama }}">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="jumlah_{{ $service->id }}">Jumlah {{ $service->nama }}</label>
-                                            <input type="text" class="form-control jumlah" id="jumlah_{{ $service->id }}" name="jumlah[]" value="{{ old('jumlah') }}" placeholder="Jumlah {{ $service->nama }}">
+                                            <input type="text" class="form-control jumlah" id="jumlah_{{ $service->id }}" name="jumlah[{{ $service->id }}]" value="{{ old('jumlah.'.$service->id) }}" placeholder="Jumlah {{ $service->nama }}">
+
                                         </div>
                                     </div>
                                     <div class="col-md-4">
