@@ -92,9 +92,9 @@ class TagihanController extends Controller
 
             $total = 0; // Inisialisasi total pembayaran
 
-            foreach ($services as $index => $service_id) {
-                $harga = $request->input('harga')[$index];
-                $jumlah = $request->input('jumlah')[$index];
+            foreach ($services as $service_id) {
+                $harga = $request->input('harga')[$service_id];
+                $jumlah = $request->input('jumlah')[$service_id];
                 $subtotal = $harga * $jumlah;
 
                 $pembayaran = new Pembayaran();
