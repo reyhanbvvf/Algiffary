@@ -67,7 +67,7 @@ Tambah Tagihan
                                 </div>
 
 
-                                <h3>Pelayanan</h3>
+                                <h3>Pelayanan </h3>
                                 @foreach($data->services as $service)
                                 <div class="row">
                                     <div class="col-md-4">
