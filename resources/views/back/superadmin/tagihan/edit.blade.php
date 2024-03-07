@@ -78,13 +78,14 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Tipe Permohonan</label>
+                                    <label>Verifikasi</label>
                                     <select name="verifikasi" class="form-control" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="" disabled>--Pilih Tipe data--</option>
-                                        <option value="diterima" {{ $data->verifikasi == 'diterima' ? 'selected' : '' }}>Diterima</option>
-                                        <option value="bukti tidak valid" {{ $data->verifikasi == 'bukti tidak valid' ? 'selected' : '' }}>Bukti tidak valid</option>
+                                        <option value="" disabled selected>--Pilih Verifikasi--</option>
+                                        <option value="diterima" {{ ($data->verifikasi == 'diterima' && $data->verifikasi !== null) ? 'selected' : '' }}>Diterima</option>
+                                        <option value="bukti tidak valid" {{ ($data->verifikasi == 'bukti tidak valid' && $data->verifikasi !== null) ? 'selected' : '' }}>Bukti tidak valid</option>
                                     </select>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="exampleInputFile">Bukti</label>
                                     <div class="input-group">
@@ -106,7 +107,7 @@
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <td>
-                                    <a type="button" href="{{ route('superadmin.tagihan.index', $data->id) }}" class="btn btn-danger">Kembali</a>
+                                    <a type="button" href="{{ route('superadmin.tagihan.index', $data->permohonan_id) }}" class="btn btn-danger">Kembali</a>
                                 </td>
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>

@@ -170,7 +170,7 @@ class TagihanController extends Controller
                 'bayar_berakhir' => 'required',
                 'denda' => 'nullable',
                 'status_pembayaran' => 'required|in:tepat waktu,terlambat',
-                'verifikasi' => 'required|in:diterima,bukti tidak valid',
+                'verifikasi' => 'nullable|in:diterima,bukti tidak valid',
                 'total' => 'required|numeric',
                 'bukti' => 'nullable|file|image|mimes:jpeg,png,jpg|max:5120'
             ]);
