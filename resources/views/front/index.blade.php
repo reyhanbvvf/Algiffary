@@ -25,15 +25,15 @@
                     <div class="row">
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-list"></i>
-                        <h4><span>Jenis Pelayanan:</span><br>20</h4>
+                        <h4><a>Jenis Pelayanan:</a><br>20</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-truck"></i>
-                        <h4><span>Sarpras:</span><br>14<em></em></h4>
+                        <h4><a>Sarpras:</a><br>14<em></em></h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa-solid fa-users"></i>
-                        <h4><span>SDM:</span><br>80</h4>
+                        <h4><a>SDM:</a><br>80<em></em></h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
@@ -174,11 +174,12 @@
         <div class="offset-lg-0">
         <img src="{{asset('front/assets/images/kop4.png')}}" alt="KOP" class="photo-left">
         <div class="section-heading text-center">
-
-              </ul>
+            <h2 class="color-text #FF0000">
+                <a>Pelayanan Kebersihan Kabupten Banjar</a>
+            </h2>
           </div>
         </div>
-        <div class="col-lg-6 col-sm-6">
+        <div class="col-lg-12 col-sm-12">
           <div class="item">
             <div class="row">
               <div class="col-lg-6">
@@ -191,9 +192,9 @@
                     <div class="col-lg-6 mb-4">
                         <div class="card">
                             {{-- Tambahkan kondisi untuk memastikan bahwa file gambar ada --}}
-                            @if($d->foto)
+                           {{-- }} @if($d->foto)
                                 <img src="{{ asset('storage/service/'.$d->foto) }}" class="card-img-top" alt="{{ $d->nama }}">
-                            @endif
+                            @endif --}}
 
                             <div class="card-body">
                                 <h5 class="card-title">{{ $d->nama }}</h5>
@@ -211,7 +212,7 @@
                                 </ul>
 
                                 <div class="main-button mt-3">
-                                    <a href="{{ route('reservation') }}" class="btn btn-primary">Daftar Sekarang</a>
+                                    <a href="{{ route('reservation') }}" class="btn btn-primary">Pesan Sekarang</a>
                                 </div>
                             </div>
                         </div>

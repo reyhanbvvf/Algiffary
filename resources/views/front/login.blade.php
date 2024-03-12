@@ -140,14 +140,17 @@
 
         .slow {
             animation: marquee-slow 23s linear infinite; /* Slow animation duration */
+            color: yellow;
         }
 
         .medium {
             animation: marquee-medium 20s linear infinite; /* Medium animation duration */
+            color: yellow;
         }
 
         .fast {
             animation: marquee-fast 18s linear infinite; /* Fast animation duration */
+            color: yellow;
         }
 
         @keyframes marquee-slow {
@@ -224,7 +227,6 @@
             <p class="fast"><b>Alam Semesta ini harus terselamatkan atas sampah-sampah yang akan berada ditempat semestinya.</b></p>
         </div>
     </div>
-
 
   </body>
   </html>

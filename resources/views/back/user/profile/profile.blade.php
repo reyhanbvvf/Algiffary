@@ -67,37 +67,19 @@
                 <h3 class="card-title">About Me</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Education</strong>
-
-                <p class="text-muted">
-                  B.S. in Computer Science from the University of Tennessee at Knoxville
-                </p>
-
-                <hr>
-
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                <p class="text-muted">Malibu, California</p>
-
-                <hr>
-
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                <p class="text-muted">
-                  <span class="tag tag-danger">UI Design</span>
-                  <span class="tag tag-success">Coding</span>
-                  <span class="tag tag-info">Javascript</span>
-                  <span class="tag tag-warning">PHP</span>
-                  <span class="tag tag-primary">Node.js</span>
-                </p>
-
-                <hr>
-
-                <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
-              </div>
+                <div class="card-body">
+                    <strong><i class="fas fa-book mr-1"></i> Nama Perusahaan</strong>
+                    <p class="text-muted">{{ Auth::user()->profil ? Auth::user()->profil->nama : '' }}</p>
+                    <hr>
+                    <strong><i class="fas fa-solid fa-map-pin mr-1"></i> Alamat Perusahaan</strong>
+                    <p class="text-muted">{{ Auth::user()->profil ? Auth::user()->profil->alamat : '' }}</p>
+                    <hr>
+                    <strong><i class="fas fa-map-marker-alt mr-1"></i> Lokasi</strong>
+                    <p class="text-muted">Latitude: {{ Auth::user()->profil ? Auth::user()->profil->lat : '' }}, Longitude: {{ Auth::user()->profil ? Auth::user()->profil->long : '' }}</p>
+                    <hr>
+                    <strong><i class="fas fa-solid fa-envelope mr-1"></i> Email</strong>
+                    <p class="text-muted">{{ Auth::user()->email }}</p>
+                </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
@@ -266,7 +248,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label" for="exampleInputFile">Logo</label>
+                            <label class="col-sm-2 col-form-label" for="exampleInputFile">Foto</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
                                     <div class="custom-file ">
@@ -275,7 +257,7 @@
                                             @if(old('foto'))
                                                 {{ old('foto') }}
                                             @else
-                                                Pilih Logo
+                                                Pilih Foto
                                             @endif
                                         </label>
                                     </div>

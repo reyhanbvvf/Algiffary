@@ -148,7 +148,7 @@
                     </ul>
                 </div>
             @endif
-            
+
             <form class="login-form" action="{{route('authenticate')}}" method="post">
               @csrf
                 <label for="name">

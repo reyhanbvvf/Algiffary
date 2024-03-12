@@ -35,7 +35,6 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <i class="fa fa-star"></i>
                 <h3>Rp. 80.000</h3>
 
                 <p>Pengelolaan Sampah di TPA</p>
@@ -44,6 +43,9 @@
                 <i class="ion ion-bag"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <div class="star-icon">
+                <i class="fas fa-star"></i>
+            </div>
             </div>
           </div>
           <!-- ./col -->
@@ -153,7 +155,7 @@
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  <h3>Rp. 500.000<sup style="font-size: 20px">★</sup></h3>
+                  <h3>Rp. 500.000</h3>
 
                   <p>Rumah Tangga</p>
                 </div>
@@ -161,8 +163,22 @@
                   <i class="ion ion-stats-bars"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <div class="star-icon">
+                    <i class="fas fa-star"></i>
+                </div>
               </div>
             </div>
+
+            <!-- warna pada kolom -->
+            <style>
+                .star-icon {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    color: rgb(255, 255, 255); /* Ubah warna sesuai keinginan */
+                }
+            </style>
+
             <!-- ./col -->
             <div class="col-lg-3 col-6">
               <!-- small box -->

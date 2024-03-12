@@ -61,14 +61,13 @@ https://templatemo.com/tm-580-woox-travel
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                        <li><a href="{{route('home')}}" class="active">Home</a></li>
-                        <li><a href="{{route('about')}}">Visi Misi</a></li>
+                    <ul class="nav text-center">
+                        <li><a href="{{route('home')}}" class="{{ Request::route()->getName() == 'home' ? 'active' : '' }}">Home</a></li>
+                        <li><a href="{{route('about')}}" class="{{ Request::route()->getName() == 'about' ? 'active' : '' }}">Visi Misi</a></li>
                         <!-- <li><a href="deals.html">Visi Misi</a></li> -->
-                        <li><a href="{{route('reservation')}}">Pesan Layanan</a></li>
-                        <li><a href="{{route('login')}}">Masuk</a></li>
-
-                            <li><a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="" id="btn-whatsapp-support" target="_blank">Helpdesk</li>
+                        <li><a href="{{route('reservation')}}" class="{{ Request::route()->getName() == 'reservation' ? 'active' : '' }}">Pesan Layanan</a></li>
+                        <li><a href="{{route('login')}}" class="{{ Request::route()->getName() == 'login' ? 'active' : '' }}">Masuk</a></li>
+                        <li><a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="custom-button" id="btn-whatsapp-support" target="_blank">Helpdesk</a></li>
 
 
                             </div></li>
