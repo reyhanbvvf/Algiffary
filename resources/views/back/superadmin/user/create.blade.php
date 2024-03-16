@@ -84,9 +84,8 @@ Tambah User
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <i class="text-danger"><span><sup>*</sup>Wajib 8 (huruf, angka)</span></i>
                                     <div class="input-group">
-                                        <input type="password" class="form-control" id="password" name="password" placeholder="Masukan Password" required>
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Masukan Password" required pattern=".{8,}" title="Password harus terdiri dari minimal 8 karakter">
                                         <div class="input-group-append">
                                             <button type="button" id="togglePassword" onclick="togglePasswordVisibility()" class="btn btn-outline-secondary">
                                                 <i class="fas fa-eye"></i>

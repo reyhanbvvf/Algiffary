@@ -30,6 +30,7 @@
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
+                    <a href="#" data-toggle="modal" data-target="#profilePictureModal">
                   <img class="profile-user-img img-fluid img-circle"
                     @if (Auth::user()->foto == null)
                         src="{{asset('back/dist/img/user4-128x128.jpg')}}"
@@ -43,7 +44,24 @@
 
                 <p class="text-muted text-center">Software Engineer</p>
 
-                <ul class="list-group list-group-unbordered mb-3">
+                <!-- Modal -->
+                <div class="modal fade" id="profilePictureModal" tabindex="-1" role="dialog" aria-labelledby="profilePictureModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <img class="img-fluid"
+                                    @if (Auth::user()->foto == null)
+                                        src="{{asset('back/dist/img/user4-128x128.jpg')}}"
+                                    @else
+                                        src="{{ url('storage/user/'.Auth::user()->foto) }}"
+                                    @endif
+                                    alt="User profile picture">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
                     <b>Followers</b> <a class="float-right">1,322</a>
                   </li>
@@ -55,7 +73,7 @@
                   </li>
                 </ul>
 
-                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
               </div>
               <!-- /.card-body -->
             </div>
@@ -68,11 +86,14 @@
               </div>
               <!-- /.card-header -->
                 <div class="card-body">
-                    <strong><i class="fas fa-book mr-1"></i> Nama Perusahaan</strong>
+                    <strong><i class="fas fa-solid fa-signature mr-1"></i> Nama Perusahaan</strong>
                     <p class="text-muted">{{ Auth::user()->profil ? Auth::user()->profil->nama : '' }}</p>
                     <hr>
                     <strong><i class="fas fa-solid fa-map-pin mr-1"></i> Alamat Perusahaan</strong>
                     <p class="text-muted">{{ Auth::user()->profil ? Auth::user()->profil->alamat : '' }}</p>
+                    <hr>
+                    <strong><i class="fas fa-solid fa-phone mr-1"></i> Nomor Handphone</strong>
+                    <p class="text-muted">{{ Auth::user()->nomor }}</p>
                     <hr>
                     <strong><i class="fas fa-map-marker-alt mr-1"></i> Lokasi</strong>
                     <p class="text-muted">Latitude: {{ Auth::user()->profil ? Auth::user()->profil->lat : '' }}, Longitude: {{ Auth::user()->profil ? Auth::user()->profil->long : '' }}</p>
@@ -247,27 +268,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label" for="exampleInputFile">Foto</label>
-                            <div class="col-sm-10">
-                                <div class="input-group">
-                                    <div class="custom-file ">
-                                        <input name="foto" type="file" class="custom-file-input" id="exampleInputFile">
-                                        <label class="custom-file-label" for="exampleInputFile">
-                                            @if(old('foto'))
-                                                {{ old('foto') }}
-                                            @else
-                                                Pilih Foto
-                                            @endif
-                                        </label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Upload</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <!-- Tombol Simpan -->
                         <div class="form-group row">
                             <div class="offset-sm-2 col-sm-10">
@@ -297,51 +297,78 @@
                             <div class="col-sm-10">
                               <input type="text" class="form-control" value="{{Auth::user()->username}}" id="inputName2" placeholder="Username" disabled>
                             </div>
-                          </div>
-                      <div class="form-group row">
-                        <label for="name" class="col-sm-2 col-form-label">Nama</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="name" id="name" value="{{Auth::user()->name}}" placeholder="Nama">
                         </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10">
-                          <input type="email" class="form-control" name="email" value="{{Auth::user()->email}}" id="inputEmail" placeholder="Email">
+
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-2 col-form-label">Nama Admin</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control" name="name" id="name" value="{{Auth::user()->name}}" placeholder="Nama" title="Nama Admin">
+                            </div>
                         </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="exampleInputFile">Foto</label>
-                        <div class="col-sm-10">
-                            <div class="input-group">
-                                <div class="custom-file ">
-                                    <input name="foto" type="file" class="custom-file-input" id="exampleInputFile">
-                                    <label class="custom-file-label" for="exampleInputFile">
-                                        @if(old('foto'))
-                                            {{ old('foto') }}
-                                        @else
-                                            Pilih Foto
-                                        @endif
-                                    </label>
-                                </div>
-                                <div class="input-group-append">
-                                    <span class="input-group-text">Upload</span>
+
+                        <div class="form-group row">
+                            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                            <input type="email" class="form-control" name="email" value="{{Auth::user()->email}}" id="inputEmail" placeholder="Email" title="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputNomor" class="col-sm-2 col-form-label">Nomor Handphone</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control" name="nomor" value="{{Auth::user()->nomor}}" id="inputNomor" placeholder="Nomor Handphone" title="No. WhatsApp">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="exampleInputFile">Logo Perusahaan</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <div class="custom-file ">
+                                        <input name="foto" type="file" class="custom-file-input" id="exampleInputFile">
+                                        <label class="custom-file-label" for="exampleInputFile">
+                                            @if(old('foto'))
+                                                {{ old('foto') }}
+                                            @else
+                                                Pilih Foto
+                                            @endif
+                                        </label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                      <div class="form-group row">
-                        <label for="password" class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-sm-10">
-                          <input class="form-control" name="password" id="password" placeholder="password">
+
+                        <div class="form-group row">
+                            <div class="col-sm-10 offset-sm-0">
+                                <small class="text-muted"><b>Ganti Password Anda jika perlu.</b></small>
+                            </div>
                         </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="password_confirmation" class="col-sm-2 col-form-label">Konfirmasi Password</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="Konfirmasi Password">
+
+                        <div class="form-group row">
+                            <label for="password" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Masukan Password" pattern=".{8,}" title="Password harus terdiri dari minimal 8 karakter">
+                                    <div class="input-group-append">
+                                        <button type="button" id="togglePassword" onclick="togglePasswordVisibility()" class="btn btn-outline-secondary">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
+
+                        <div class="form-group row">
+                            <label for="password_confirmation" class="col-sm-2 col-form-label">Konfirmasi Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Masukan Ulang Password">
+                                <div id="passwordHelpBlock" class="form-text"></div>
+                            </div>
+                        </div>
+
                       {{-- <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
                           <div class="checkbox">
@@ -351,11 +378,11 @@
                           </div>
                         </div>
                       </div> --}}
-                      <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-info">Ubah</button>
+                        <div class="form-group row">
+                            <div class="offset-sm-2 col-sm-10">
+                            <button type="submit" class="btn btn-info">Ubah</button>
+                            </div>
                         </div>
-                      </div>
                     </form>
                   </div>
                   <!-- /.tab-pane -->
@@ -382,4 +409,47 @@
       bsCustomFileInput.init();
     });
 </script>
+
+<script>
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementById('password');
+        var passwordConfirmationInput = document.getElementById('password_confirmation');
+        var icon = document.getElementById('togglePassword').querySelector('i');
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            passwordConfirmationInput.type = "text";
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = "password";
+            passwordConfirmationInput.type = "password";
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    }
+</script>
+
+<script>
+    // Fungsi untuk memeriksa apakah password cocok saat diketikkan ulang
+    function checkPasswordMatch() {
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('password_confirmation').value;
+        var passwordHelpBlock = document.getElementById('passwordHelpBlock');
+
+        // Memeriksa apakah password cocok atau tidak
+        if (password === confirmPassword) {
+            passwordHelpBlock.innerText = 'Password cocok.';
+            passwordHelpBlock.style.color = 'green';
+        } else {
+            passwordHelpBlock.innerText = 'Password tidak cocok.';
+            passwordHelpBlock.style.color = 'red';
+        }
+    }
+
+    // Memanggil fungsi checkPasswordMatch() setiap kali input password diubah
+    document.getElementById('password').addEventListener('input', checkPasswordMatch);
+    document.getElementById('password_confirmation').addEventListener('input', checkPasswordMatch);
+</script>
+
 @endpush
