@@ -198,10 +198,10 @@
             </label>
 
             <button type="submit" class="login-button">Login</button>
-                <a href="{{route('register')}}"><b>Daftar Akun</b></a>
+                {{-- <a href="{{route('register')}}"><b>Daftar Akun</b></a>
             <div class="forgot-password-section">
                 <p>Forgot your password? <a href="#" class="forgot-password-link">Reset it here</a>.</p>
-            </div>
+            </div> --}}
         </form>
     </div>
 
