@@ -116,7 +116,7 @@
     <div class="container">
         <hr style="margin-top:2px;">
         <div class="isi">
-            <h2 style="text-align:center;">LAPORAN BANJIR</h2>
+            <h2 style="text-align:center;">LAPORAN PENDAPATAN</h2>
             <h3 style="text-align:center;">{{Carbon\carbon::parse($start)->translatedFormat('d-F-Y')}} s/d
                 {{Carbon\carbon::parse($end)->translatedFormat('d-F-Y')}}</h3>
             <br>
@@ -126,12 +126,10 @@
 
                     <tr>
                         <th>No</th>
-                        <th>Lokasi</th>
-                        <th>Kondisi</th>
-                        <th>Operator</th>
-                        <th>Penyebab</th>
-                        <th>Kerugian</th>
-                        <th>Waktu Kejadian</th>
+                        <th>Nama</th>
+                        <th>Jumlah</th>
+                        <th>Tanggal Bayar</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -139,13 +137,12 @@
 
                     <tr>
                         <td style="text-align: left">{{$loop->iteration}}</td>
-                        <td style="text-align: left">{{$d->kecamatan->kecamatan}}, {{ $d->kelurahan->kelurahan }}, {{ $d->alamat }}</td>
-                        <td style="text-align: left">{{$d->nama}}</td>
-                        <td style="text-align: left">{{$d->alamat}}</td>
-                        <td style="text-align: left">{{$d->penyebab}}</td>
-                        <td style="text-align: left">{{$d->kerugian}}</td>
-                        <td style="text-align: left">{{Carbon\carbon::parse($d->tanggal)->translatedFormat('d-F-Y')}}. {{ $d->waktu }}
+                        <td style="text-align: left">{{$d->permohonan->user->profil->nama}}</td>
+                        <td style="text-align: left">{{$d->harga}}</td>
+                        <td style="text-align: left">{{$d->tanggal_upload}}</td>
                         </td>
+                        <td style="text-align: left">{{$total}}</td>
+                    </td>
                     </tr>
                     @endforeach
 
@@ -160,7 +157,7 @@
                 <br>
                 <br>
                 <div class="">
-                    <img src="{{ asset('assets/imglaporan/stempel.jpg') }}" alt="Image Description" width="200" height="180">
+                    {{-- <img src="{{ asset('assets/imglaporan/stempel.jpg') }}" alt="Image Description" width="200" height="180"> --}}
 
                 <br>
                 <br>

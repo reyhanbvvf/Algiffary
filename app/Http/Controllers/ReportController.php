@@ -24,7 +24,7 @@ class ReportController extends Controller
         $start = $request->start;
         $end = $request->end;
 
-        $data = Tagihan::wherebetween('tanggal', [$start , $end])->get();
+        $data = Tagihan::wherebetween('tanggal_upload', [$start , $end])->get();
         $total = $data->sum('total');
 
         $pdf = Pdf::loadView('back.report.pendapatan', compact('data', 'total', 'start', 'end'))->setPaper('a4', 'potrait');
