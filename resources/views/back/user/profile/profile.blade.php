@@ -418,7 +418,7 @@
 
 <script>
     // Initialize the map
-    var map = L.map('map').setView([-3.4458, 114.8214], 13);
+    var map = L.map('map').setView([-3.3571046, 115.0606351], 10);
 
     // Define OpenStreetMap tile layer
     var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -446,18 +446,18 @@
     };
 
     // Add layer control
-    L.control.layers(baseMaps).addTo(map);
+    // L.control.layers(baseMaps).addTo(map);
 
-        // Function to add or update marker
-        function addOrUpdateMarker(latitude, longitude) {
-        var newLatLng = L.latLng(latitude, longitude);
+    //     // Function to add or update marker
+    //     function addOrUpdateMarker(latitude, longitude) {
+    //     var newLatLng = L.latLng(latitude, longitude);
 
-        if (marker) {
-            marker.setLatLng(newLatLng);
-        } else {
-            marker = L.marker(newLatLng).addTo(map);
-        }
-    }
+    //     if (marker) {
+    //         marker.setLatLng(newLatLng);
+    //     } else {
+    //         marker = L.marker(newLatLng).addTo(map);
+    //     }
+    // }
 
         // Event listener for adding marker on click
         map.on('click', function(e) {

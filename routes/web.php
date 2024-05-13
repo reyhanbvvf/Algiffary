@@ -8,6 +8,7 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\TagihanController;
 use App\Http\Controllers\PermohonanController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ReportController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -74,6 +75,11 @@ Route::middleware(['auth'])->group(function () {
                 Route::delete('/{id}', [TagihanController::class, 'destroy'])->name('destroy');
             });
 
+            Route::prefix('report')->name('report.')->group(function () {
+                Route::get('/perusahaan', [ReportController::class, 'perusahaan'])->name('perusahaan');
+                Route::post('/pendapatan', [ReportController::class, 'pendapatan'])->name('pendapatan');
+
+            });
         });
     });
 
@@ -81,8 +87,8 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('/index', [BackController::class, 'adminindex'])->name('index');
 
-
         });
+
     });
 
     Route::middleware(['user'])->group(function () {

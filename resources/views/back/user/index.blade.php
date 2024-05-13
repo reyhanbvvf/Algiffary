@@ -32,7 +32,7 @@
               <div class="inner">
                 {{-- <h3>{{$tagihan ? $tagihan : '-'}}</h3> --}}
 
-                <p>Tagihan Belum Di bayar</p>
+                <p>{{ $jumlah ?? '0'}} Tagihan</p> <p>{{ $total ?? '0'}} Total</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -93,7 +93,7 @@
                     @foreach ($permohonan as $d )
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $d->user->profil->nama }}</td>
+                        <td>{{ $d->user->profil->nama ?? '-' }}</td>
                         <td>{{ $d->status }}</td>
                         <td>{{ $d->tipe_permohonan }}</td>
                         <td>{{ $d->no_surat ? $d->no_surat : '-' }}</td>

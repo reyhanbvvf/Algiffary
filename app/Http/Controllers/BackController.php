@@ -28,11 +28,18 @@ class BackController extends Controller
     {
         $permohonan = Permohonan::whereUserId(Auth::user()->id)->get();
         $getid = Permohonan::whereUserId(Auth::user()->id)->first();
+        $tagihan = Tagihan::where('permohonan_id', $getid->id)->where(function ($query) {
+                      $query->whereNotIn('verifikasi', ['diterima'])->orWhereNull('verifikasi');
+                  })
+                  ->get();
+        $jumlah = $tagihan->count();
+        $total = $tagihan->sum('total');
+        // dd($tagihan);
         // $tagihan = Tagihan::wherePermohonanId($getid->id)->where(function($query) {
         //         $query->whereStatusPembayaran(null)->orWhere('verifikasi', 'bukti tidak valid');})->count();
 
         // $lunas = Tagihan::wherePermohonanId($getid->id)->whereVerifikasi('diterima')->count();
 
-        return view('back.user.index', compact('permohonan'));
+        return view('back.user.index', compact('permohonan', 'jumlah', 'total'));
     }
 }

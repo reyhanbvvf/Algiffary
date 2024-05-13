@@ -33,11 +33,20 @@ Permohonan
                 <div class="card">
                     <div class="card-header">
                         <td>
-                            <a href="{{ route('superadmin.permohonan.create') }}" class="btn  btn-primary">
+                            <a href="{{ route('superadmin.permohonan.create') }}" class="btn btn-primary">
                                 <span><i class="feather icon-plus"></i> Tambah Permohonan</span>
                             </a>
-                            <a type="button" href="#" class="btn  btn-primary float-right" target="_blank">Cetak
-                            </a>
+                            <td>
+                                <button class="btn btn-info dropdown-toggle float-right" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span><i class="feather icon-plus"></i>Cetak</span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="{{route('superadmin.report.perusahaan')}}" target="_blank">Perusahaan</a>
+                                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#filterModal">
+                                        pendapatan
+                                    </button>
+                                </div>
+                            </td>
                         </td>
                     </div>
                     <!-- /.card-header -->
@@ -102,6 +111,7 @@ Permohonan
     <!-- /.content -->
   </div>
   @include('master.delete')
+  @include('back.superadmin.permohonan.filter')
 
 @endsection
 
