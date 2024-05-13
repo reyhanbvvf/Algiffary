@@ -32,9 +32,13 @@
     <link rel="stylesheet" href="{{asset('back/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('back/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
     <script src="https://cdn.jsdelivr.net/npm/autonumeric@4"></script>
-      <!-- Select2 -->
-  <link rel="stylesheet" href="{{asset('back/plugins/select2/css/select2.min.css')}}">
-  <link rel="stylesheet" href="{{asset('back/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{asset('back/plugins/select2/css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('back/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+    {{-- leaflet --}}
+    <link rel="stylesheet" href="{{asset('leaflet/leaflet.css')}}">
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="{{asset('leaflet/leaflet.js')}}"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">

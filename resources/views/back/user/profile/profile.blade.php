@@ -235,7 +235,13 @@
                     <form method="POST" class="form-horizontal" action="{{ route('user.profile.perusahaanUpdate') }}" enctype="multipart/form-data">
                         @csrf
                         @method('put')
-
+                        <!-- Peta -->
+                        <div class="form-group" id="map" style="height: 400px;"></div>
+                        <div class="form-group">
+                            <div class="text-center">
+                                <button type="button" class="btn btn-outline-info text-center" id="addMarkerButton">Cek Marker</button>
+                            </div>
+                        </div>
                         <!-- Nama Perusahaan -->
                         <div class="form-group row">
                             <label for="nama" class="col-sm-2 col-form-label">Nama Perusahaan</label>
@@ -408,6 +414,64 @@
     $(function () {
       bsCustomFileInput.init();
     });
+</script>
+
+<script>
+    // Initialize the map
+    var map = L.map('map').setView([-3.4458, 114.8214], 13);
+
+    // Define OpenStreetMap tile layer
+    var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    // Define Google Maps tile layer
+    var gmap = L.tileLayer('http://{s}.google.com/vt?lyrs=m,h&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+    });
+
+    // Define Google Satellite Maps tile layer
+    var gsmap = L.tileLayer('http://{s}.google.com/vt?lyrs=s,h&x={x}&y={y}&z={z}', {
+        maxZoom: 20,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+    });
+
+    // Define base maps
+    var baseMaps = {
+        "OpenStreetMap": osm,
+        "Google Maps": gmap,
+        "Google Satellite Maps": gsmap
+    };
+
+    // Add layer control
+    L.control.layers(baseMaps).addTo(map);
+
+        // Function to add or update marker
+        function addOrUpdateMarker(latitude, longitude) {
+        var newLatLng = L.latLng(latitude, longitude);
+
+        if (marker) {
+            marker.setLatLng(newLatLng);
+        } else {
+            marker = L.marker(newLatLng).addTo(map);
+        }
+    }
+
+        // Event listener for adding marker on click
+        map.on('click', function(e) {
+        var latitude = e.latlng.lat.toFixed(6);
+        var longitude = e.latlng.lng.toFixed(6);
+        document.getElementById('latitude').value = latitude;
+        document.getElementById('longitude').value = longitude;
+        addOrUpdateMarker(latitude, longitude);
+    });
+
+    // Add existing marker to the map
+    var existingLatitude = parseFloat({{ Auth::user()->profil ? Auth::user()->profil->lat : '' }});
+    var existingLongitude = parseFloat({{ Auth::user()->profil ? Auth::user()->profil->long : '' }});
+    var marker = L.marker([existingLatitude, existingLongitude]).addTo(map);
 </script>
 
 <script>
