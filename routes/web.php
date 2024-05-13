@@ -21,7 +21,9 @@ use App\Http\Controllers\ServiceController;
 
 Route::get('/', [FrontController::class, 'home'])->name('home');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
+Route::get('/map', [FrontController::class, 'map'])->name('map');
 Route::get('/reservation', [FrontController::class, 'reservation'])->name('reservation');
+Route::get('/peta', 'MapController@index');
 
 //auth
 Route::get('/login', [AuthController::class, 'login'])->name('login');

@@ -22,5 +22,9 @@ class FrontController extends Controller
     {
         return view('front.reservation');
     }
+    public function map()
+    {
+        return view('front.map');
+    }
 
 }

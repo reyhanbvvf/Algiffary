@@ -27,6 +27,16 @@
                 </p>
             </a>
         </li>
+
+        <li class="nav-item">
+            <a href="{{ route('user.tagihan.index') }}" class="nav-link">
+                <i class="nav-icon fas fa-file-invoice"></i>
+              <p>
+                Tagihan Sudah di bayar
+                <span class="right badge badge-danger"></span>
+              </p>
+            </a>
+          </li>
       <li class="nav-item">
         <a href="pages/widgets.html" class="nav-link">
             <i class="nav-icon fas fa-file-invoice"></i>
@@ -36,6 +46,7 @@
           </p>
         </a>
       </li>
+
       {{-- <li class="nav-item">
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-copy"></i>
