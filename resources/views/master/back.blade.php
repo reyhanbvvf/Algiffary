@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="{{asset('leaflet/leaflet.css')}}">
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="{{asset('leaflet/leaflet.js')}}"></script>
+    <style>#map { height: 700px; }</style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">

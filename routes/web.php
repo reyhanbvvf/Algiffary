@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MapController;
 use App\Http\Controllers\BackController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
@@ -73,6 +74,10 @@ Route::middleware(['auth'])->group(function () {
                 Route::get('/edit/{id}', [TagihanController::class, 'edit'])->name('edit');
                 Route::put('/edit/{id}', [TagihanController::class, 'update'])->name('update');
                 Route::delete('/{id}', [TagihanController::class, 'destroy'])->name('destroy');
+            });
+
+            Route::name('map.')->prefix('map')->group(function () {
+                Route::get('/', [MapController::class, 'index'])->name('index');
             });
 
             Route::prefix('report')->name('report.')->group(function () {
