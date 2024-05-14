@@ -19,7 +19,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{route('user.permohonan.userCreate')}}" class="nav-link">
+            <a href="{{route('user.permohonan.userCreate')}}" class="nav-link {{ Request::is('user/permohonan/*') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-book"></i>
                 <p>
                 Permohonan
@@ -29,7 +29,7 @@
         </li>
 
         <li class="nav-item">
-            <a href="{{ route('user.tagihan.index') }}" class="nav-link">
+            <a href="{{ route('user.tagihan.riwayat') }}" class="nav-link {{ Request::is('user/tagihan/riwayat') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-file-invoice"></i>
               <p>
                 Tagihan Sudah di bayar

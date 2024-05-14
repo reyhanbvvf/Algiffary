@@ -49,6 +49,20 @@ class TagihanController extends Controller
         }
     }
 
+    public function riwayat()
+    {
+        try{
+            $permohonan = Permohonan::whereUserId(Auth::user()->id)->first();
+            $data = Tagihan::where('permohonan_id', $permohonan->id)->where('verifikasi', ['diterima'])->get();
+
+            return view('back.user.riwayat.index', compact('data'));
+        } catch (\Exception $e) {
+
+            // return back()->withError('Anda Tidak Mempunyai Tagihan yang Harus Dibayar');
+            return view('error')->with('error', $e->getMessage());
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      */

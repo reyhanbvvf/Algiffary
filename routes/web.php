@@ -109,6 +109,7 @@ Route::middleware(['auth'])->group(function () {
 
             Route::name('tagihan.')->prefix('tagihan')->group(function () {
                 Route::get('/', [TagihanController::class, 'indexUser'])->name('index');
+                Route::get('/riwayat', [TagihanController::class, 'riwayat'])->name('riwayat');
                 Route::get('/edit/{id}', [TagihanController::class, 'editUser'])->name('edit');
                 Route::put('/edit/{id}', [TagihanController::class, 'updateUser'])->name('update');
             });
