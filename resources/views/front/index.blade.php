@@ -192,14 +192,14 @@
                     <div class="col-lg-6 mb-4">
                         <div class="card">
                             {{-- Tambahkan kondisi untuk memastikan bahwa file gambar ada --}}
-                           {{-- }} @if($d->foto)
+                            @if($d->foto)
                                 <img src="{{ asset('storage/service/'.$d->foto) }}" class="card-img-top" alt="{{ $d->nama }}">
-                            @endif --}}
+                            @endif 
 
                             <div class="card-body">
-                                <h5 class="card-title">{{ $d->nama }}</h5>
+                                <h5 class="card-title text-center">{{ $d->nama }}</h5>
                                 <p class="card-text">{{ $d->deskripsi }}</p>
-
+                                <hr>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">
                                         <i class="fa fa-check-square"></i>

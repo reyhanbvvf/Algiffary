@@ -100,6 +100,7 @@
                     <hr>
                     <strong><i class="fas fa-solid fa-envelope mr-1"></i> Email</strong>
                     <p class="text-muted">{{ Auth::user()->email }}</p>
+                    <hr>
                 </div>
               <!-- /.card-body -->
             </div>
@@ -315,7 +316,7 @@
                         <div class="form-group row">
                             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                            <input type="email" class="form-control" name="email" value="{{Auth::user()->email}}" id="inputEmail" placeholder="Email" title="">
+                            <input type="email" class="form-control" name="email" value="{{Auth::user()->email}}" id="inputEmail" placeholder="Email" title="Email Perusahaan">
                             </div>
                         </div>
 
@@ -346,16 +347,19 @@
                                 </div>
                             </div>
                         </div>
-
+                        <hr>
                         <div class="form-group row">
                             <div class="col-sm-10 offset-sm-0">
-                                <small class="text-muted"><b>Ganti Password Anda jika perlu.</b></small>
+                                <small class="text-muted"><b>(Ganti Password Anda jika perlu)</b></small>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
+                              <small id="passwordHelpBlock" class="form-text text-muted">
+                                Password harus terdiri dari minimal 8 karakter.
+                              </small>
                                 <div class="input-group">
                                     <input type="password" class="form-control" id="password" name="password" placeholder="Masukan Password" pattern=".{8,}" title="Password harus terdiri dari minimal 8 karakter">
                                     <div class="input-group-append">
