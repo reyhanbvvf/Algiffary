@@ -33,7 +33,7 @@
                     <a href="#" data-toggle="modal" data-target="#profilePictureModal">
                   <img class="profile-user-img img-fluid img-circle"
                     @if (Auth::user()->foto == null)
-                        src="{{asset('back/dist/img/user4-128x128.jpg')}}"
+                        src="{{asset('back/dist/img/user-225x225.png')}}"
                     @else
                         src="{{ url('storage/user/'.Auth::user()->foto) }}"
                     @endif
