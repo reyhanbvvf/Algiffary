@@ -39,8 +39,10 @@ class TagihanController extends Controller
     {
         try{
             $permohonan = Permohonan::whereUserId(Auth::user()->id)->first();
-            $data = Tagihan::where('permohonan_id', $permohonan->id)->whereNotIn('verifikasi', ['diterima'])->get();
-            // dd($data);
+            $data = Tagihan::where('permohonan_id', $permohonan->id)->where(function ($query) {
+                $query->whereNotIn('verifikasi', ['diterima'])->orWhereNull('verifikasi');
+            })
+            ->get();
             return view('back.user.tagihan.index', compact('data'));
         } catch (\Exception $e) {
 
