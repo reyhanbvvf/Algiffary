@@ -92,9 +92,6 @@
                     <strong><i class="fas fa-solid fa-map-pin mr-1"></i> Alamat Perusahaan</strong>
                     <p class="text-muted">{{ Auth::user()->profil ? Auth::user()->profil->alamat : '' }}</p>
                     <hr>
-                    <strong><i class="fas fa-solid fa-phone mr-1"></i> Nomor Handphone</strong>
-                    <p class="text-muted">{{ Auth::user()->nomor }}</p>
-                    <hr>
                     <strong><i class="fas fa-map-marker-alt mr-1"></i> Lokasi</strong>
                     <p class="text-muted">Latitude: {{ Auth::user()->profil ? Auth::user()->profil->lat : '' }}, Longitude: {{ Auth::user()->profil ? Auth::user()->profil->long : '' }}</p>
                     <hr>
@@ -317,13 +314,6 @@
                             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
                             <input type="email" class="form-control" name="email" value="{{Auth::user()->email}}" id="inputEmail" placeholder="Email" title="Email Perusahaan">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="inputNomor" class="col-sm-2 col-form-label">Nomor Handphone</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nomor" value="{{Auth::user()->nomor}}" id="inputNomor" placeholder="Nomor Handphone" title="No. WhatsApp">
                             </div>
                         </div>
 
