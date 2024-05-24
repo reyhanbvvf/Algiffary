@@ -192,9 +192,7 @@
                     <div class="col-lg-6 mb-4">
                         <div class="card">
                             {{-- Tambahkan kondisi untuk memastikan bahwa file gambar ada --}}
-                            @if($d->foto)
-                                <img src="{{ asset('storage/service/'.$d->foto) }}" class="card-img-top" alt="{{ $d->nama }}">
-                            @endif 
+                            <img src="{{ $d->foto ? asset('storage/service/'.$d->foto) : asset('path/to/default/image.jpg') }}" class="card-img-top" alt="{{ $d->foto ? $d->nama : 'Default Image' }}"> 
 
                             <div class="card-body">
                                 <h5 class="card-title text-center">{{ $d->nama }}</h5>
