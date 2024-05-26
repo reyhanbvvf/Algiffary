@@ -44,43 +44,33 @@ https://templatemo.com/tm-580-woox-travel
     </div>
   </div>
   <!-- ***** Preloader End ***** -->
-
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="">
-                      <br>
-                        <img src="{{asset('front/assets/images/banjar.png')}}" width="200" height="100" alt="Deskripsi gambar">
-
-
-
-                    </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav text-center">
-                        <li><a href="{{route('home')}}" class="{{ Request::route()->getName() == 'home' ? 'active' : '' }}">Home</a></li>
-                        <li><a href="{{route('about')}}" class="{{ Request::route()->getName() == 'about' ? 'active' : '' }}">Visi Misi</a></li>
-
-                        <!-- <li><a href="deals.html">Visi Misi</a></li> -->
-                        <li><a href="{{route('reservation')}}" class="{{ Request::route()->getName() == 'reservation' ? 'active' : '' }}">Pesan Layanan</a></li>
-                        <li><a href="{{route('login')}}" class="{{ Request::route()->getName() == 'login' ? 'active' : '' }}">Masuk</a></li>
-                        <li><a href="{{route('map')}}" class="{{ Request::route()->getName() == 'map' ? 'active' : '' }}">map</a></li>
-                        <li><a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="custom-button" id="btn-whatsapp-support" target="_blank">Helpdesk</a></li>
-
-
-                            </div></li>
-                        <!-- <li><a href="reservation.html">Book Yours</a></li> -->
-                    </ul>
-                    <a class='menu-trigger'>
-
-                    </a>
+          <div class="col-12">
+            <nav class="main-nav">
+              <!-- ***** Logo Start ***** -->
+              <a href="index.html" class="">
+              <br>
+                <img src="{{asset('front/assets/images/banjar.png')}}" width="200" height="100" alt="Deskripsi gambar">
+              </a>
+              <!-- ***** Logo End ***** -->
+              <!-- ***** Menu Start ***** -->
+              <ul class="nav text-center">
+                <li><a href="{{route('home')}}" class="{{ Request::route()->getName() == 'home' ? 'active' : '' }}">Home</a></li>
+                <li><a href="{{route('about')}}" class="{{ Request::route()->getName() == 'about' ? 'active' : '' }}">Visi Misi</a></li>
+              <!-- <li><a href="deals.html">Visi Misi</a></li> -->
+                <li><a href="{{route('reservation')}}" class="{{ Request::route()->getName() == 'reservation' ? 'active' : '' }}">Pesan Layanan</a></li>
+                <li><a href="{{route('login')}}" class="{{ Request::route()->getName() == 'login' ? 'active' : '' }}">Masuk</a></li>
+                <li><a href="{{route('map')}}" class="{{ Request::route()->getName() == 'map' ? 'active' : '' }}">Map</a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="custom-button" id="btn-whatsapp-support" target="_blank">Helpdesk</a></li>
+              </ul>
+          </div>
+              <!-- <li><a href="reservation.html">Book Yours</a></li> -->
+                    <a class='menu-trigger'></a>
                     <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
+            </nav>
         </div>
     </div>
   </header>
@@ -88,8 +78,6 @@ https://templatemo.com/tm-580-woox-travel
 
   <!-- ***** Main Banner Area Start ***** -->
   @yield('content')
-
-
   <footer>
     <div class="container">
       <div class="row">
@@ -100,7 +88,6 @@ https://templatemo.com/tm-580-woox-travel
       </div>
     </div>
   </footer>
-
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
   <script src="{{asset('front/vendor/jquery/jquery.min.js')}}"></script>

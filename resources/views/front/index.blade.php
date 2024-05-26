@@ -59,17 +59,17 @@
                 <div class="col-lg-12">
                   <div class="more-info">
                     <div class="row">
-                    <div class="col-lg-3 col-sm-6 col-6">
+                      <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-list"></i>
-                        <h4><span>Jenis Pelayanan:</span><br>20</h4>
+                        <h4><a>Jenis Pelayanan:</a><br>20</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-truck"></i>
-                        <h4><span>Sarpras:</span><br>14<em></em></h4>
+                        <h4><a>Sarpras:</a><br>14<em></em></h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa-solid fa-users"></i>
-                        <h4><span>SDM:</span><br>80</h4>
+                        <h4><a>SDM:</a><br>80<em></em></h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
@@ -95,17 +95,17 @@
                 <div class="col-lg-12">
                   <div class="more-info">
                     <div class="row">
-                    <div class="col-lg-3 col-sm-6 col-6">
+                      <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-list"></i>
-                        <h4><span>Jenis Pelayanan:</span><br>20</h4>
+                        <h4><a>Jenis Pelayanan:</a><br>20</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-truck"></i>
-                        <h4><span>Sarpras:</span><br>14<em></em></h4>
+                        <h4><a>Sarpras:</a><br>14<em></em></h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa-solid fa-users"></i>
-                        <h4><span>SDM:</span><br>80</h4>
+                        <h4><a>SDM:</a><br>80<em></em></h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
@@ -133,15 +133,15 @@
                     <div class="row">
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-list"></i>
-                        <h4><span>Jenis Pelayanan:</span><br>20</h4>
+                        <h4><a>Jenis Pelayanan:</a><br>20</h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa fa-truck"></i>
-                        <h4><span>Sarpras:</span><br>14<em></em></h4>
+                        <h4><a>Sarpras:</a><br>14<em></em></h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <i class="fa-solid fa-users"></i>
-                        <h4><span>SDM:</span><br>80</h4>
+                        <h4><a>SDM:</a><br>80<em></em></h4>
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
@@ -227,8 +227,8 @@
                   <li><a href="#">1</a></li>
                   <li class="active"><a href="#">2</a></li>
                   <li><a href="#">3</a></li>
-                  <li><a href="#"><i class="fa fa-arrow-right"></i></a></li> -->
-                </ul>
+                  <li><a href="#"><i class="fa fa-arrow-right"></i></a></li> 
+                </ul>-->
             </div>
           </div>
         </div>
