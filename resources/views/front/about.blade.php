@@ -34,7 +34,7 @@
     <div class="container">
       <div class="row">
         <div class="slider-content">
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-lg-12">
               <h2>Pelayanan di<sup> BLUD </sup><a style="color:green;">INTAN HIJAU</a></h2>
               <a ></a>
@@ -91,10 +91,10 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 <!-- ***** Main Banner Area Activity ***** -->
 
-          <div class="row">
+          <!--<div class="row">
             <div class="col-lg-12">
               <h2>Kegiatan di<sup> BLUD </sup><a style="color:green;">INTAN HIJAU</a></h2>
               <a ></a>
@@ -157,13 +157,13 @@
                   </div>
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
       </div>
     </div>
   </div>
 
-  <div class="more-about">
+ <!--  <div class="more-about">
     <div class="container">
       <div class="row">
         <div class="col-lg-14 align-self-center">
@@ -171,7 +171,7 @@
             <img src="assets/images/ts.png" alt="">
 
           </div>
-        </div>
+        </div> -->
         <!-- <div class="col-lg-6">
           <div class="section-heading">
             <h2>Discover More About Our Country</h2>

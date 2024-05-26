@@ -57,10 +57,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block" title="Home">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block" title="Contact">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="nav-link">Contact</a>
       </li>
     </ul>
 
@@ -217,7 +217,7 @@
           class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{Auth::user()->role}}</a>
+          <a href="index" class="d-block">{{Auth::user()->role}}</a>
         </div>
       </div>
 

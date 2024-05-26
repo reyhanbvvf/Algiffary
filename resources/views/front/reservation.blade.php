@@ -5,8 +5,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h4></h4>
           <h2>BLUD INTAN HIJAU</h2>
+          <h4></h4>
           <p></p>
           <div class="main-button"><a href="about.html">Tentang BLUD</a></div>
         </div>
