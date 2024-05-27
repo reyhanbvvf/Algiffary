@@ -39,15 +39,15 @@
         </a>
       </li>
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a href="{{route('superadmin.map.index')}}" class="nav-link {{ Request::is('superadmin/map*') ? 'active' : '' }}">
             <i class="nav-icon fa fa-envelope"></i>
           <p>
             Map
-            {{-- <span class="right badge badge-danger">New</span> --}}
+            {{-- <span class="right badge badge-danger">New</span> 
           </p>
         </a>
-      </li>
+      </li> --}}
 
       {{-- <li class="nav-item">
         <a href="#" class="nav-link">
