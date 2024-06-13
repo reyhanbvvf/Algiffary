@@ -44,7 +44,7 @@
             <i class="nav-icon fa fa-envelope"></i>
           <p>
             Map
-            {{-- <span class="right badge badge-danger">New</span> 
+            {{-- <span class="right badge badge-danger">New</span>
           </p>
         </a>
       </li> --}}

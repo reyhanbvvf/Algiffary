@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="{{asset('back/plugins/summernote/summernote-bs4.min.css')}}">
     <!-- Toastr -->
     <link rel="stylesheet" href="{{ asset('back/plugins/toastr/toastr.min.css') }}">
+
     <!-- DataTables -->
     <link rel="stylesheet" href="{{asset('back/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('back/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
@@ -37,6 +38,7 @@
     <link rel="stylesheet" href="{{asset('back/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
     {{-- leaflet --}}
     <link rel="stylesheet" href="{{asset('leaflet/leaflet.css')}}">
+    <link rel="icon" href="{{asset('front/assets/images/banjar.png')}}" sizes="32x32" type="image/png">
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="{{asset('leaflet/leaflet.js')}}"></script>
     <style>#map { height: 700px; }</style>

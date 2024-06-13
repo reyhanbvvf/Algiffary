@@ -56,7 +56,9 @@ Tagihan
                                     <th>total</th>
                                     <th>Masa Berlaku</th>
                                     <th>Bukti</th>
+                                    {{-- <th>Notifikasi WA</th> --}}
                                     <th>Aksi</th>
+
                                 </tr>
                             </thead>
                             <tbody class="text-center">
@@ -69,6 +71,8 @@ Tagihan
                                     <td>{{ $d->total ? 'Rp ' . number_format($d->total, 0, ',', '.') : '-' }}</td>
                                     <td>{{ isset($d->bayar_awal) ? \Carbon\Carbon::parse($d->bayar_awal)->format('d-M-y') : '-' }} - {{ isset($d->bayar_berakhir) ? \Carbon\Carbon::parse($d->bayar_berakhir)->format('d-M-y') : '-' }}
                                     </td>
+
+
                                     <td>
                                         @if ($d->bukti)
                                             <a href="{{ url('storage/bukti/'.$d->bukti) }}" target="_blank">Bukti Pembayaran</a>
@@ -76,6 +80,16 @@ Tagihan
                                             Belum ada bukti
                                         @endif
                                     </td>
+                                    {{-- <td><a target="_blank" class="btn btn-info btn-sm"
+                                        href="https://wa.me/?phone={{ $d['nohp'] }}&text={{ urlencode('Total Tagihan anda Sebesar, '  . number_format($d->total, 0, ',', '.'). '. : [Tolong *Segera lakukan pembayaran*.]') }}">
+                                        Kirim Tagihan
+                                     </a></td> --}}
+
+
+
+
+
+
                                     <td>
                                         <a class="btn btn-sm btn-info text-white" href="{{ route('superadmin.tagihan.edit', $d->id) }}">
                                             <i class="fas fa-edit"></i>
