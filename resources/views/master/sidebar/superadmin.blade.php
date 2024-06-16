@@ -12,6 +12,14 @@
         </a>
       </li>
       <li class="nav-item">
+        <a href="{{route('superadmin.graphic')}}" class="nav-link {{ Request::is('superadmin/graphic') ? 'active' : '' }}">
+          <i class="nav-icon fas fa-home"></i>
+          <p>
+            Grafik
+          </p>
+        </a>
+      </li>
+      <li class="nav-item">
         <a href="{{route('superadmin.user.index')}}" class="nav-link {{ Request::is('superadmin/user*') ? 'active' : '' }}">
           <i class="nav-icon fas fa-user"></i>
           <p>

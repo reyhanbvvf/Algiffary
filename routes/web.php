@@ -25,7 +25,7 @@ Route::get('/', [FrontController::class, 'home'])->name('home');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
 Route::get('/map', [FrontController::class, 'map'])->name('map');
 Route::get('/reservation', [FrontController::class, 'reservation'])->name('reservation');
-Route::get('/peta', 'MapController@index');
+// Route::get('/peta', MapController::class, 'index')->name('index');
 
 //auth
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['superadmin'])->group(function () {
         Route::prefix('superadmin')->name('superadmin.')->group(function () {
             Route::get('/index', [BackController::class, 'superindex'])->name('index');
+            Route::get('/graphic', [BackController::class, 'supergraphic'])->name('graphic');
             Route::name('user.')->prefix('user')->group(function () {
                 Route::get('/', [UserController::class, 'index'])->name('index');
                 Route::get('/create', [UserController::class, 'create'])->name('create');

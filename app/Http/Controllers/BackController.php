@@ -24,6 +24,14 @@ class BackController extends Controller
         return view('back.superadmin.index', compact('data'));
     }
 
+    public function supergraphic()
+    {
+
+        $data = Service::all();
+
+        return view('back.superadmin.grafik', compact('data'));
+    }
+
     public function index()
     {
         $permohonan = Permohonan::whereUserId(Auth::user()->id)->get();
