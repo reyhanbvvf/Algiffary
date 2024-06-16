@@ -37,7 +37,10 @@
                       </div>
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
-                          <a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="" id="btn-whatsapp-support" target="_blank">Daftar Sekarang</a>
+                          {{-- <a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="" id="btn-whatsapp-support" target="_blank">Daftar Sekarang</a>
+                           --}}
+           <li><a href="{{route('reservation')}}" class="{{ Request::route()->getName() == 'reservation' ? 'active' : '' }}">Pesan Layanan</a></li>
+
                         </div>
                       </div>
                     </div>
@@ -194,7 +197,7 @@
                             {{-- Tambahkan kondisi untuk memastikan bahwa file gambar ada --}}
                             @if($d->foto)
                                 <img src="{{ asset('storage/service/'.$d->foto) }}" class="card-img-top" alt="{{ $d->nama }}">
-                            @endif 
+                            @endif
 
                             <div class="card-body">
                                 <h5 class="card-title text-center">{{ $d->nama }}</h5>
@@ -227,7 +230,7 @@
                   <li><a href="#">1</a></li>
                   <li class="active"><a href="#">2</a></li>
                   <li><a href="#">3</a></li>
-                  <li><a href="#"><i class="fa fa-arrow-right"></i></a></li> 
+                  <li><a href="#"><i class="fa fa-arrow-right"></i></a></li>
                 </ul>-->
             </div>
           </div>
