@@ -1,6 +1,10 @@
 @extends('master.back')
 @section('title')Profil @endsection
 @section('content')
+<style>#map {
+    height: 700px; /* Set the height to 500 pixels */
+    width: 100%; /* Set the width to 100% of its container */
+}</style>
 
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -234,7 +238,7 @@
                         @csrf
                         @method('put')
                         <!-- Peta -->
-                        <div class="form-group" id="map" style="height: 400px;"></div>
+                        <div class="" id="map" style="width: 100%; height: 400px"></div>
                         <div class="form-group">
                             <div class="text-center">
                                 <button type="button" class="btn btn-outline-info text-center" id="addMarkerButton">Cek Marker</button>
@@ -260,7 +264,7 @@
                         <div class="form-group row">
                             <label for="longitude" class="col-sm-2 col-form-label">Longitude</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="long" id="longitude" value="{{ Auth::user()->profil ? Auth::user()->profil->long : '' }}" placeholder="Longitude">
+                                <input type="text" class="form-control" name="long" id="" value="{{ Auth::user()->profil ? Auth::user()->profil->long : '' }}" placeholder="Longitude">
                             </div>
                         </div>
 
@@ -268,7 +272,7 @@
                         <div class="form-group row">
                             <label for="Latitude" class="col-sm-2 col-form-label">Latitude</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="lat" id="Latitude" value="{{ Auth::user()->profil ? Auth::user()->profil->lat : '' }}" placeholder="Latitude">
+                                <input type="text" class="form-control" name="lat" id="" value="{{ Auth::user()->profil ? Auth::user()->profil->lat : '' }}" placeholder="Latitude">
                             </div>
                         </div>
 
@@ -404,6 +408,7 @@
 
   @push('script')
 <script src="{{asset('back/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+
 <script>
     $(function () {
       bsCustomFileInput.init();
@@ -411,8 +416,8 @@
 </script>
 
 <script>
-    // Initialize the map
-    var map = L.map('map').setView([-3.3571046, 115.0606351], 10);
+
+   var map = L.map('map').setView([-3.485075, 114.784493], 12);
 
     // Define OpenStreetMap tile layer
     var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -438,6 +443,7 @@
         "Google Maps": gmap,
         "Google Satellite Maps": gsmap
     };
+
 
     // Add layer control
     // L.control.layers(baseMaps).addTo(map);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Service;
 use App\Models\Tagihan;
@@ -234,7 +235,9 @@ class TagihanController extends Controller
                 $path = $request->file('bukti')->store('bukti', 'public');
                 $tagihan->bukti = basename($path);
             }
-
+            if ($tagihan->bukti && !$tagihan->tanggal_upload) {
+                $tagihan->tanggal_upload = Carbon::now(); // Atau Carbon::now() jika tidak menggunakan Laravel 8.x
+            }
             $tagihan->save();
 
             return redirect()->route('user.index')->withSuccess('Bukti berhasil diupload');

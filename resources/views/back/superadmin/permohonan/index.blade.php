@@ -69,7 +69,7 @@ Permohonan
                                 @foreach ($data as $d )
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $d->user->profil->nama }}</td>
+                                    <td>{{ $d->user->profil->nama ?? '-' }}</td>
                                     <td>{{ $d->status }}</td>
                                     <td>{{ $d->tipe_permohonan }}</td>
                                     <td>{{ $d->no_surat ? $d->no_surat : '-' }}</td>

@@ -34,19 +34,35 @@ class BackController extends Controller
 
     public function index()
     {
-        $permohonan = Permohonan::whereUserId(Auth::user()->id)->get();
-        $getid = Permohonan::whereUserId(Auth::user()->id)->first();
-        $tagihan = Tagihan::where('permohonan_id', $getid->id)->where(function ($query) {
-                      $query->whereNotIn('verifikasi', ['diterima'])->orWhereNull('verifikasi');
-                  })
-                  ->get();
+
+$permohonan = Permohonan::whereUserId(Auth::user()->id)->get();
+
+
+$getid = Permohonan::whereUserId(Auth::user()->id)->first();
+
+$jumlah = 0;
+$total = 0;
+
+
+if ($getid) {
+    $tagihan = Tagihan::where('permohonan_id', $getid->id)
+        ->where(function ($query) {
+            $query->whereNotIn('verifikasi', ['diterima'])
+                  ->orWhereNull('verifikasi');
+        })
+        ->get();
+
+
+    if ($tagihan->isNotEmpty()) {
         $jumlah = $tagihan->count();
         $total = $tagihan->sum('total');
-        // dd($tagihan);
-        // $tagihan = Tagihan::wherePermohonanId($getid->id)->where(function($query) {
-        //         $query->whereStatusPembayaran(null)->orWhere('verifikasi', 'bukti tidak valid');})->count();
+    }
+}
 
-        // $lunas = Tagihan::wherePermohonanId($getid->id)->whereVerifikasi('diterima')->count();
+
+return view('back.user.index', compact('permohonan', 'jumlah', 'total'));
+
+
 
         return view('back.user.index', compact('permohonan', 'jumlah', 'total'));
     }
