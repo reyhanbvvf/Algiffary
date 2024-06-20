@@ -56,7 +56,7 @@ Tagihan
                                     <th>total</th>
                                     <th>Masa Berlaku</th>
                                     <th>Bukti</th>
-                                    {{-- <th>Notifikasi WA</th> --}}
+                                    <th>Notifikasi WA</th>
                                     <th>Aksi</th>
 
                                 </tr>
@@ -80,10 +80,10 @@ Tagihan
                                             Belum ada bukti
                                         @endif
                                     </td>
-                                    {{-- <td><a target="_blank" class="btn btn-info btn-sm"
+                                    <td><a target="_blank" class="btn btn-info btn-sm"
                                         href="https://wa.me/?phone={{ $d['nohp'] }}&text={{ urlencode('Total Tagihan anda Sebesar, '  . number_format($d->total, 0, ',', '.'). '. : [Tolong *Segera lakukan pembayaran*.]') }}">
                                         Kirim Tagihan
-                                     </a></td> --}}
+                                     </a></td>
 
 
 
