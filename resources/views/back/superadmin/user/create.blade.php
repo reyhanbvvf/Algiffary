@@ -78,7 +78,7 @@ Tambah User
                                         aria-hidden="true">
                                         <option value="" {{ old('status') == '--Pilih Status--' ? 'selected' : '' }} disabled>--Pilih Status--
                                         </option>
-                                        <option value="Aktif" {{ old('status') == 'Aktif' ? 'selected' : '' }}>Aktif</option>
+                                        <option value="Aktif" {{ old('status') == 'Aktif' ? 'selected' : '1' }}>Aktif</option>
                                         <option value="Nonaktif" {{ old('status') == 'Nonaktif' ? 'selected' : '' }}>Nonaktif</option>
                                     </select>
                                 </div>

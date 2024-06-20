@@ -1,6 +1,7 @@
 @extends('master.back')
 @section('title')Dashboard @endsection
 @section('content')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -8,7 +9,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0"><b>GRAFIK NI BOS</b></h1>
+            <h1 class="m-0"><b>GRAFIK PENDAPATAN</b></h1>
             <ul></ul>
             <h4 class="m-0"></h4>
           </div>
@@ -26,29 +27,49 @@
 
     <!-- Main content -->
     <div class="content-header">
-      <div class="row">
-        @foreach($data as $d)
-          <div class="col-lg-2 mb-4">
-            <div class="card">
-              <h1 class="card-title text-center"> {{ $d->nama }}</a></h1>
-                <div class="card-body">
-                  <img src="{{ asset('storage/service/'.$d->foto) }}" class="card-img-top" alt="{{ $d->nama }}">
-                    <p class="card-text">{{ $d->deskripsi }}</p>
-                  <hr>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                    <i class="fa fa-check-square"></i>
-                      <span class="list">{{ $d->info }}</span>
-                    </li>
-                  </ul>
-              </div>
-            </div>
-          </div>
-        @endforeach
-      </div>
+        <div style="width: 50%; margin: auto;">
+            <canvas id="pendapatanChart"></canvas>
+        </div>
+
+        <script>
+            // Data pendapatan (misal: pendapatan bulanan)
+            const labels = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+            const dataPendapatan = [400000, 700000, 700000, 900000, 10000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000, 8000000];
+
+            // Konfigurasi Chart.js
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Pendapatan Bulanan (dalam Rp)',
+                    data: dataPendapatan,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            };
+
+            const config = {
+                type: 'line', // Tipe grafik: line, bar, pie, dll.
+                data: data,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            };
+
+            // Render Chart
+            const pendapatanChart = new Chart(
+                document.getElementById('pendapatanChart'),
+                config
+            );
+        </script>
     </div>
           <!-- right col -->
 </div>
+
       <div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
