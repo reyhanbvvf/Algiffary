@@ -306,48 +306,69 @@
 </script>
 
 <script>
+    var map = L.map('map').setView([-3.4458,114.8214], 13);
 
-   var map = L.map('map').setView([-3.485075, 114.784493], 12);
-
-    // Define OpenStreetMap tile layer
     var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    Define Google Maps tile layer
-    var gmap = L.tileLayer('http://{s}.google.com/vt?lyrs=m,h&x={x}&y={y}&z={z}', {
-        maxZoom: 20,
-        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-    });
+    var marker;
 
-    Define Google Satellite Maps tile layer
-    var gsmap = L.tileLayer('http://{s}.google.com/vt?lyrs=s,h&x={x}&y={y}&z={z}', {
-        maxZoom: 20,
-        subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
-    });
+    function addOrUpdateMarker() {
+        var latitude = parseFloat(document.getElementById('latitude').value);
+        var longitude = parseFloat(document.getElementById('longitude').value);
 
-    // Define base maps
-    var baseMaps = {
-        "OpenStreetMap": osm,
-        "Google Maps": gmap,
-        "Google Satellite Maps": gsmap
-    };
+        if (!isNaN(latitude) && !isNaN(longitude)) {
+            var newLatLng = L.latLng(latitude, longitude);
 
-
-    Add layer control
-    L.control.layers(baseMaps).addTo(map);
-
-        // Function to add or update marker
-        function addOrUpdateMarker(latitude, longitude) {
-        var newLatLng = L.latLng(latitude, longitude);
-
-        if (marker) {
-            marker.setLatLng(newLatLng);
+            if (marker) {
+                marker.setLatLng(newLatLng);
+            } else {
+                marker = L.marker(newLatLng).addTo(map);
+            }
         } else {
-            marker = L.marker(newLatLng).addTo(map);
+            toastr.warning('Koordinat tidak valid. Silakan masukkan nilai numerik yang valid.');
         }
     }
+
+    document.getElementById('addMarkerButton').addEventListener('click', function () {
+        addOrUpdateMarker();
+    });
+
+    map.on('click', function (e) {
+        document.getElementById('latitude').value = e.latlng.lat.toFixed(6);
+        document.getElementById('longitude').value = e.latlng.lng.toFixed(6);
+        addOrUpdateMarker();
+    });
+
+    var gmap = L.tileLayer('http://{s}.google.com/vt?lyrs=m,h&x={x}&y={y}&z={z}',{
+    maxZoom: 20,
+    subdomains:['mt0','mt1','mt2','mt3']
+    });
+
+    var gsmap = L.tileLayer('http://{s}.google.com/vt?lyrs=s,h&x={x}&y={y}&z={z}',{
+    maxZoom: 20,
+    subdomains:['mt0','mt1','mt2','mt3']
+    });
+
+    var baseMaps = {
+    "OpenStreetMap": osm,
+    "Google Maps": gmap,
+    "Google Satelite Maps": gsmap
+    };
+
+    L.control.layers(baseMaps).addTo(map);
+
+</script>
+
+<script>
+    $(function () {
+      bsCustomFileInput.init();
+    });
+</script>
+
+
 
         // Event listener for adding marker on click
     //     map.on('click', function(e) {
@@ -362,7 +383,7 @@
     // var existingLatitude = parseFloat({{ Auth::user()->profil ? Auth::user()->profil->lat : '' }});
     // var existingLongitude = parseFloat({{ Auth::user()->profil ? Auth::user()->profil->long : '' }});
     // var marker = L.marker([existingLatitude, existingLongitude]).addTo(map);
-</script>
+
 
 <script>
     function togglePasswordVisibility() {
