@@ -62,7 +62,7 @@ https://templatemo.com/tm-580-woox-travel
                 <li><a href="{{route('about')}}" class="{{ Request::route()->getName() == 'about' ? 'active' : '' }}">Visi Misi</a></li>
               <!-- <li><a href="deals.html">Visi Misi</a></li> -->
 
-                <li><a href="{{route('map')}}" class="{{ Request::route()->getName() == 'map' ? 'active' : '' }}">map</a></li>
+                {{-- <li><a href="{{route('map')}}" class="{{ Request::route()->getName() == 'map' ? 'active' : '' }}">map</a></li> --}}
                 <li><a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="custom-button" id="btn-whatsapp-support" target="_blank">Helpdesk</a></li>
                 {{-- <li><a href="{{ route('home') }}" class="{{ Request::route()->getName() == 'home' ? 'active' : '' }}">
                     Android.V<sup>beta</sup>

@@ -40,7 +40,7 @@
                           {{-- <a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="" id="btn-whatsapp-support" target="_blank">Daftar Sekarang</a>
                            --}}
            <li><a href="{{route('reservation')}}" class="{{ Request::route()->getName() == 'reservation' ? 'active' : '' }}">Pesan Layanan</a></li>
-
+           <li><a href="{{route('login')}}" class="{{ Request::route()->getName() == 'login' ? 'active' : '' }}">Masuk</a></li>
                         </div>
                       </div>
                     </div>
@@ -77,6 +77,7 @@
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
                           <a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="" id="btn-whatsapp-support" target="_blank">Daftar Sekarang</a>
+                          <li><a href="{{route('login')}}" class="{{ Request::route()->getName() == 'login' ? 'active' : '' }}">Masuk</a></li>
                         </div>
                       </div>
                     </div>
@@ -92,6 +93,7 @@
               <h2>BADAN LAYANAN UMUM DAERAH INTAN HIJAU</h2>
               <h1>KABUPATEN BANJAR</h1>
               <div class="border-button"><a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="" id="btn-whatsapp-support" target="_blank">Daftar Sekarang</a></div>
+              <li><a href="{{route('login')}}" class="{{ Request::route()->getName() == 'login' ? 'active' : '' }}">Masuk</a></li>
             </div>
             <div class="container">
               <div class="row">
@@ -113,6 +115,7 @@
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
                           <a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="" id="btn-whatsapp-support" target="_blank">Daftar Sekarang</a>
+                          <li><a href="{{route('login')}}" class="{{ Request::route()->getName() == 'login' ? 'active' : '' }}">Masuk</a></li>
                         </div>
                       </div>
                     </div>
@@ -128,6 +131,7 @@
               <h2>BADAN LAYANAN UMUM DAERAH INTAN HIJAU</h2>
               <h1>KABUPATEN BANJAR</h1>
               <div class="border-button"><a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="" id="btn-whatsapp-support" target="_blank">Daftar Sekarang</a></div>
+              <li><a href="{{route('login')}}" class="{{ Request::route()->getName() == 'login' ? 'active' : '' }}">Masuk</a></li>
             </div>
             <div class="container">
               <div class="row">
@@ -149,6 +153,7 @@
                       <div class="col-lg-3 col-sm-6 col-6">
                         <div class="main-button">
                           <a href="https://api.whatsapp.com/send?phone=6282150008231&amp;text=Permisi%20mau%20menggunakan%20jasa%20BLUD%20Intan%20Hijau" class="" id="btn-whatsapp-support" target="_blank">Daftar Sekarang</a>
+                          <li><a href="{{route('login')}}" class="{{ Request::route()->getName() == 'login' ? 'active' : '' }}">Masuk</a></li>
                         </div>
                       </div>
                     </div>
