@@ -34,10 +34,8 @@ Jenis Pelayanan
                     <div class="card-header">
                         <td>
                             <a href="{{ route('superadmin.service.create') }}" class="btn  btn-primary">
-                                <span><i class="feather icon-plus"></i> Tambah Jenis Pelayanan</span>
-                            </a>
-                            <a type="button" href="#" class="btn  btn-primary float-right" target="_blank">Cetak
-                            </a>
+                                <span><i class="feather icon-plus"></i> Tambah Jenis Pelayanan</span></a>
+                            <a type="button" href="#" class="btn  btn-primary float-right" target="_blank">Cetak</a>
                         </td>
                     </div>
                     <!-- /.card-header -->

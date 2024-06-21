@@ -200,7 +200,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="http://algiffary.test/admin/index" class="brand-link">
+    <a href="{{route('admin.index')}}" class="brand-link">
       <img src="{{asset('front/assets/images/banjar.png')}}" alt="AdminLTE Logo" class="brand-image rounded-full" style="opacity: .8">
       <span class="brand-text font-weight"><b style="color: green;">BLUD INTAN HIJAU</b></span>
     </a>
@@ -255,7 +255,7 @@
   @yield('content')
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; UPTD PSAL BLUD Intan Hijau <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; UPTD PSAL BLUD Intan Hijau <a href="#">AdminLTE.io</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.2.0
