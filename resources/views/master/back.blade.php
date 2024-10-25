@@ -202,7 +202,10 @@
     <!-- Brand Logo -->
     <a href="{{route('admin.index')}}" class="brand-link">
       <img src="{{asset('front/assets/images/banjar.png')}}" alt="AdminLTE Logo" class="brand-image rounded-full" style="opacity: .8">
-      <span class="brand-text font-weight"><b style="color: green;">BLUD INTAN HIJAU</b></span>
+      <span class="brand-text font-weight">
+        <b style="color: rgb(0, 255, 0);">BLUD</b></span>
+        <i></i>
+        <b style="color: rgb(255, 255, 255);">INTAN HIJAU</b></span>
     </a>
 
     <!-- Sidebar -->

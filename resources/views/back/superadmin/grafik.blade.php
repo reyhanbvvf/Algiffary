@@ -34,7 +34,7 @@
         <script>
             // Data pendapatan (misal: pendapatan bulanan)
             const labels = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-            const dataPendapatan = [98050000, 98050000, 98050000, 98050000, 98050000, 0, 0, 0, 0, 0, 0, 0];
+            const dataPendapatan = [91538929, 32129674, 87678083, 90753083, 98050000, 0, 0, 0, 779450788, 0, 0, 0];
 
             // Konfigurasi Chart.js
             const data = {

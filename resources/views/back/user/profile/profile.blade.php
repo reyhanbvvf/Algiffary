@@ -1,10 +1,21 @@
 @extends('master.back')
 @section('title')Profil @endsection
 @section('content')
-<style>#map {
-    height: 700px; /* Set the height to 500 pixels */
-    width: 100%; /* Set the width to 100% of its container */
-}</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peta dan Marker</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        #map {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
 
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -64,20 +75,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- <ul class="list-group list-group-unbordered mb-3">
-                  <li class="list-group-item">
-                    <b>Followers</b> <a class="float-right">1,322</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Following</b> <a class="float-right">543</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Friends</b> <a class="float-right">13,287</a>
-                  </li>
-                </ul>
-
-                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
               </div>
               <!-- /.card-body -->
             </div>
@@ -114,7 +111,6 @@
                 <ul class="nav nav-pills">
                     <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Profil Perusahaan</a></li>
                     <li class="nav-item"><a class="nav-link " href="#timeline" data-toggle="tab">Akun</a></li>
-                  {{-- <li class="nav-item "><a class="nav-link" href="#activity" data-toggle="tab">Akun</a></li> --}}
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -207,16 +203,6 @@
                                 <div id="passwordHelpBlock" class="form-text"></div>
                             </div>
                         </div>
-
-                      {{-- <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                            </label>
-                          </div>
-                        </div>
-                      </div> --}}
                         <div class="form-group row">
                             <div class="offset-sm-2 col-sm-10">
                             <button type="submit" class="btn btn-info">Ubah</button>
@@ -230,55 +216,58 @@
 
                   <div class="active tab-pane" id="settings">
                     <form method="POST" class="form-horizontal" action="{{ route('user.profile.perusahaanUpdate') }}" enctype="multipart/form-data">
-                    @csrf
-                    @method('put')
-                    <!-- Peta -->
-                    <div class="" id="map" style="width: 100%; height: 400px"></div>
-                    <div class="form-group">
-                        <div class="text-center">
-                            <button type="button" class="btn btn-outline-info text-center" id="addMarkerButton">Cek Marker</button>
+                        @csrf
+                        @method('put')
+                        
+                        <!-- Peta -->
+                        <div id="map" style="width: 100%; height: 400px;"></div>
+                        <div class="form-group">
+                            <div class="text-center">
+                                <button type="button" class="btn btn-outline-info text-center" id="addMarkerButton">Cek Marker</button>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Nama Perusahaan -->
-                    <div class="form-group row">
-                        <label for="nama" class="col-sm-2 col-form-label">Nama Perusahaan</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="nama" id="nama" value="{{ Auth::user()->profil ? Auth::user()->profil->nama : '' }}" placeholder="Nama">
+                
+                        <!-- Nama Perusahaan -->
+                        <div class="form-group row">
+                            <label for="nama" class="col-sm-2 col-form-label">Nama Perusahaan</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="nama" id="nama" value="{{ Auth::user()->profil ? Auth::user()->profil->nama : '' }}" placeholder="Nama">
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- Alamat -->
-                    <div class="form-group row">
-                        <label for="inputAlamat" class="col-sm-2 col-form-label">Alamat</label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" name="alamat" id="inputAlamat" placeholder="Alamat">{{ Auth::user()->profil ? Auth::user()->profil->alamat : '' }}</textarea>
+                
+                        <!-- Alamat -->
+                        <div class="form-group row">
+                            <label for="inputAlamat" class="col-sm-2 col-form-label">Alamat</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" name="alamat" id="inputAlamat" placeholder="Alamat">{{ Auth::user()->profil ? Auth::user()->profil->alamat : '' }}</textarea>
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- Longitude -->
-                    <div class="form-group row">
-                        <label for="longitude" class="col-sm-2 col-form-label">Longitude</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="long" id="longitude" value="{{ Auth::user()->profil ? Auth::user()->profil->long : '' }}" placeholder="Longitude">
+                
+                        <!-- Longitude -->
+                        <div class="form-group row">
+                            <label for="longitude" class="col-sm-2 col-form-label">Longitude</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="long" id="longitude" value="{{ Auth::user()->profil ? Auth::user()->profil->long : '' }}" placeholder="Longitude">
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- Latitude -->
-                    <div class="form-group row">
-                        <label for="Latitude" class="col-sm-2 col-form-label">Latitude</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="lat" id="Latitude" value="{{ Auth::user()->profil ? Auth::user()->profil->lat : '' }}" placeholder="Latitude">
+                
+                        <!-- Latitude -->
+                        <div class="form-group row">
+                            <label for="Latitude" class="col-sm-2 col-form-label">Latitude</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="lat" id="Latitude" value="{{ Auth::user()->profil ? Auth::user()->profil->lat : '' }}" placeholder="Latitude">
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- Tombol Simpan -->
-                    <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                            <button type="submit" class="btn btn-info">Simpan</button>
+                
+                        <!-- Tombol Simpan -->
+                        <div class="form-group row">
+                            <div class="offset-sm-2 col-sm-10">
+                                <button type="submit" class="btn btn-info">Simpan</button>
+                            </div>
                         </div>
-                    </div>
-                </form>
-                  </div>
+                    </form>
+                </div>
+                
                   <!-- /.tab-pane -->
                 </div>
                 <!-- /.tab-content -->
@@ -297,134 +286,111 @@
   @endsection
 
   @push('script')
-<script src="{{asset('back/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+  <script src="{{asset('back/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
 
-<script>
-    $(function () {
-      bsCustomFileInput.init();
-    });
-</script>
+  <script>
+      $(function () {
+          bsCustomFileInput.init();
+      });
+  </script>
+  
+  <script>
+    // Inisialisasi peta
+    const map = L.map('map').setView([-3.4458, 114.8214], 12); // Ganti koordinat sesuai kebutuhan
 
-<script>
-    var map = L.map('map').setView([-3.4458,114.8214], 13);
-
-    var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    // Layer peta
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    var marker;
+let marker;
 
-    function addOrUpdateMarker() {
-        var latitude = parseFloat(document.getElementById('latitude').value);
-        var longitude = parseFloat(document.getElementById('longitude').value);
-
-        if (!isNaN(latitude) && !isNaN(longitude)) {
-            var newLatLng = L.latLng(latitude, longitude);
-
-            if (marker) {
-                marker.setLatLng(newLatLng);
-            } else {
-                marker = L.marker(newLatLng).addTo(map);
-            }
+    // Fungsi untuk menambahkan atau memperbarui marker
+    function addOrUpdateMarker(lat, lng) {
+        const newLatLng = L.latLng(lat, lng);
+        if (marker) {
+            marker.setLatLng(newLatLng);
         } else {
-            toastr.warning('Koordinat tidak valid. Silakan masukkan nilai numerik yang valid.');
+            marker = L.marker(newLatLng).addTo(map);
         }
+        map.setView(newLatLng, 12);
     }
 
+    // Tambahkan event listener untuk mengupdate nilai lat/lng saat marker di klik
     document.getElementById('addMarkerButton').addEventListener('click', function () {
-        addOrUpdateMarker();
-    });
-
-    map.on('click', function (e) {
-        document.getElementById('latitude').value = e.latlng.lat.toFixed(6);
-        document.getElementById('longitude').value = e.latlng.lng.toFixed(6);
-        addOrUpdateMarker();
-    });
-
-    var gmap = L.tileLayer('http://{s}.google.com/vt?lyrs=m,h&x={x}&y={y}&z={z}',{
-    maxZoom: 20,
-    subdomains:['mt0','mt1','mt2','mt3']
-    });
-
-    var gsmap = L.tileLayer('http://{s}.google.com/vt?lyrs=s,h&x={x}&y={y}&z={z}',{
-    maxZoom: 20,
-    subdomains:['mt0','mt1','mt2','mt3']
-    });
-
-    var baseMaps = {
-    "OpenStreetMap": osm,
-    "Google Maps": gmap,
-    "Google Satelite Maps": gsmap
-    };
-
-    L.control.layers(baseMaps).addTo(map);
-
+    const latitude = parseFloat(document.getElementById('Latitude').value);
+    const longitude = parseFloat(document.getElementById('longitude').value);
+    if (!isNaN(latitude) && !isNaN(longitude)) {
+        addOrUpdateMarker(latitude, longitude);
+    } else {
+        alert('Koordinat tidak valid. Silakan masukkan nilai numerik yang valid.');
+    }
+});
 </script>
 
+  
+
 <script>
-    $(function () {
+  $(function () {
       bsCustomFileInput.init();
-    });
+  });
+
+  // Menambahkan event listener untuk menambahkan marker saat peta diklik
+  map.on('click', function (e) {
+    document.getElementById('Latitude').value = e.latlng.lat.toFixed(6);
+    document.getElementById('longitude').value = e.latlng.lng.toFixed(6);
+    addOrUpdateMarker(e.latlng.lat, e.latlng.lng);
+});
+
+  // Menambahkan marker yang ada ke peta
+  var existingLatitude = parseFloat({{ Auth::user()->profil ? Auth::user()->profil->lat : 'null' }});
+  var existingLongitude = parseFloat({{ Auth::user()->profil ? Auth::user()->profil->long : 'null' }});
+
+  // Cek apakah koordinat valid sebelum menambahkan marker
+  if (!isNaN(existingLatitude) && !isNaN(existingLongitude)) {
+    var marker = L.marker([existingLatitude, existingLongitude]).addTo(map);
 </script>
-
-
-
-        // Event listener for adding marker on click
-    //     map.on('click', function(e) {
-    //     var latitude = e.latlng.lat.toFixed(6);
-    //     var longitude = e.latlng.lng.toFixed(6);
-    //     document.getElementById('latitude').value = latitude;
-    //     document.getElementById('longitude').value = longitude;
-    //     addOrUpdateMarker(latitude, longitude);
-    // });
-
-    // Add existing marker to the map
-    // var existingLatitude = parseFloat({{ Auth::user()->profil ? Auth::user()->profil->lat : '' }});
-    // var existingLongitude = parseFloat({{ Auth::user()->profil ? Auth::user()->profil->long : '' }});
-    // var marker = L.marker([existingLatitude, existingLongitude]).addTo(map);
 
 
 <script>
-    function togglePasswordVisibility() {
-        var passwordInput = document.getElementById('password');
-        var passwordConfirmationInput = document.getElementById('password_confirmation');
-        var icon = document.getElementById('togglePassword').querySelector('i');
+  function togglePasswordVisibility() {
+      var passwordInput = document.getElementById('password');
+      var passwordConfirmationInput = document.getElementById('password_confirmation');
+      var icon = document.getElementById('togglePassword').querySelector('i');
 
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            passwordConfirmationInput.type = "text";
-            icon.classList.remove('fa-eye');
-            icon.classList.add('fa-eye-slash');
-        } else {
-            passwordInput.type = "password";
-            passwordConfirmationInput.type = "password";
-            icon.classList.remove('fa-eye-slash');
-            icon.classList.add('fa-eye');
-        }
-    }
+      if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          passwordConfirmationInput.type = "text";
+          icon.classList.remove('fa-eye');
+          icon.classList.add('fa-eye-slash');
+      } else {
+          passwordInput.type = "password";
+          passwordConfirmationInput.type = "password";
+          icon.classList.remove('fa-eye-slash');
+          icon.classList.add('fa-eye');
+      }
+  }
+
+  function checkPasswordMatch() {
+      var password = document.getElementById('password').value;
+      var confirmPassword = document.getElementById('password_confirmation').value;
+      var passwordHelpBlock = document.getElementById('passwordHelpBlock');
+
+      if (password === confirmPassword) {
+          passwordHelpBlock.innerText = 'Password cocok.';
+          passwordHelpBlock.style.color = 'green';
+      } else {
+          passwordHelpBlock.innerText = 'Password tidak cocok.';
+          passwordHelpBlock.style.color = 'red';
+      }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('password').addEventListener('input', checkPasswordMatch);
+      document.getElementById('password_confirmation').addEventListener('input', checkPasswordMatch);
+  });
 </script>
 
-<script>
-    // Fungsi untuk memeriksa apakah password cocok saat diketikkan ulang
-    function checkPasswordMatch() {
-        var password = document.getElementById('password').value;
-        var confirmPassword = document.getElementById('password_confirmation').value;
-        var passwordHelpBlock = document.getElementById('passwordHelpBlock');
-
-        // Memeriksa apakah password cocok atau tidak
-        if (password === confirmPassword) {
-            passwordHelpBlock.innerText = 'Password cocok.';
-            passwordHelpBlock.style.color = 'green';
-        } else {
-            passwordHelpBlock.innerText = 'Password tidak cocok.';
-            passwordHelpBlock.style.color = 'red';
-        }
-    }
-
-    // Memanggil fungsi checkPasswordMatch() setiap kali input password diubah
-    document.getElementById('password').addEventListener('input', checkPasswordMatch);
-    document.getElementById('password_confirmation').addEventListener('input', checkPasswordMatch);
-</script>
 
 @endpush
